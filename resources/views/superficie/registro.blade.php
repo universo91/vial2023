@@ -100,6 +100,18 @@
                                     <div class="row">
 
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
+                                            <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Tramo</label>
+                                        </div>
+                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="tramos_id" id="tramo" >
+                                            <option value="">Seleccione tramo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-lg-3 d-flex flex-row-reverse ">
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">estado</label>
                                         </div>
                                         <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="estado" id="estado">

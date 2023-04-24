@@ -15,7 +15,7 @@ class CreateSuperficieTable extends Migration
     {
         Schema::create('superficie', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('rutas_id');
+            $table->unsignedBigInteger('tramos_id');
             $table->enum('estado', ['regular', 'malo', 'bueno']);
             $table->enum('tipo_superficie', ['pavimento asfaltico', 'pavimento de concreto', 'afirmado', 'sin afirmar', 'trocha carrozable']);
             $table->decimal('ancho', 5, 2);
@@ -29,7 +29,7 @@ class CreateSuperficieTable extends Migration
             $table->decimal('altitud_final');
             $table->timestamps();
 
-            $table->foreign('rutas_id')->references('id')->on('rutas')->onDelete('cascade');
+            $table->foreign('tramos_id')->references('id')->on('tramos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

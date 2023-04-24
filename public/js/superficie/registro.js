@@ -1,10 +1,11 @@
 
 const distritoSelect = document.getElementById('distrito');
+const selectRuta = document.getElementById('ruta');
 
 distritoSelect.addEventListener('change' , async (e) => {
 
     const idDistrito = e.target.value;
-    const selectRuta = document.getElementById('ruta');
+
 
     let htmlRutas = '<option value="">Seleccione ruta</option>';
 
@@ -26,5 +27,32 @@ distritoSelect.addEventListener('change' , async (e) => {
     console.log(selectRuta);
     selectRuta.innerHTML= htmlRutas;
 })
+
+const tramosSelect = document.getElementById('tramo');
+
+selectRuta.addEventListener('change', async (e) => {
+
+    const idRuta = e.target.value;
+
+    let selectHtml = '<option value="">Seleccione tramo</option>';
+
+    if( !idRuta )
+    {
+        tramosSelect.innerHTML = selectHtml;
+        return;
+    }
+
+    const respuesta = await fetch(`/ruta/${ idRuta }/tramos`, {
+        method: 'GET'
+    });
+
+    const tramos = await respuesta.json();
+
+    tramos.map( (tramo) => {
+        selectHtml += `<option value="${ tramo.id }">${ tramo.numero_tramo }</option>`;
+    });
+
+    selectTramo.innerHTML = selectHtml;
+});
 
 
