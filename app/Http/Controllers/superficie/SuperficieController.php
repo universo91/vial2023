@@ -26,6 +26,8 @@ class SuperficieController extends Controller
         $datosValidados = $validator->validated();
 
         Superficie::create($datosValidados);
+
+        return redirect('/superficie/registro');
     }
 
     public static function getValidacionSuperficie() {

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tipo extends Model
 {
     use HasFactory;
+
+    protected $table = 'tipos';
+
+    public function clase()
+    {
+        return $this->belongsTo(Clase::class);
+    }
 }

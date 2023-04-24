@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Distrito extends Model
 {
     use HasFactory;
+
+    protected $table = 'distritos';
+
+    public function provincia()
+    {
+        return $this->belongsTo(Provincia::class);
+    }
 }

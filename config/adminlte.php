@@ -109,8 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'img/vial_fondoblanco.jpg','alt' => 'Vial 2023',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -150,8 +149,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -167,12 +166,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-info',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-info',
 
     /*
     |--------------------------------------------------------------------------
@@ -189,10 +188,10 @@ return [
     'classes_body' => '',
     'classes_brand' => '',
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
+    'classes_content_wrapper' => 'bg-white',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -291,34 +290,34 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
+      /*   [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
-        ],
+            'topnav_right' => false,
+        ], */
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
-        [
+       /*  [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
-        ],
+        ], */
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+      /*   [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
+        ], */
+       /*  ['header' => 'account_settings'],
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -328,46 +327,92 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
+        ], */
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Procesos',
+            'icon'    => 'fas fa-archive',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Rutas',
+                    'url'  => '/ruta/registro',
+                    'icon' => 'fas fa-road', // route
+                    'icon_color' => 'cyan'
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
+                    'text' => 'Tramos',
+                    'url'  => '/tramo/registro',
+                    'icon' => 'fas fa-bacon',
+                    'icon_color' => 'cyan'
+                ],
+                [
+                    'text' => 'Superficies',
+                    'url'  => '/superficie/registro',
+                    'icon' => 'fas fa-window-minimize',
+                    'icon_color' => 'cyan'
+                ],
+                [
+                    'text' => 'Señalizaciones',
+                    'url'  => '/senializacion/registro',
+                    'icon' => 'fas fa-map-signs',
+                    'icon_color' => 'cyan'
+                ],
+                [
+                    'text' => 'Puentes',
+                    'url'  => '/puente/registro',
+                    'icon' => 'fas fa-archway',
+                    'icon_color' => 'cyan'
+
+                ],
+
+            ],
+        ],
+        [
+            'text'    => 'Formatos',
+            'url'     => '#',
+            'icon'    => 'fas fa-file-chart-line',
+            'submenu' => [
+                [
+                    'text' => '(F1) Georeferenciamiento',
+                    'url'  => '/reporte/georeferenciamiento',
+                    'icon' => 'fas fa-map-marker-alt'
+                ],
+                [
+                    'text'    => '(F2) Itinerario de rutas',
+                    'url'     => '/reporte/itinerario',
+                    /* 'submenu' => [
                         [
-                            'text' => 'level_two',
+                            'text' => 'level_three',
                             'url'  => '#',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text' => 'level_three',
+                            'url'  => '#',
                         ],
-                    ],
+                    ], */
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => '(F3) Superficie ',
+                    'url'  => '/reporte/superficie',
+                ],
+                [
+                    'text' => '(F4) Tipo superficie.',
+                    'url'  => '/reporte/tipo',
+                ],
+                [
+                    'text' => '(F5) Plataforma',
+                    'url'  => '/reporte/plataforma',
+                ],
+                [
+                    'text' => '(F6) Estado',
+                    'url'  => '/reporte/estado',
+                ],
+                [
+                    'text' => '(F6) Señalizacion',
+                    'url'  => '/reporte/senializacion',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+       /*  ['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -382,7 +427,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*
@@ -421,7 +466,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

@@ -22,8 +22,8 @@ class CreatePuentesTable extends Migration
             $table->unsignedBigInteger('tipos_id');
             $table->smallInteger('numero_vias');
             $table->enum('tablero_rodadura', ['concreto', 'acero', 'madera']);
-            $table->decimal('longitud', 3, 2);
-            $table->decimal('ancho_calzada', 2, 2);
+            $table->decimal('longitud', 5, 2);
+            $table->decimal('ancho_calzada', 5, 2);
             $table->enum('condicion_funcional', ['buena', 'regular', 'mala'])->default('mala');
             $table->enum('hidrografia', ['rio', 'quebrada']);
 

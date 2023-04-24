@@ -11,6 +11,10 @@ use App\Models\Ruta;
 
 class RutaController extends Controller
 {
+    public function index()
+    {
+        return view('ruta.index');
+    }
     public function registrar() {
         $departamentos = Departamento::query(['id', 'nombre'])->get();
         //$departamentos = Departamento::get();
@@ -46,6 +50,7 @@ class RutaController extends Controller
         $datosDeRutaValidados = $validator->validated();
 
         Ruta::create( $datosDeRutaValidados );
+        return redirect('/ruta/registro');
     }
 
     public function getRutas($id) {

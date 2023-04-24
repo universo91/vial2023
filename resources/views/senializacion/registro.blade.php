@@ -28,6 +28,7 @@
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
                 <form action="{{ route('registrarSenializacion') }}" method="POST">
+                    @csrf
                     <div class="row">
                         <div class="col-md-8 col-lg-9">
                             <fieldset class="form-horizontal">
@@ -52,6 +53,9 @@
                                         </div>
                                         <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="departamento_id" id="departamento">
                                             <option value="">Seleccione departamento</option>
+                                            @foreach ($departamentos as $departamento)
+                                                <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

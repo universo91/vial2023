@@ -25,4 +25,19 @@ class Ruta extends Model
         'progresiva_punto_inicial',
         'progresiva_punto_final',
     ];
+
+    public function tramos()
+    {
+        return $this->hasMany(Tramo::class);
+    }
+
+    public function senializaciones()
+    {
+        return $this->hasMany(Senializacion::class);
+    }
+
+    public function distrito()
+    {
+        return $this->belongsTo(Distrito::class);
+    }
 }

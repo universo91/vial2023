@@ -40,7 +40,7 @@
                                             <label for="id" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">ID</label>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input hidden maxlength="40" type="text" class=" form-control form-control-sm" name="id" id="id" value="" required>
+                                            <input hidden maxlength="40" type="text" class=" form-control form-control-sm" name="id" id="id" value=""
                                         </div>
                                     </div>
                                 </div>
@@ -90,14 +90,9 @@
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ruta</label>
                                         </div>
-                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="rutas_id" id="rutas_id">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="rutas_id" id="ruta">
+                                            <option value="">Seleccione ruta</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -374,10 +369,10 @@
                                     <hr hidden class="hidden-md hidden-lg">
                                     <div class="row">
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
-                                            <label for="obervaciones" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Obervaciones<span class="text-danger"> *</span></label>
+                                            <label for="observaciones" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Obervaciones<span class="text-danger"> *</span></label>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="obervaciones" id="obervaciones" value="" required>
+                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="observaciones" id="observaciones" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -407,8 +402,6 @@
                     </div>
                 </form>
             </div>
-
-
         </div>
     </div>
 </div>
@@ -419,5 +412,6 @@
 @stop
 
 @section('js')
-    <script src="/js/rutas/registro.js"></script>
+    <script src="/js/general/generico.js"></script>
+    <script src="/js/superficie/registro.js"></script>
 @stop

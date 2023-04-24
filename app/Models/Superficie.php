@@ -25,4 +25,9 @@ class Superficie extends Model
         'coor_final_y',
         'altitud_final'
     ];
+
+    public function tramo()
+    {
+        return $this->belongsTo(Tramo::class);
+    }
 }

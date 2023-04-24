@@ -102,7 +102,7 @@
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Tramo</label>
                                         </div>
-                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="tramos_id" id="tramos">
+                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="tramos_id" id="tramo">
                                             <option value="">Seleccione tramo</option>
                                         </select>
                                     </div>
@@ -150,13 +150,10 @@
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Clase puente</label>
                                         </div>
                                         <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="clases_id" id="clases_id">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                            <option value="">Seleccione clase</option>
+                                            @foreach ($clasesPuente as $clase)
+                                                <option value="{{ $clase->id }}">{{ $clase->nombre }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -168,13 +165,8 @@
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Tipo puente</label>
                                         </div>
                                         <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="tipos_id" id="tipos_id">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                            <option value="">Seleccione tipo</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -300,4 +292,7 @@
 
 @section('js')
     <script src="/js/general/generico.js"> </script>
+    <script src="/js/superficie/registro.js"> </script>
+    <script src="/js/puentes/registro.js"> </script>
+
 @stop

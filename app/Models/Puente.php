@@ -24,4 +24,9 @@ class Puente extends Model
         'condicion_funcional',
         'hidrografia'
     ];
+
+    public function tramo()
+    {
+        return $this->belongsTo(Tramo::class);
+    }
 }

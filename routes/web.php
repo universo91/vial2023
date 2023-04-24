@@ -3,9 +3,11 @@
 use App\Http\Controllers\distrito\DistritoController;
 use App\Http\Controllers\provincia\ProvinciaController;
 use App\Http\Controllers\puente\PuenteController;
+use App\Http\Controllers\reportes\ReportesController;
 use App\Http\Controllers\ruta\RutaController;
 use App\Http\Controllers\senial\SenializacionController;
 use App\Http\Controllers\superficie\SuperficieController;
+use App\Http\Controllers\tipo\TipoController;
 use App\Http\Controllers\tramo\TramoController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,10 @@ Route::get('/previa', function() {
     return view('login1');
 });
 
+Route::get('/reporte/georeferenciamiento', [ReportesController::class, 'getDatosReferenciamiento']);
+Route::get('/reporte/itinerario', [ReportesController::class, 'getItinerarioRutas']);
+Route::get('/reporte/plataforma', [ReportesController::class, 'getPlataforma']);
+
 Route::get('/ruta/registro', [RutaController::class, 'registrar']);
 Route::get('/tramo/registro', [TramoController::class, 'registrar']);
 Route::get('/puente/registro', [PuenteController::class, 'registrar']);
@@ -41,7 +47,10 @@ Route::get('/superficie/registro', [SuperficieController::class, 'registrar']);
 Route::get('/departamento/{id}/provincias', [ProvinciaController::class, 'getProvincias']);
 Route::get('/provincia/{id}/distritos', [DistritoController::class, 'getDistritos']);
 Route::get('/distrito/{id}/rutas', [RutaController::class, 'getRutas']);
+Route::get('/ruta/{id}/tramos', [TramoController::class, 'getTramos']);
+Route::get('/clase/{id}/tipos', [TipoController::class, 'getTipos']);
 Route::post('/ruta/crear', [RutaController::class, 'crear'])->name('registrarRuta');
 Route::post('/tramo/crear', [TramoController::class, 'crear'])->name('registrarTramo');
 Route::post('/puente/crear', [PuenteController::class, 'crear'])->name('registrarPuente');
 Route::post('/superficie/crear', [SuperficieController::class, 'crear'])->name('registrarSuperficie');
+Route::post('/senializacion/crear', [SenializacionController::class, 'crear'])->name('registrarSenializacion');

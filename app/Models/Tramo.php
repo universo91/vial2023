@@ -17,7 +17,6 @@ class Tramo extends Model
         'tipo_terreno',
         'estado_via',
         'tipo_superficie',
-        'ancho_plataforma',
         'progresiva',
         'coor_x_inicial',
         'coor_y_inicial',
@@ -37,4 +36,19 @@ class Tramo extends Model
         'identificacion_calzada',
         'observaciones'
     ];
+
+    public function puentes()
+    {
+        return $this->hasMany(Puente::class);
+    }
+
+    public function superficies()
+    {
+        return $this->hasMany(Superficie::class);
+    }
+
+    public function ruta()
+    {
+        return $this->belongsTo(Ruta::class);
+    }
 }

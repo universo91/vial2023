@@ -10,4 +10,9 @@ class Departamento extends Model
     use HasFactory;
 
     protected $table = 'departamentos';
+
+    public function provincias()
+    {
+        return $this->hasMany(Provincia::class);
+    }
 }
