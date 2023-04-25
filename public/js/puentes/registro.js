@@ -1,12 +1,9 @@
-const distritoSelect = document.getElementById('distrito');
-
 const selectRuta = document.getElementById('ruta');
-const selectTramo = document.getElementById('tramo');
 const selectClases = document.getElementById('clases_id');
 const selectDepartamento = document.getElementById("departamento");
 const selectProvincia = document.getElementById("provincia");
 const selectDistrito = document.getElementById('distrito');
-const tramosSelect = document.getElementById('tramo');
+const selectTramo = document.getElementById('tramo');
 
 selectDepartamento.addEventListener('change', async ( e ) => {
     console.log( e.target.value );
@@ -61,7 +58,7 @@ selectProvincia.addEventListener('change', async (e) => {
     selectDistrito.innerHTML = htmlDistritos;
 });
 
-distritoSelect.addEventListener('change' , async (e) => {
+selectDistrito.addEventListener('change' , async (e) => {
 
     const idDistrito = e.target.value;
 

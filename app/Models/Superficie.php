@@ -12,7 +12,7 @@ class Superficie extends Model
     protected $table = 'superficie';
 
     protected $fillable = [
-        'rutas_id',
+        'tramos_id',
         'estado',
         'tipo_superficie',
         'ancho',

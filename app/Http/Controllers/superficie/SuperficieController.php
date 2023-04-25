@@ -32,7 +32,7 @@ class SuperficieController extends Controller
 
     public static function getValidacionSuperficie() {
         return [
-            'rutas_id' => ['required',],
+            'tramos_id' => ['required',],
             'estado' => ['required',],
             'tipo_superficie' => ['required',],
             'ancho' => ['required',],

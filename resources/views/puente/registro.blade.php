@@ -291,7 +291,6 @@
 @stop
 
 @section('js')
-    <script src="/js/general/generico.js"> </script>
     <script src="/js/puentes/registro.js"> </script>
 
 @stop

@@ -391,7 +391,7 @@ return [
                     ], */
                 ],
                 [
-                    'text' => '(F3) Superficie ',
+                    'text' => '(F3) Superficie de rodadura ',
                     'url'  => '/reporte/superficie',
                 ],
                 [
@@ -403,7 +403,7 @@ return [
                     'url'  => '/reporte/plataforma',
                 ],
                 [
-                    'text' => '(F6) Estado',
+                    'text' => '(F6) Estado transitabilidad',
                     'url'  => '/reporte/estado',
                 ],
                 [

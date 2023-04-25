@@ -21,7 +21,8 @@ class CreateTramosTable extends Migration
             $table->enum('estado_via', ['bueno', 'regular', 'malo'])->nullable();
             $table->enum('tipo_superficie', ['pavimento asfaltico', 'pavimento de concreto', 'afirmado', 'sin afirmar', 'trocha carrozable'])->nullable();
             //$table->decimal('ancho_plataforma', 8,2);
-            $table->string('progresiva');
+            $table->string('progresiva_inicial',15);
+            $table->string('progresiva_final', 15);
             $table->decimal('coor_x_inicial', 10, 2)->nullable();
             $table->decimal('coor_y_inicial', 10, 2)->nullable();
             $table->decimal('altitud_inicial', 8,2)->nullable();

@@ -52,7 +52,9 @@ selectRuta.addEventListener('change', async (e) => {
         selectHtml += `<option value="${ tramo.id }">${ tramo.numero_tramo }</option>`;
     });
 
-    selectTramo.innerHTML = selectHtml;
+    tramosSelect.innerHTML = selectHtml;
 });
+
+
 
 

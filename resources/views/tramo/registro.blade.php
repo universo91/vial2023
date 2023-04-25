@@ -155,10 +155,22 @@
                                     <hr hidden class="hidden-md hidden-lg">
                                     <div class="row">
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
-                                            <label for="coord_incial_x" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Progresiva <span class="text-danger"> *</span></label>
+                                            <label for="progresiva_inicial" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Progresiva Inicial <span class="text-danger"> *</span></label>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva" id="progresiva" value="" required>
+                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_inicial" id="progresiva_inicial" value="" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <hr hidden class="hidden-md hidden-lg">
+                                    <div class="row">
+                                        <div class="col-lg-3 d-flex flex-row-reverse ">
+                                            <label for="progresiva_final" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Progresiva Final <span class="text-danger"> *</span></label>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_final" id="progresiva_final" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -412,6 +424,5 @@
 @stop
 
 @section('js')
-    <script src="/js/general/generico.js"></script>
-    <script src="/js/tramo/registro.js"></script>
+    <script src="/js/tramos/registro.js"></script>
 @stop

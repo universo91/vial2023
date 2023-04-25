@@ -1,6 +1,7 @@
 const  selectDepartamento = document.getElementById("departamento");
 const selectProvincia = document.getElementById("provincia");
 const selectDistrito = document.getElementById('distrito');
+const selectRuta = document.getElementById('ruta');
 
 selectDepartamento.addEventListener('change', async ( e ) => {
     console.log( e.target.value );
@@ -54,5 +55,33 @@ selectProvincia.addEventListener('change', async (e) => {
 
     selectDistrito.innerHTML = htmlDistritos;
 });
+
+
+selectDistrito.addEventListener('change' , async (e) => {
+
+    const idDistrito = e.target.value;
+
+
+    let htmlRutas = '<option value="">Seleccione ruta</option>';
+
+    if(!idDistrito) {
+        selectRuta.innerHTML = htmlRutas;
+        return;
+    }
+
+    const respuesta = await fetch(`/distrito/${idDistrito}/rutas`, {
+        method: 'GET'
+    });
+
+    const rutas = await respuesta.json();
+    console.log(rutas);
+
+    await rutas.map((ruta) => {
+        htmlRutas += `<option value="${ruta.id}">${ruta.codigo}</option>`;
+    });
+    console.log(selectRuta);
+    selectRuta.innerHTML= htmlRutas;
+})
+
 
 
