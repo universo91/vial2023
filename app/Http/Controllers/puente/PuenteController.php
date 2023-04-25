@@ -36,7 +36,8 @@ class PuenteController extends Controller
 
     public static function getValidacionCrearPuente(){
         return [
-            'tramos_id'           => ['required'],
+            'rutas_id'            => ['required'],
+            'progresiva'          => ['required'],
             'coordenada_x'        => ['required'],
             'coordenada_y'        => ['required'],
             'altitud'             => ['required'],

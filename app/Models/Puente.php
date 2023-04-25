@@ -12,7 +12,8 @@ class Puente extends Model
     protected $table = 'puentes';
 
     protected $fillable = [
-        'tramos_id',
+        'rutas_id',
+        'progresiva',
         'coordenada_x',
         'coordenada_y',
         'altitud',
@@ -25,8 +26,8 @@ class Puente extends Model
         'hidrografia'
     ];
 
-    public function tramo()
+    public function ruta()
     {
-        return $this->belongsTo(Tramo::class);
+        return $this->belongsTo(Ruta::class);
     }
 }

@@ -15,7 +15,8 @@ class CreatePuentesTable extends Migration
     {
         Schema::create('puentes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('tramos_id');
+            $table->unsignedBigInteger('rutas_id');
+            $table->string('progresiva', 15);
             $table->string('coordenada_x', 10, 2);
             $table->string('coordenada_y', 10, 2);
             $table->string('altitud');
@@ -27,7 +28,7 @@ class CreatePuentesTable extends Migration
             $table->enum('condicion_funcional', ['buena', 'regular', 'mala'])->default('mala');
             $table->enum('hidrografia', ['rio', 'quebrada']);
 
-            $table->foreign('tramos_id')->references('id')->on('tramos')->onDelete('cascade');
+            $table->foreign('rutas_id')->references('id')->on('rutas')->onDelete('cascade');
             $table->foreign('tipos_id')->references('id')->on('tipos')->onDelete('cascade');
             $table->timestamps();
         });

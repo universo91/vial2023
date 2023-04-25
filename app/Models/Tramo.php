@@ -38,11 +38,6 @@ class Tramo extends Model
         'observaciones'
     ];
 
-    public function puentes()
-    {
-        return $this->hasMany(Puente::class);
-    }
-
     public function superficies()
     {
         return $this->hasMany(Superficie::class);

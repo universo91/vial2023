@@ -97,17 +97,16 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <hr hidden class="hidden-md hidden-lg">
                                     <div class="row">
-
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
-                                            <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Tramo</label>
+                                            <label for="progresiva" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">progresiva Puente<span class="text-danger"> *</span></label>
                                         </div>
-                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="tramos_id" id="tramo">
-                                            <option value="">Seleccione tramo</option>
-                                        </select>
+                                        <div class="col-lg-9">
+                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva" id="progresiva" value="" required>
+                                        </div>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <hr hidden class="hidden-md hidden-lg">
                                     <div class="row">

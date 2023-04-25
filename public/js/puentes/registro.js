@@ -3,7 +3,6 @@ const selectClases = document.getElementById('clases_id');
 const selectDepartamento = document.getElementById("departamento");
 const selectProvincia = document.getElementById("provincia");
 const selectDistrito = document.getElementById('distrito');
-const selectTramo = document.getElementById('tramo');
 
 selectDepartamento.addEventListener('change', async ( e ) => {
     console.log( e.target.value );
@@ -82,31 +81,6 @@ selectDistrito.addEventListener('change' , async (e) => {
     });
     console.log(selectRuta);
     selectRuta.innerHTML= htmlRutas;
-})
-
-
-
-selectRuta.addEventListener('change', async (e) => {
-    idRuta = e.target.value;
-
-    let selectHtml = '<option value="">Seleccione tramo</option>';
-
-    if( !idRuta ) {
-        selectTramo.innerHTML = selectHtml;
-        return;
-    }
-    console.log(idRuta);
-    const respuesta = await fetch(`/ruta/${idRuta}/tramos`, {
-        method: 'GET'
-    });
-
-    const tramos = await respuesta.json();
-
-    tramos.map( (tramo) => {
-        selectHtml += `<option value="${ tramo.id }">${ tramo.numero_tramo }</option>`
-    });
-
-    selectTramo.innerHTML = selectHtml;
 });
 
 selectClases.addEventListener('change', async (e) => {

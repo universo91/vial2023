@@ -284,6 +284,5 @@
 @stop
 
 @section('js')
-    <script src="/js/general/generico.js"></script>
     <script src="/js/superficie/registro.js"></script>
 @stop
