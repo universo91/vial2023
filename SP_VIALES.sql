@@ -1,8 +1,8 @@
 
-
-/* PROCEDIMIENTOS ALMACENADOS
+/*PROCEDIMIENTOS ALMACENADOS
 ==============================================================================================================
 */
+DELIMITER ;;
 CREATE PROCEDURE SP_SuperficieRodadura()
 BEGIN
     SELECT  ru.codigo,
@@ -19,8 +19,8 @@ BEGIN
         tra.created_at
     FROM rutas  ru
     INNER JOIN tramos tra
-    ON ru.id = tra.rutas_id
-END
+    ON ru.id = tra.rutas_id;
+END ;;
 
 -- ==============================================================================================================
 
@@ -74,7 +74,7 @@ BEGIN
     ON dep.id = pro.departamentos_id;
 END
 
--- ==============================================================================================================
+--==============================================================================================================
 DELIMITER ;;
 CREATE PROCEDURE SP_FormatoReferenciamiento()
 BEGIN
