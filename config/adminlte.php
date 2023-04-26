@@ -379,6 +379,7 @@ return [
                 [
                     'text'    => '(F2) Itinerario de rutas',
                     'url'     => '/reporte/itinerario',
+                    'icon'    => 'fas fa-th-list'
                     /* 'submenu' => [
                         [
                             'text' => 'level_three',
@@ -392,23 +393,31 @@ return [
                 ],
                 [
                     'text' => '(F3) Superficie de rodadura ',
-                    'url'  => '/reporte/superficie',
+                    'url'  => '/reporte/superficie-rodadura',
+                    'icon' => 'fas fa-stream'
                 ],
                 [
                     'text' => '(F4) Tipo superficie.',
-                    'url'  => '/reporte/tipo',
+                    'url'  => '/reporte/tipo-superficie',
+                    'icon' => 'fas fa-road'
                 ],
                 [
                     'text' => '(F5) Plataforma',
                     'url'  => '/reporte/plataforma',
+                    'icon' => ''
                 ],
                 [
                     'text' => '(F6) Estado transitabilidad',
-                    'url'  => '/reporte/estado',
+                    'url'  => '/reporte/estado-transitabilidad',
                 ],
                 [
                     'text' => '(F6) Señalizacion',
                     'url'  => '/reporte/senializacion',
+                    'icon' => 'fas fa-maps-signs'
+                ],
+                [
+                    'text' => '(F6) Puente',
+                    'url'  => '/reporte/puente',
                 ],
             ],
         ],

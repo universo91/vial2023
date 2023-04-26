@@ -23,18 +23,21 @@ class ReportesController extends Controller
 
     public function getSuperficieRodadura()
     {
-        $supRodadura = DB::select('CALL SP_SuperficieRodadura');
-        return view('reportes.supRodadura')->with( compact('supRodadura') );
+        $supRodaduras = DB::select('CALL SP_SuperficieRodadura');
+        return view('reportes.superficieRodadura')->with( compact('supRodaduras') );
     }
 
     public function getTipoSuperficie()
     {
-        $tipoSuperficie = DB::select('CALL SP_TipoSuperficie');
-        return view('reportes.tipoSuperficie', compact('tipoSuperficie') );
+        $tiposSuperficie = DB::select('CALL SP_TipoSuperficie');
+        return view('reportes.tipoSuperficie', compact('tiposSuperficie') );
     }
 
-
-
+    public function getEstadoTransitabilidad()
+    {
+        $estadosTransitabilidad = DB::select('CALL SP_EstadoTransitabilidad');
+        return view('reportes.estadoTransitabilidad')->with( compact('estadosTransitabilidad'));
+    }
 
     public function getPlataforma()
     {
@@ -42,5 +45,16 @@ class ReportesController extends Controller
         return view('reportes.plataforma')->with( compact('datosPlataforma'));
     }
 
+    public function getSenializacion()
+    {
+        $datosSenializacion = DB::select('CALL SP_Senializacion');
+        return view('reportes.senializacion', compact('datosSenializacion'));
+    }
+
+    public function getPuentes()
+    {
+        $datosPuente = DB::select('CALL SP_Puentes');
+        return view('reportes.puente')->with(compact('datosPuente'));
+    }
 
 }

@@ -38,6 +38,12 @@ Route::get('/reporte/georeferenciamiento', [ReportesController::class, 'getDatos
 Route::get('/reporte/itinerario', [ReportesController::class, 'getItinerarioRutas']);
 Route::get('/reporte/plataforma', [ReportesController::class, 'getPlataforma']);
 
+Route::get('/reporte/superficie-rodadura', [ReportesController::class, 'getSuperficieRodadura']);
+Route::get('/reporte/tipo-superficie', [ReportesController::class, 'getTipoSuperficie']);
+Route::get('/reporte/estado-transitabilidad', [ReportesController::class, 'getEstadoTransitabilidad']);
+Route::get('/reporte/senializacion', [ReportesController::class, 'getSenializacion']);
+Route::get('/reporte/puente', [ReportesController::class, 'getPuentes']);
+
 Route::get('/ruta/registro', [RutaController::class, 'registrar']);
 Route::get('/tramo/registro', [TramoController::class, 'registrar']);
 Route::get('/puente/registro', [PuenteController::class, 'registrar']);

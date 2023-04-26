@@ -8,7 +8,7 @@ BEGIN
     SELECT  ru.codigo,
         tra.numero_tramo,
         tra.progresiva_inicial,
-        tra.progresiva_fianl,
+        tra.progresiva_final,
         tra.coor_x_inicial,
         tra.coor_y_inicial,
         tra.altitud_inicial,
