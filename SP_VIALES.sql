@@ -207,9 +207,8 @@ BEGIN
         pu.hidrografia,
         pu.created_at
     FROM rutas ru
-    ON ru.distritos_id = dis.id
     INNER JOIN puentes pu
-    ON pu.tramos_id = tramos.id
+    ON ru.id = pu.rutas_id
     INNER JOIN tipos ti
     ON pu.tipos_id = ti.id
     INNER JOIN clases cla
