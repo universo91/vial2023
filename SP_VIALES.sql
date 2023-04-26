@@ -23,8 +23,8 @@ BEGIN
 END ;;
 
 -- ==============================================================================================================
-
-CREATE SP_plataforma()
+DELIMITER ;;
+CREATE PROCEDURE SP_plataforma()
 BEGIN
 	SELECT ru.codigo,
     	tra.numero_tramo,
@@ -42,11 +42,11 @@ BEGIN
     FROM tramos tra
     INNER JOIN rutas ru
     ON ru.id = tra.rutas_id;
-END
+END ;;
 
 -- ==============================================================================================================
-
-CREATE SP_ItinerarioRutas()
+DELIMITER ;;
+CREATE PROCEDURE SP_ItinerarioRutas()
 BEGIN
 	SELECT dep.ubigeo,
     	ru.codigo,
@@ -72,7 +72,7 @@ BEGIN
     ON pro.id = dis.provincias_id
     INNER JOIN departamentos dep
     ON dep.id = pro.departamentos_id;
-END
+END ;;
 
 --==============================================================================================================
 DELIMITER ;;
