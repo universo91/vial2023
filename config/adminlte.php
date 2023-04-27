@@ -374,12 +374,14 @@ return [
                 [
                     'text' => '(F1) Georeferenciamiento',
                     'url'  => '/reporte/georeferenciamiento',
-                    'icon' => 'fas fa-map-marker-alt'
+                    'icon' => 'fas fa-map-marker-alt',
+                    'icon_color' => 'red'
                 ],
                 [
                     'text'    => '(F2) Itinerario de rutas',
                     'url'     => '/reporte/itinerario',
-                    'icon'    => 'fas fa-th-list'
+                    'icon'    => 'fas fa-th-list',
+                    'icon_color' => 'red'
                     /* 'submenu' => [
                         [
                             'text' => 'level_three',
@@ -394,30 +396,38 @@ return [
                 [
                     'text' => '(F3) Superficie de rodadura ',
                     'url'  => '/reporte/superficie-rodadura',
-                    'icon' => 'fas fa-stream'
+                    'icon' => 'fas fa-tire-rugged',
+                    'icon_color' => 'red'
                 ],
                 [
                     'text' => '(F4) Tipo superficie.',
                     'url'  => '/reporte/tipo-superficie',
-                    'icon' => 'fas fa-road'
+                    'icon' => 'fas fa-road',
+                    'icon_color' => 'red'
                 ],
                 [
                     'text' => '(F5) Plataforma',
                     'url'  => '/reporte/plataforma',
-                    'icon' => ''
+                    'icon' => 'fas fa-truck-pickup',
+                    'icon_color' => 'red'
                 ],
                 [
                     'text' => '(F6) Estado transitabilidad',
                     'url'  => '/reporte/estado-transitabilidad',
+                    'icon' => 'fas fa-cars',
+                    'icon_color' => 'red'
                 ],
                 [
-                    'text' => '(F6) Señalizacion',
+                    'text' => '(F7) Señalizacion',
                     'url'  => '/reporte/senializacion',
-                    'icon' => 'fas fa-maps-signs'
+                    'icon' => 'fas fa-map-signs',
+                    'icon_color' => 'red'
                 ],
                 [
-                    'text' => '(F6) Puente',
+                    'text' => '(F8) Puente',
                     'url'  => '/reporte/puente',
+                    'icon' => 'fas fa-archway',
+                    'icon_color' => 'red'
                 ],
             ],
         ],

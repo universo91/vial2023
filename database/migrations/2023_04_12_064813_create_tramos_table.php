@@ -30,8 +30,8 @@ class CreateTramosTable extends Migration
             $table->decimal('coor_y_final', 10, 2);
             $table->decimal('altitud_final', 8, 2);
             $table->string('zona');
-            $table->string('descripcion_elementos')->nullable();
-            $table->string('codigo_imagen');
+            $table->string('punto_notable', 255)->nullable();
+            $table->string('codigo_imagen', 255);
             $table->string('tramo_inicio')->nullable(); // kilometraje inicial del tramo o progesiva inicial
             $table->string('tramo_fin'); // kilometraje final del tramo o progresiva final
             //formato plataforma
