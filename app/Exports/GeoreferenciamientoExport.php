@@ -2,18 +2,20 @@
 
 namespace App\Exports;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class GeoreferenciamientoExport implements FromCollection
+class GeoreferenciamientoExport implements FromView, ShouldAutoSize
 {
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+    public function view(): View
     {
-        $itinerarioRutas = DB::select('CALL SP_FormatoReferenciamiento');
-        $collectRutas = collect( $itinerarioRutas );
-        return $collectRutas;
+        $datosReferenciamiento = DB::select('CALL SP_FormatoReferenciamiento');
+        $collectReferenciamiento = collect( $datosReferenciamiento );
+        return view('formatos.georeferenciamiento', compact('collectReferenciamiento'));
     }
 }

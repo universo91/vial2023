@@ -22,7 +22,7 @@
             <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
         </div>
     </div>
-    <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
+   <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
         <thead class="bg-info" style="font-size: 10px;">
             <tr>
                 <th class="align-middle">Ubigeo</th>
@@ -68,6 +68,8 @@
 
         </tbody>
     </table>
+
+
 </div>
 @stop
 
