@@ -264,10 +264,10 @@
                                     <hr hidden class="hidden-md hidden-lg">
                                     <div class="row">
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
-                                            <label for="descripcion_elementos" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Descripcion elementos<span class="text-danger"> *</span></label>
+                                            <label for="descripcion_elementos" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Punto notable<span class="text-danger"> *</span></label>
                                         </div>
                                         <div class="col-lg-9">
-                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="descripcion_elementos" id="descripcion_elementos" value="" required>
+                                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="punto_notable" id="punto_notable" value="" required>
                                         </div>
                                     </div>
                                 </div>

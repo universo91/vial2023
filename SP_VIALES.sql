@@ -214,3 +214,28 @@ BEGIN
     INNER JOIN clases cla
     ON cla.id = ti.clases_id;
 END ;;
+
+-- ============================================================================================================
+DELIMITER $$
+CREATE FUNCTION totalKilometros(progInicial VARCHAR(20), progFinal VARCHAR(20)) RETURNS double(8,6)
+BEGIN
+	DECLARE metrosProgInicial VARCHAR(15);
+    DECLARE kmProgInicial VARCHAR(15);
+    DECLARE metrosProgFinal VARCHAR(15);
+    DECLARE kmProgFinal VARCHAR(15);
+    DECLARE totalMetrosProgInicial DOUBLE;
+    DECLARE totalMetrosProgFinal DOUBLE;
+    DECLARE totalDistancia DOUBLE;
+
+    SET metrosProgInicial = substring_index(progInicial, '+', -1);
+    SET kmProgInicial = substring_index(progInicial, '+', 1);
+    SET metrosProgFinal = substring_index(progFinal, '+', -1);
+    SET kmProgFinal = substring_index(progFinal, '+', 1);
+
+    SET totalMetrosProgInicial = CONVERT( metrosProgInicial, double)+ (CONVERT(kmProgInicial, double) * 1000);
+    SET totalMetrosProgFinal = CONVERT(metrosProgFinal , double) + (CONVERT(kmProgFinal, double) * 1000);
+
+    SET totalDistancia =  convert( (totalMetrosProgFinal - totalMetrosProgInicial ) / 1000, double);
+
+    RETURN totalDistancia;
+END$$

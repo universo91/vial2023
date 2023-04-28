@@ -27,7 +27,7 @@ class TramoController extends Controller
             'coor_y_final'           => ['required'],
             'altitud_final'          => ['required'],
             'zona'                   => ['required'],
-            'descripcion_elementos'  => ['required'],
+            'punto_notable'          => ['required'],
             'codigo_imagen'          => ['required'],
             'tramo_inicio'           => ['required'],
             'tramo_fin'              => ['required'],

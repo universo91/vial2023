@@ -26,7 +26,7 @@ class Tramo extends Model
         'coor_y_final',
         'altitud_final',
         'zona',
-        'descripcion_elementos',
+        'punto_notable',
         'codigo_imagen',
         'tramo_inicio',
         'tramo_fin',
