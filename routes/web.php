@@ -4,6 +4,7 @@ use App\Http\Controllers\distrito\DistritoController;
 use App\Http\Controllers\provincia\ProvinciaController;
 use App\Http\Controllers\puente\PuenteController;
 use App\Http\Controllers\reportes\ReportesController;
+use App\Http\Controllers\reportes\ReportesExcelController;
 use App\Http\Controllers\ruta\RutaController;
 use App\Http\Controllers\senial\SenializacionController;
 use App\Http\Controllers\superficie\SuperficieController;
@@ -60,3 +61,6 @@ Route::post('/tramo/crear', [TramoController::class, 'crear'])->name('registrarT
 Route::post('/puente/crear', [PuenteController::class, 'crear'])->name('registrarPuente');
 Route::post('/superficie/crear', [SuperficieController::class, 'crear'])->name('registrarSuperficie');
 Route::post('/senializacion/crear', [SenializacionController::class, 'crear'])->name('registrarSenializacion');
+
+Route::get('rutas/export/excel', [ReportesExcelController::class, 'exportRutas'])->name('exportarRuta');
+Route::get('georeferenciamiento/export/excel', [ReportesExcelController::class, 'exportarGeoreferenciamiento'])->name('expGeoref');

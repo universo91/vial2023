@@ -16,6 +16,9 @@
         </h3>
         <hr>
     </div>
+    <div class="row">
+        <a href="{{ route('exportarRuta')}}" class="btn btn-primary">Descargar</a>
+    </div>
     <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
         <thead class="bg-info" style="font-size: 10px;">
             <tr>
@@ -44,8 +47,8 @@
         <tbody>
             @foreach ($itinerarioRutas as  $itinerario)
                 <tr>
-                    <td>{{ $itinerario->departamento }} </td>
-                    <td>{{ $itinerario->provincia }} </td>
+                    <td>{{ $itinerario->departamentos }} </td>
+                    <td>{{ $itinerario->provincias }} </td>
                     <td>{{ $itinerario->ruta }} </td>
                     <td>{{ $itinerario->numero_tramo }} </td>
                     <td>{{ $itinerario->tipo_terreno }} </td>
