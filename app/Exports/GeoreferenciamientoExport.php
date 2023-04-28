@@ -12,7 +12,7 @@ class GeoreferenciamientoExport implements FromCollection
     */
     public function collection()
     {
-        $itinerarioRutas = DB::select('CALL SP_ItinerarioRutas');
+        $itinerarioRutas = DB::select('CALL SP_FormatoReferenciamiento');
         $collectRutas = collect( $itinerarioRutas );
         return $collectRutas;
     }
