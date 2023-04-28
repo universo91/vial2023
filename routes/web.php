@@ -64,3 +64,4 @@ Route::post('/senializacion/crear', [SenializacionController::class, 'crear'])->
 
 Route::get('rutas/export/excel', [ReportesExcelController::class, 'exportRutas'])->name('exportarRuta');
 Route::get('georeferenciamiento/export/excel', [ReportesExcelController::class, 'exportarGeoreferenciamiento'])->name('expGeoref');
+Route::get('itinerario/export/excel', [ ReportesExcelController::class, 'exportarItinerario'] )->name('expItinerario');
