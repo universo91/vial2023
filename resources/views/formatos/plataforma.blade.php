@@ -8,8 +8,8 @@
             <th colspan="3">Coord. Final-WGS 84</th>
             <th rowspan="2">Numero de carriles</th>
             <th rowspan="2">Ancho de calzada</th>
-            <th rowspan="2">Ancho de berma Izq.</th>
-            <th rowspan="2">Ancho de berma Der.</th>
+            <th rowspan="2">Ancho de berma Izq. (m)</th>
+            <th rowspan="2">Ancho de berma Der. (m)</th>
             <th rowspan="2">Fecha</th>
         </tr>
         <tr>
