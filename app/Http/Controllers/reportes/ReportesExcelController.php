@@ -4,6 +4,7 @@ namespace App\Http\Controllers\reportes;
 
 use App\Exports\GeoreferenciamientoExport;
 use App\Exports\ItinerarioExport;
+use App\Exports\Plataforma;
 use App\Exports\RutasExport;
 use App\Exports\SuperficieRodadura;
 use App\Exports\TipoSuperficie;
@@ -38,5 +39,9 @@ class ReportesExcelController extends Controller
         return Excel::download(new TipoSuperficie, 'tipo_superficie.xlsx');
     }
 
+    public function exportPlataforma()
+    {
+        return Excel::dowload( new Plataforma, 'plataforma.xlsx');
+    }
 
 }

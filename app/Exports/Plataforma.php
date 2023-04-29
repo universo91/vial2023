@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 class Plataforma implements FromView, ShouldAutoSize
 {
     /**
-    * @return \Illuminate\Support\Collection
+    * @return Illuminate\Contracts\View\View
     */
     public function view() : View
     {
