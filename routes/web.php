@@ -66,4 +66,4 @@ Route::get('rutas/export/excel', [ReportesExcelController::class, 'exportRutas']
 Route::get('georeferenciamiento/export/excel', [ReportesExcelController::class, 'exportarGeoreferenciamiento'])->name('expGeoref');
 Route::get('itinerario/export/excel', [ ReportesExcelController::class, 'exportarItinerario'] )->name('expItinerario');
 Route::get('sup-rodadura/export/excel', [ ReportesExcelController::class, 'exportarSuperficieRodadura'] )->name('expSupRodadura');
-Route::get('sup-rodadura/export/excel', [ ReportesExcelController::class, 'exportarTipoSuperficie'] )->name('expTipoSuperficie');
+Route::get('tipo-superficie/export/excel', [ ReportesExcelController::class, 'exportarTipoSuperficie'] )->name('expTipoSuperficie');

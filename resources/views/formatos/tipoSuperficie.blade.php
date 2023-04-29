@@ -1,7 +1,7 @@
 <table>
     <thead>
         <tr>
-            <th rowspan="=2">Codigo de Ruta</th>
+            <th rowspan="2">Codigo de Ruta</th>
 
             <th colspan="2">Tramo</th>
             <th rowspan="2">Longitud (Km)</th>
@@ -25,4 +25,4 @@
             </tr>
         @endforeach
     </tbody>
-</tableid=>
+</table>

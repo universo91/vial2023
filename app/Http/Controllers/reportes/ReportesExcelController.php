@@ -8,7 +8,6 @@ use App\Exports\RutasExport;
 use App\Exports\SuperficieRodadura;
 use App\Exports\TipoSuperficie;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReportesExcelController extends Controller

@@ -14,6 +14,6 @@ class TipoSuperficie implements FromView, ShouldAutoSize
     {
         $tiposSuperficie = DB::select('CALL SP_TipoSuperficie');
         $collectSuperficie = collect( $tiposSuperficie);
-        return view('formatos.tipoSuperficie', compact($collectSuperficie) );
+        return view('formatos.tipoSuperficie', compact('collectSuperficie') );
     }
 }
