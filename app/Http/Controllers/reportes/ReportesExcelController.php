@@ -41,7 +41,9 @@ class ReportesExcelController extends Controller
 
     public function exportPlataforma()
     {
-        return Excel::dowload( new Plataforma, 'plataforma.xlsx');
+        return Excel::download( new Plataforma, 'plataforma.xlsx');
     }
+
+
 
 }
