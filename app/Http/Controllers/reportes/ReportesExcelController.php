@@ -6,6 +6,7 @@ use App\Exports\EstadoTransitabilidad;
 use App\Exports\GeoreferenciamientoExport;
 use App\Exports\ItinerarioExport;
 use App\Exports\Plataforma;
+use App\Exports\Puente;
 use App\Exports\RutasExport;
 use App\Exports\Senializacion;
 use App\Exports\SuperficieRodadura;
@@ -56,6 +57,10 @@ class ReportesExcelController extends Controller
         return Excel::download( new Senializacion, 'senializacion.xlsx');
     }
 
+    public function exportPuente()
+    {
+        return Excel::download( new Puente, 'puentes.xlsx');
+    }
 
 
 }
