@@ -49,8 +49,8 @@
         <tbody>
             @foreach ($tiposSuperficie as  $tipoSuperficie)
                 <tr>
-                    <td>{{ $tipoSuperficie->nombre }} </td>
-                    <td>{{ $tipoSuperficie->nombre }} </td>
+                    <td>{{ $tipoSuperficie->departamento }} </td>
+                    <td>{{ $tipoSuperficie->provincia }} </td>
                     <td>{{ $tipoSuperficie->ubigeo }} </td>
                     <td>{{ $tipoSuperficie->codigo }} </td>
                     <td>{{ $tipoSuperficie->TRAYECTORIA }} </td>

@@ -36,7 +36,7 @@
                 <td>{{ $puente->ancho_calzada }} </td>
                 <td>{{ $puente->condicion_funcional }} </td>
                 <td>{{ $puente->hidrografia }} </td>
-                <td>{{ $puente->created_at }} </td>
+                <td>{{ $puente->fecha }} </td>
             </tr>
         @endforeach
     </tbody>
