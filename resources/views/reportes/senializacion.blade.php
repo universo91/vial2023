@@ -16,18 +16,24 @@
         </h3>
         <hr>
     </div>
+    <div class="raw mb-2">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a href="{{ route('expSenializacion')}}" type="button" class="btn btn-success btn-flat">Exp. excel</a>
+            <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
+        </div>
+    </div>
     <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
         <thead class="bg-info" style="font-size: 10px;">
             <tr>
                 <th class="align-middle">Departamento</th>
                 <th class="align-middle">Provincia</th>
                 <th class="align-middle">Ubigeo</th>
-                <th class="align-middle">Codigo</th>
+                <th class="align-middle">Ruta</th>
                 <th class="align-middle">Señal</th>
                 <th class="align-middle">Clasificacion</th>
                 <th class="align-middle">Progresiva</th>
                 <th class="align-middle">Lado</th>
-                <th class="align-middle">Soperto</th>
+                <th class="align-middle">Soporte</th>
                 <th class="align-middle">Material</th>
                 <th class="align-middle">Zona</th>
                 <th class="align-middle">Coor. X</th>
@@ -39,8 +45,8 @@
         <tbody>
             @foreach ($datosSenializacion as  $senializacion)
                 <tr>
-                    <td>{{ $senializacion->nombre }} </td>
-                    <td>{{ $senializacion->nombre }} </td>
+                    <td>{{ $senializacion->departamento }} </td>
+                    <td>{{ $senializacion->provincia }} </td>
                     <td>{{ $senializacion->ubigeo }} </td>
                     <td>{{ $senializacion->codigo }} </td>
                     <td>{{ $senializacion->senial }} </td>
@@ -53,7 +59,7 @@
                     <td>{{ $senializacion->coordenada_x }} </td>
                     <td>{{ $senializacion->coordenada_y }} </td>
                     <td>{{ $senializacion->altitud }} </td>
-                    <td>{{ $senializacion->created_at }} </td>
+                    <td>{{ $senializacion->fecha }} </td>
                 </tr>
             @endforeach
 

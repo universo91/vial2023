@@ -90,7 +90,7 @@
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ruta</label>
                                         </div>
-                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="ruta_id" id="ruta">
+                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="rutas_id" id="ruta">
                                             <option value="">Seleccione ruta</option>
                                         </select>
                                     </div>

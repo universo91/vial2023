@@ -69,3 +69,4 @@ Route::get('sup-rodadura/export/excel', [ ReportesExcelController::class, 'expor
 Route::get('tipo-superficie/export/excel', [ ReportesExcelController::class, 'exportarTipoSuperficie'] )->name('expTipoSuperficie');
 Route::get('plataforma/export/excel', [ ReportesExcelController::class, 'exportPlataforma'] )->name('expPlataforma');
 Route::get('estado-transitabilidad/export/excel', [ ReportesExcelController::class, 'exportEstTransitabilidad'] )->name('expEstTransitabilidad');
+Route::get('senializacion/export/excel', [ ReportesExcelController::class, 'exportSenializacion'] )->name('expSenializacion');
