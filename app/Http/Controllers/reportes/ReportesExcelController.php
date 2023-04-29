@@ -6,6 +6,7 @@ use App\Exports\GeoreferenciamientoExport;
 use App\Exports\ItinerarioExport;
 use App\Exports\RutasExport;
 use App\Exports\SuperficieRodadura;
+use App\Exports\TipoSuperficie;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -31,6 +32,11 @@ class ReportesExcelController extends Controller
     public function exportarSuperficieRodadura()
     {
         return Excel::download( new SuperficieRodadura, 'sup_rodadura.xlsx' );
+    }
+
+    public function exportarTipoSuperficie()
+    {
+        return Excel::download(new TipoSuperficie, 'tipo_superficie.xlsx');
     }
 
 
