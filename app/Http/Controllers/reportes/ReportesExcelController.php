@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\reportes;
 
+use App\Exports\EstadoTransitabilidad;
 use App\Exports\GeoreferenciamientoExport;
 use App\Exports\ItinerarioExport;
 use App\Exports\Plataforma;
@@ -42,6 +43,11 @@ class ReportesExcelController extends Controller
     public function exportPlataforma()
     {
         return Excel::download( new Plataforma, 'plataforma.xlsx');
+    }
+
+    public function exportEstTransitabilidad()
+    {
+        return Excel::download( new EstadoTransitabilidad, 'estado_transitabilidad.xlsx');
     }
 
 
