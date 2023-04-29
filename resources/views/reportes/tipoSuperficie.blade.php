@@ -60,7 +60,7 @@
                     <td>{{ $tipoSuperficie->coor_y_final }} </td>
                     <td>{{ $tipoSuperficie->altitud_final }} </td>
                     <td>{{ $tipoSuperficie->zona }} </td>
-                    <td>{{ $tipoSuperficie->created_at }} </td>
+                    <td>{{ $tipoSuperficie->fecha }} </td>
 
                 </tr>
             @endforeach
