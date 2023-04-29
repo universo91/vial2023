@@ -51,12 +51,11 @@
                     <td>{{ $plataforma->coor_x_final }} </td>
                     <td>{{ $plataforma->coor_y_final }} </td>
                     <td>{{ $plataforma->altitud_final }} </td>
-
                     <td>{{ $plataforma->numero_carriles }} </td>
                     <td>{{ $plataforma->ancho_calzada }} </td>
                     <td>{{ $plataforma->ancho_berma_izquierda }} </td>
                     <td>{{ $plataforma->ancho_berma_derecha }} </td>
-                    <td>{{ $plataforma->created_at }} </td>
+                    <td>{{ $plataforma->fecha }} </td>
                 </tr>
             @endforeach
 
