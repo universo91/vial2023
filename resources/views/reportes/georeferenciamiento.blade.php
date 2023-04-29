@@ -16,7 +16,7 @@
         </h3>
         <hr>
     </div>
-    <div class="raw">
+    <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
             <a href="{{ route('expGeoref')}}" type="button" class="btn btn-success btn-flat">Exp. excel</a>
             <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
