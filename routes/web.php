@@ -70,3 +70,4 @@ Route::get('tipo-superficie/export/excel', [ ReportesExcelController::class, 'ex
 Route::get('plataforma/export/excel', [ ReportesExcelController::class, 'exportPlataforma'] )->name('expPlataforma');
 Route::get('estado-transitabilidad/export/excel', [ ReportesExcelController::class, 'exportEstTransitabilidad'] )->name('expEstTransitabilidad');
 Route::get('senializacion/export/excel', [ ReportesExcelController::class, 'exportSenializacion'] )->name('expSenializacion');
+Route::get('puente/export/excel', [ ReportesExcelController::class, 'exportPuente'] )->name('expPuente');
