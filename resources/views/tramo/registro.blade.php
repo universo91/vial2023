@@ -369,7 +369,7 @@
                                         <div class="col-lg-3 d-flex flex-row-reverse ">
                                             <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Identicacacion calzada</label>
                                         </div>
-                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="identicacacion_calzada">
+                                        <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="identificacion_calzada">
                                             <option value="CD">CD</option>
                                             <option value="UC">UC</option>
 
