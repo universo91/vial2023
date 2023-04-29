@@ -26,4 +26,6 @@ class ReportesExcelController extends Controller
     {
         return Excel::download( new ItinerarioExport, 'itinerario.xlsx');
     }
+
+
 }

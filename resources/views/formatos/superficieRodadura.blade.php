@@ -36,7 +36,5 @@
                 <td>{{ $supRodadura->created_at }} </td>
             </tr>
         @endforeach
-
-
     </tbody>
 </table>
