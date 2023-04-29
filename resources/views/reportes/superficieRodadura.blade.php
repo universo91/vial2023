@@ -16,6 +16,12 @@
         </h3>
         <hr>
     </div>
+    <div class="raw">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a href="{{ route('expSupRodadura')}}" type="button" class="btn btn-success btn-flat">Exp. excel</a>
+            <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
+        </div>
+    </div>
     <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
         <thead class="bg-info" style="font-size: 10px;">
             <tr>
