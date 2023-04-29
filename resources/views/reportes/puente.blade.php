@@ -48,16 +48,15 @@
                     <td>{{ $puente->coordenada_x }} </td>
                     <td>{{ $puente->coordenada_y }} </td>
                     <td>{{ $puente->altitud }} </td>
-                    <td>{{ $puente->nombre }} </td>
-                    <td>{{ $puente->nombre }} </td>
+                    <td>{{ $puente->clase }} </td>
+                    <td>{{ $puente->tipo }} </td>
                     <td>{{ $puente->numero_vias }} </td>
                     <td>{{ $puente->tablero_rodadura }} </td>
                     <td>{{ $puente->longitud }} </td>
                     <td>{{ $puente->ancho_calzada }} </td>
                     <td>{{ $puente->condicion_funcional }} </td>
                     <td>{{ $puente->hidrografia }} </td>
-                    <td>{{ $puente->created_at }} </td>
-
+                    <td>{{ $puente->fecha }} </td>
                 </tr>
             @endforeach
 
