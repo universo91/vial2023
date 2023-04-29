@@ -55,7 +55,7 @@
                     <td>{{ $estadoTransitabilidad->altitud_final }} </td>
                     <td>{{ $estadoTransitabilidad->estado_via }} </td>
                     <td>{{ $estadoTransitabilidad->identificacion_calzada }} </td>
-                    <td>{{ $estadoTransitabilidad->created_at }} </td>
+                    <td>{{ $estadoTransitabilidad->fecha }} </td>
                 </tr>
             @endforeach
 
