@@ -11,10 +11,16 @@
         <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">
                 <img src="" alt="">
-                Tipod de Superficie
+                Tipo de Superficie
             </a>
         </h3>
         <hr>
+    </div>
+    <div class="raw mb-2">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+            <a href="{{ route('expTipoSuperficie')}}" type="button" class="btn btn-success btn-flat">Exp. excel</a>
+            <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
+        </div>
     </div>
     <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
         <thead class="bg-info" style="font-size: 10px;">
