@@ -7,7 +7,6 @@ use App\Exports\GeoreferenciamientoExport;
 use App\Exports\ItinerarioExport;
 use App\Exports\Plataforma;
 use App\Exports\Puente;
-use App\Exports\RutasExport;
 use App\Exports\Senializacion;
 use App\Exports\SuperficieRodadura;
 use App\Exports\TipoSuperficie;
@@ -16,12 +15,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ReportesExcelController extends Controller
 {
-    public function exportRutas()
-    {
-
-        return Excel::download(new RutasExport, 'ruas.xlsx');
-    }
-
     public function exportarGeoreferenciamiento()
     {
         return Excel::download( new GeoreferenciamientoExport, 'georefenciamiento.xlsx' );

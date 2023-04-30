@@ -11,11 +11,11 @@
         <tr>
             <th>Inicio (Km.)</th>
             <th>Fin (Km.)</th>
-            <th>X Inicio(mts)</th>
-            <th>Y Inicio(mts)</th>
-            <th>Inicio(m.s.n.m)</th>
-            <th>X Final(mts)</th>
-            <th>Y Final(mts)</th>
+            <th>X Inicio (mts)</th>
+            <th>Y Inicio (mts)</th>
+            <th>Inicio (m.s.n.m)</th>
+            <th>X Final (mts)</th>
+            <th>Y Final (mts)</th>
             <th>Final (m.s.n.m)</th>
         </tr>
     </thead>
@@ -33,7 +33,7 @@
                 <td>{{ $supRodadura->coor_y_final }} </td>
                 <td>{{ $supRodadura->altitud_final }} </td>
                 <td>{{ $supRodadura->tipo_superficie }} </td>
-                <td>{{ $supRodadura->created_at }} </td>
+                <td>{{ $supRodadura->fecha }} </td>
             </tr>
         @endforeach
     </tbody>

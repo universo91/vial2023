@@ -36,7 +36,7 @@
                 <th class="align-middle">Y<sub>f</sub></th>
                 <th class="align-middle">Altitud<sub>f</sub></th>
                 <th class="align-middle">T. Superficie<sub>i</sub></th>
-                <th class="align-middle">Fecha creacion</th>
+                <th class="align-middle">Fecha</th>
 
 
             </tr>
@@ -55,7 +55,7 @@
                     <td>{{ $supRodadura->coor_y_final }} </td>
                     <td>{{ $supRodadura->altitud_final }} </td>
                     <td>{{ $supRodadura->tipo_superficie }} </td>
-                    <td>{{ $supRodadura->created_at }} </td>
+                    <td>{{ $supRodadura->fecha }} </td>
 
                 </tr>
             @endforeach

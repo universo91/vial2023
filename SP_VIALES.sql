@@ -16,7 +16,7 @@ BEGIN
         tra.coor_y_final,
         tra.altitud_final,
         tra.tipo_superficie,
-        tra.created_at
+        convert(tra.created_at, date) as fecha
     FROM rutas  ru
     INNER JOIN tramos tra
     ON ru.id = tra.rutas_id;

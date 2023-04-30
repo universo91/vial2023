@@ -10,6 +10,7 @@ use App\Http\Controllers\senial\SenializacionController;
 use App\Http\Controllers\superficie\SuperficieController;
 use App\Http\Controllers\tipo\TipoController;
 use App\Http\Controllers\tramo\TramoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,7 +63,6 @@ Route::post('/puente/crear', [PuenteController::class, 'crear'])->name('registra
 Route::post('/superficie/crear', [SuperficieController::class, 'crear'])->name('registrarSuperficie');
 Route::post('/senializacion/crear', [SenializacionController::class, 'crear'])->name('registrarSenializacion');
 
-Route::get('rutas/export/excel', [ReportesExcelController::class, 'exportRutas'])->name('exportarRuta');
 Route::get('georeferenciamiento/export/excel', [ReportesExcelController::class, 'exportarGeoreferenciamiento'])->name('expGeoref');
 Route::get('itinerario/export/excel', [ ReportesExcelController::class, 'exportarItinerario'] )->name('expItinerario');
 Route::get('sup-rodadura/export/excel', [ ReportesExcelController::class, 'exportarSuperficieRodadura'] )->name('expSupRodadura');
