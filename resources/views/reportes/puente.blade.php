@@ -28,6 +28,7 @@
                 <th class="align-middle">Ruta</th>
                 <th class="align-middle">Progresiva</th>
                 <th class="align-middle">Coord.X</th>
+                <th class="align-middle">Coord.Y</th>
                 <th class="align-middle">Altitud</th>
                 <th class="align-middle">Clase</th>
                 <th class="align-middle">Tipo</th>
