@@ -107,7 +107,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'img/vial_fondoblanco.jpg','alt' => 'Vial 2023',
             'effect' => 'animation__shake',
@@ -369,7 +369,7 @@ return [
         [
             'text'    => 'Formatos',
             'url'     => '#',
-            'icon'    => 'fas fa-file-chart-line',
+            'icon'    => 'fas fa-paste',
             'submenu' => [
                 [
                     'text' => '(F1) Georeferenciamiento',
@@ -396,7 +396,7 @@ return [
                 [
                     'text' => '(F3) Superficie de rodadura ',
                     'url'  => '/reporte/superficie-rodadura',
-                    'icon' => 'fas fa-tire-rugged',
+                    'icon' => 'fas fa-map',
                     'icon_color' => 'red'
                 ],
                 [
@@ -414,7 +414,7 @@ return [
                 [
                     'text' => '(F6) Estado transitabilidad',
                     'url'  => '/reporte/estado-transitabilidad',
-                    'icon' => 'fas fa-cars',
+                    'icon' => 'fas fa-cog',
                     'icon_color' => 'red'
                 ],
                 [
@@ -489,17 +489,17 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],

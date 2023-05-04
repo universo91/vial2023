@@ -1,0 +1,39 @@
+figure {
+    width: 100%;
+
+}
+.figure {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* .imagen {
+    background-color: rgb(186, 4, 41);
+    color: white;
+} */
+
+.file input {
+    display: none;
+}
+
+.file label {
+    display: block;
+    padding: 8px 21px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+.file label i {
+    margin-right: 5px;
+}
+
+.imagen {
+    width: 100px;
+    overflow: hidden;
+}
+.imagen img {
+    width: 100%;
+}

@@ -11,7 +11,7 @@
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">
-                <img src="" alt="">
+                <img src="/img/ruta.png" alt="rutas">
                 Rutas
             </a>
         </h3>

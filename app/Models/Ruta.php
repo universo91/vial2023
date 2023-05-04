@@ -38,6 +38,6 @@ class Ruta extends Model
 
     public function distrito()
     {
-        return $this->belongsTo(Distrito::class);
+        return $this->belongsTo(Distrito::class, 'distritos_id');
     }
 }

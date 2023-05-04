@@ -11,7 +11,7 @@
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-3">
             <a style="text-decoration:none; color:inherit" href="">
-                <img src="" alt="">
+                <img src="/img/senalizar.png" alt="senalizar">
                 Señalizaciones
             </a>
         </h3>

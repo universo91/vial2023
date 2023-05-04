@@ -40,11 +40,11 @@ class Tramo extends Model
 
     public function superficies()
     {
-        return $this->hasMany(Superficie::class);
+        return $this->hasMany(Superficie::class, 'superficies_id');
     }
 
     public function ruta()
     {
-        return $this->belongsTo(Ruta::class);
+        return $this->belongsTo(Ruta::class, 'rutas_id');
     }
 }
