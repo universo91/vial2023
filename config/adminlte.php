@@ -340,7 +340,7 @@ return [
                 ],
                 [
                     'text' => 'Tramos',
-                    'url'  => '/tramo/registro',
+                    'url'  => '/tramo/vista_tramos',
                     'icon' => 'fas fa-bacon',
                     'icon_color' => 'cyan'
                 ],

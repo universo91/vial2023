@@ -38,7 +38,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/registro-tramo.css">
+    <link rel="stylesheet" href="/css/tramo/registro.css">
 @stop
 
 @section('js')

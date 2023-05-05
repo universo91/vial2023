@@ -58,20 +58,14 @@ class TramoController extends Controller
     public function editarTramo($id)
     {
         $tramo = Tramo::findOrFail($id);
-        $ruta = Ruta::where('id', $tramo->rutas_id)->get(['id', 'codigo', 'distritos_id']);
+        $ruta = Ruta::findOrFail($tramo->rutas_id);
         $rutas = Ruta::where('distritos_id', $ruta->distritos_id)->get(['id', 'codigo', 'distritos_id']);
-        $distrito = Distrito::where('id', $ruta->distritos_id)->get(['id', 'nombre', 'provincias_id']);
-        $distritos = Distrito::where('provincias_id', $distrito->privincias_id)->get(['id', 'nombre']);
-        $provincia = Provincia::where('id', $distrito->provincias_id)->get(['id', 'nombre', 'departamentos_id']);
+        $distrito = Distrito::findOrFail($ruta->distritos_id);
+        $distritos = Distrito::where('provincias_id', $distrito->provincias_id)->get(['id', 'nombre']);
+        $provincia = Provincia::findOrFail($distrito->provincias_id);
         $provincias = Provincia::where('departamentos_id', $provincia->departamentos_id)->get(['id', 'nombre']);
         $departamentos = Departamento::get(['id', 'nombre']);
-        return view('tramo.index')->with( compact('tramo', 'ruta', 'rutas', 'distrito', 'distritos', 'provincia', 'provincias', 'departamentos'));
-        dd($ruta);
-
-        /* $developer->skills()->where('name', 'PHP')->get()
-        $user = User::with('comments')->find(1);
-        $departamentos = Departamento::get(['id', 'nombre']);
-        $pr */
+        return view('tramo.editar')->with( compact('tramo', 'ruta', 'rutas', 'distrito', 'distritos', 'provincia', 'provincias', 'departamentos'));
 
     }
 

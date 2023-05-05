@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tramo/{id}/editar', [TramoController::class, 'editarTramo'])->name('editar_tramo');
 
     Route::get('/ruta/registro', [RutaController::class, 'registrar']);
-    Route::get('/tramo/registro', [TramoController::class, 'registrar']);
+    Route::get('/tramo/registro', [TramoController::class, 'registrar'])->name('registro_tramo');
     Route::get('/puente/registro', [PuenteController::class, 'registrar']);
     Route::get('/senializacion/registro', [SenializacionController::class, 'registrar']);
     Route::get('/superficie/registro', [SuperficieController::class, 'registrar']);

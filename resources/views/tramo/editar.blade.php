@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'registro señalizacion')
+@section('title', 'registro tramo')
 
 @section('content_header')
 @stop
@@ -9,10 +9,10 @@
 
 <div class="container">
     <div class="page-header">
-        <h3 class="font-weight-light mb-3 pt-3">
+        <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">
-                <img src="/img/superficie.png" alt="superficie">
-                Superficies
+                <img src="/img/tramo1.png" alt="tramo">
+                Tramos
             </a>
         </h3>
         <hr>
@@ -22,14 +22,14 @@
         <div class="card card-light mb-3">
             <h6 class="card-header">
                 <div class="panel-heading">
-                    <Strong>Superficie detalles</Strong>
+                    <Strong>Tramo detalles</Strong>
                 </div>
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('registrarSuperficie') }}" method="POST">
+                <form action="{{ route('registrarTramo') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @include('superficie.form')
+                    @include('tramo.form')
                 </form>
             </div>
         </div>
@@ -38,9 +38,9 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/registro-tramo.css">
 @stop
 
 @section('js')
-    <script src="/js/superficie/registro.js"></script>
+    <script src="/js/tramos/registro.js"></script>
 @stop

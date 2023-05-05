@@ -22,7 +22,7 @@ selectDepartamento.addEventListener('change', async ( e ) => {
 
 
     await provincias.map((provincia) => {
-        htmlProvincias += `<option value="${provincia.id}">${provincia.nombre}</option>`
+        htmlProvincias += `<option value="${provincia.id}">${provincia.nombre.toUpperCase()}</option>`
     })
     console.log( htmlProvincias );
 
@@ -45,10 +45,10 @@ selectProvincia.addEventListener('change', async (e) => {
         method: 'GET'
     });
 
-    const provincias = await respuesta.json();
+    const distritos = await respuesta.json();
 
-    provincias.map( (provincia) => {
-        htmlDistritos += `<option value="${ provincia.id }">${ provincia.nombre }</option>`;
+    distritos.map( (distrito ) => {
+        htmlDistritos += `<option value="${ distrito.id }">${ distrito.nombre.toUpperCase() }</option>`;
     });
 
     selectDistrito.innerHTML = htmlDistritos;
