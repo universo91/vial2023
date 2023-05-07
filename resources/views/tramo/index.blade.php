@@ -17,13 +17,13 @@
     <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
             <a href="{{ route('registro_tramo')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-plus-circle"></i> Agregar Nuevo</a>
-            <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
+            <a hidden type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
         </div>
     </div>
     <div class="card">
-        <div class="card-body overflow-auto">
-            <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
-                <thead class="" style="font-size: 10px;color:rgb(0, 151, 252)">
+        <div class="card-body">
+            <table id="example" class="table table-striped mt-4 order-column nowrap" style="font-size:15px;" >
+                <thead class="" style="font-size:14px;color:rgb(255, 255, 255);background-color:#2e2170">
                     <tr>
                         <th class="align-middle">Departamento</th>
                         <th class="align-middle">Provincia</th>
@@ -53,7 +53,7 @@
                         <th class="align-middle">Ident. Calzada</th>
                         <th class="align-middle">Ident. CalzadaObservaciones</th>
                         <th class="align-middle">Fecha</th>
-                        <th class="align-middle">
+                        <th class="align-middle" style="background-color:#2e2170">
                             Acciones
                         </th>
 
@@ -92,10 +92,11 @@
                             <td>{{ $tramo->identificacion_calzada }} </td>
                             <td>{{ $tramo->observaciones }} </td>
                             <td>{{ $tramo->created_at }} </td>
-                            <td>
+                            <td class='accion'>
                                 <a
                                     href="{{ route('editar_tramo', $tramo->id) }}"
-                                    class="btn btn-success btn-xs"
+                                    class="btn btn-xs"
+                                    style="background-color: #D80E42;color:white"
                                 >
                                     Editar
                                 </a>
@@ -113,9 +114,16 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+  {{--   <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css" rel="stylesheet"/> --}}
+    <link rel="stylesheet" href="/css/tramo/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
+{{--
+    <script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.3.2/js/dataTables.fixedHeader.min.js"></script> --}}
+
+
 @stop

@@ -11,13 +11,8 @@ $(document).ready(function () {
                 "last":     "Ultimo"
             }
         },
-
         scrollX: true,
         ordering: false,
-        fixedColumns: {
-            right: 1,
-            left: 0
-        },
         fixedHeader:{
             header: true
         }

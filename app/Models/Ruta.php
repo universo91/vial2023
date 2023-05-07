@@ -33,11 +33,16 @@ class Ruta extends Model
 
     public function senializaciones()
     {
-        return $this->hasMany(Senializacion::class);
+        return $this->hasMany(Senializacion::class, 'rutas_id');
     }
 
     public function distrito()
     {
         return $this->belongsTo(Distrito::class, 'distritos_id');
+    }
+
+    public function puentes()
+    {
+        return $this->hasMany(Puente::class, 'rutas_id');
     }
 }

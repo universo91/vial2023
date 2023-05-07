@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'registro señalizacion')
+@section('title', 'registro superficie')
 
 @section('content_header')
 @stop

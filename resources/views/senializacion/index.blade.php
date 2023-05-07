@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Georeferenciamiento')
+@section('title', 'Senializacion')
 
 @section('content_header')
 @stop
@@ -11,24 +11,25 @@
         <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">
                 <img src="/img/senal-de-trafico.png" alt="extintor">
-                Senializacion
+                Señalización
             </a>
         </h3>
         <hr>
     </div>
     <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a href="{{ route('expSenializacion')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-file-excel"></i> Exp. excel</a>
+            <a href="{{ route('registro_senializacion')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-plus-circle"></i> Agregar Nuevo</a>
             <a hidden type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <table id="example" class="table table-striped mt-4" style="font-size: 15px;" >
-                <thead style="font-size:14px;color:rgb(255, 255, 255);background-color:#2e2170">
+            <table id="example" class="table table-striped mt-4 nowrap" style="font-size: 15px;" >
+                <thead class="" style="font-size:14px;color:rgb(255, 255, 255);background-color:#2e2170">
                     <tr>
                         <th class="align-middle">Departamento</th>
                         <th class="align-middle">Provincia</th>
+                        <th class="align-middle">Distrito</th>
                         <th class="align-middle">Ubigeo</th>
                         <th class="align-middle">Ruta</th>
                         <th class="align-middle">Señal</th>
@@ -42,15 +43,17 @@
                         <th class="align-middle">Coor. Y</th>
                         <th class="align-middle">Altitud</th>
                         <th class="align-middle">Fecha</th>
+                        <th class="align-middle" style="background-color:#2e2170">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($datosSenializacion as  $senializacion)
+                    @foreach ($senializaciones as  $senializacion)
                         <tr>
-                            <td>{{ $senializacion->departamento }} </td>
-                            <td>{{ $senializacion->provincia }} </td>
-                            <td>{{ $senializacion->ubigeo }} </td>
-                            <td>{{ $senializacion->codigo }} </td>
+                            <td>{{ $senializacion->ruta->distrito->provincia->departamento->nombre }} </td>
+                            <td>{{ $senializacion->ruta->distrito->provincia->nombre }} </td>
+                            <td>{{ $senializacion->ruta->distrito->nombre }} </td>
+                            <td>{{ $senializacion->ruta->distrito->ubigeo }} </td>
+                            <td>{{ $senializacion->ruta->codigo }} </td>
                             <td>{{ $senializacion->senial }} </td>
                             <td>{{ $senializacion->clasificacion }} </td>
                             <td>{{ $senializacion->progresiva }} </td>
@@ -61,7 +64,16 @@
                             <td>{{ $senializacion->coordenada_x }} </td>
                             <td>{{ $senializacion->coordenada_y }} </td>
                             <td>{{ $senializacion->altitud }} </td>
-                            <td>{{ $senializacion->fecha }} </td>
+                            <td>{{ $senializacion->created_at }} </td>
+                            <td>
+                                <a
+                                    href="{{route('editar_senializacion', $senializacion->id) }}"
+                                    class="btn btn-xs"
+                                    style="background-color: #D80E42;color:white"
+                                >
+                                    Editar
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
 
@@ -78,5 +90,5 @@
 @stop
 
 @section('js')
-    <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/dataTable.js"></script>
 @stop

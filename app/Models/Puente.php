@@ -28,6 +28,11 @@ class Puente extends Model
 
     public function ruta()
     {
-        return $this->belongsTo(Ruta::class);
+        return $this->belongsTo(Ruta::class, 'rutas_id');
+    }
+
+    public function tipo()
+    {
+        return $this->belongsTo(Tipo::class, 'tipos_id');
     }
 }

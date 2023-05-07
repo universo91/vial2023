@@ -13,6 +13,11 @@ class Tipo extends Model
 
     public function clase()
     {
-        return $this->belongsTo(Clase::class);
+        return $this->belongsTo(Clase::class, 'clases_id');
+    }
+
+    public function puentes()
+    {
+        return $this->hasMany( Puente::class, 'tipos_id');
     }
 }

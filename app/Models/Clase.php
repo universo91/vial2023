@@ -13,6 +13,6 @@ class Clase extends Model
 
     public function tipos()
     {
-        return $this->hasMany(Tipo::class);
+        return $this->hasMany(Tipo::class, 'clases_id');
     }
 }

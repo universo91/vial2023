@@ -15,4 +15,9 @@ class Distrito extends Model
     {
         return $this->belongsTo(Provincia::class, 'provincias_id');
     }
+
+    public function rutas()
+    {
+        return $this->hasMany(Ruta::class, 'distritos_id');
+    }
 }

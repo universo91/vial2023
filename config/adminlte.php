@@ -346,19 +346,19 @@ return [
                 ],
                 [
                     'text' => 'Superficies',
-                    'url'  => '/superficie/registro',
+                    'url'  => '/superficie/vista_superficies',
                     'icon' => 'fas fa-window-minimize',
                     'icon_color' => 'cyan'
                 ],
                 [
                     'text' => 'Señalizaciones',
-                    'url'  => '/senializacion/registro',
+                    'url'  => '/senializaciom/vista_senializaciones',
                     'icon' => 'fas fa-map-signs',
                     'icon_color' => 'cyan'
                 ],
                 [
                     'text' => 'Puentes',
-                    'url'  => '/puente/registro',
+                    'url'  => '/puente/vista_puentes',
                     'icon' => 'fas fa-archway',
                     'icon_color' => 'cyan'
 
@@ -487,20 +487,37 @@ return [
         'Datatables' => [
             'active' => true,
             'files' => [
+
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' => '//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => '//cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js',
+                ],
+
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '//cdn.datatables.net/1.13.4/css/dataTables.bootstrap.min.css',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => '//cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '//cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css',
                 ],
             ],
         ],

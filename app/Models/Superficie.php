@@ -28,6 +28,6 @@ class Superficie extends Model
 
     public function tramo()
     {
-        return $this->belongsTo(Tramo::class);
+        return $this->belongsTo(Tramo::class, 'tramos_id');
     }
 }

@@ -40,7 +40,7 @@ class Tramo extends Model
 
     public function superficies()
     {
-        return $this->hasMany(Superficie::class, 'superficies_id');
+        return $this->hasMany(Superficie::class, 'tramos_id');
     }
 
     public function ruta()

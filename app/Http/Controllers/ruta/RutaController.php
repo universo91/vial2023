@@ -15,11 +15,17 @@ class RutaController extends Controller
     {
         return view('ruta.index');
     }
+
     public function registrar() {
         $departamentos = Departamento::query(['id', 'nombre'])->get();
         //$departamentos = Departamento::get();
         //dd($departamentos);
         return view('ruta.registro')->with( compact('departamentos') );
+    }
+
+    public function listaRutas() {
+        $rutas = Ruta::with('distrito.provincia.departamento:id,nombre');
+        return view('ruta.index', compact('rutas'));
     }
 
     public function getValidacionRuta() {

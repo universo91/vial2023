@@ -32,13 +32,22 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Listas
     Route::get('/tramo/vista_tramos', [TramoController::class, 'listaTramos'])->name('lista_tramos');
+    Route::get('/superficie/vista_superficies', [SuperficieController::class, 'listaSuperficies'])->name('lista_superficies');
+    Route::get('/senializaciom/vista_senializaciones', [SenializacionController::class, 'listaSenializaciones'])->name('lista_senializaciones');
+    Route::get('/puente/vista_puentes', [PuenteController::class, 'listaPuentes'])->name('lista_puentes');
+    Route::get('/ruta/vista_rutas', [RutaController::class, 'listaRutas'])->name('lista_rutas');
+
+
     Route::get('/tramo/{id}/editar', [TramoController::class, 'editarTramo'])->name('editar_tramo');
+    Route::get('/superficie/{id}/editar', [SuperficieController::class, 'editarSuperficie'])->name('editar_superficie');
+    Route::get('/senializacion/{id}/editar', [SenializacionController::class, 'editarSenializacion'])->name('editar_senializacion');
+    Route::get('/puente/{id}/editar', [PuenteController::class, 'editarPuente'])->name('editar_puente');
 
     Route::get('/ruta/registro', [RutaController::class, 'registrar']);
     Route::get('/tramo/registro', [TramoController::class, 'registrar'])->name('registro_tramo');
     Route::get('/puente/registro', [PuenteController::class, 'registrar']);
-    Route::get('/senializacion/registro', [SenializacionController::class, 'registrar']);
-    Route::get('/superficie/registro', [SuperficieController::class, 'registrar']);
+    Route::get('/senializacion/registro', [SenializacionController::class, 'registrar'])->name('registro_senializacion');
+    Route::get('/superficie/registro', [SuperficieController::class, 'registrar'])->name('registro_superficie');
 
     Route::get('/departamento/{id}/provincias', [ProvinciaController::class, 'getProvincias']);
     Route::get('/provincia/{id}/distritos', [DistritoController::class, 'getDistritos']);

@@ -18,14 +18,14 @@
     </div>
     <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a href="{{ route('expGeoref')}}" type="button" class="btn btn-success btn-flat">Exp. excel</a>
-            <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
+            <a href="{{ route('expGeoref')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-file-excel"></i> Exp. excel</a>
+            <a type="button" class="btn btn-danger btn-flat" hidden>Exp. PDF</a>
         </div>
     </div>
     <div class="card">
-        <div class="card-body overflow-auto">
-            <table id="example" class="table table-striped table-bordered shadow-lg mt-4 mr-2" style="font-size: 14px;" >
-                <thead class="bg-primary" style="font-size: 16px;">
+        <div class="card-body">
+            <table id="example" class="table table-striped mt-4 nowrap" style="font-size: 15px;" >
+                <thead  style="font-size:14px;color:rgb(255, 255, 255);background-color:#2e2170">
                     <tr>
                         <th class="align-middle">Ubigeo</th>
                         <th class="align-middle">Codigo Ruta</th>
@@ -82,5 +82,5 @@
 @stop
 
 @section('js')
-    <script src="/js/general/dataTable.js"></script>
+    <script src="/js/general/datatableReportes.js"></script>
 @stop

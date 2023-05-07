@@ -18,12 +18,12 @@
     </div>
     <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a href="{{ route('expTipoSuperficie')}}" type="button" class="btn btn-success btn-flat">Exp. excel</a>
-            <a type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
+            <a href="{{ route('expTipoSuperficie')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-file-excel"></i> Exp. excel</a>
+            <a hidden type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
         </div>
     </div>
-    <table id="example" class="table table-striped table-bordered shadow-lg mt-4 small mr-2" style="font-size: 12px;" >
-        <thead class="bg-info" style="font-size: 10px;">
+    <table id="example" class="table table-striped table-bordered mt-4 nowrap" style="font-size: 15px;" >
+        <thead style="font-size:14px;color:rgb(255, 255, 255);background-color:#2e2170">
             <tr>
                 <th class="align-middle">Departamento</th>
                 <th class="align-middle">Provincia</th>
@@ -43,7 +43,6 @@
                 <th class="align-middle">Altitud<sub>f</sub></th>
                 <th class="align-middle">Zona</th>
                 <th class="align-middle">Fecha creacion</th>
-
             </tr>
         </thead>
         <tbody>
@@ -67,7 +66,6 @@
                     <td>{{ $tipoSuperficie->altitud_final }} </td>
                     <td>{{ $tipoSuperficie->zona }} </td>
                     <td>{{ $tipoSuperficie->fecha }} </td>
-
                 </tr>
             @endforeach
         </tbody>
@@ -80,5 +78,5 @@
 @stop
 
 @section('js')
-    <script src="/js/general/dataTable.js"></script>
+    <script src="/js/general/datatableReportes.js"></script>
 @stop
