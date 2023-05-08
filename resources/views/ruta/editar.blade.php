@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'registro puente')
+@section('title', 'registro ruta')
 
 @section('content_header')
 @stop
@@ -9,10 +9,10 @@
 
 <div class="container">
     <div class="page-header">
-        <h3 class="font-weight-light mb-3 pt-3">
+        <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">
-                <img src="/img/puente.png" alt="puente">
-                Puentes
+                <img src="/img/ruta.png" alt="rutas">
+                Rutas
             </a>
         </h3>
         <hr>
@@ -22,17 +22,16 @@
         <div class="card card-light mb-3">
             <h6 class="card-header">
                 <div class="panel-heading">
-                    <Strong>Puente detalles</Strong>
+                    <Strong>Ruta detalles</Strong>
                 </div>
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('actualizar_puente', $puente->id) }}" method="POST">
-                    @method('PUT')
+                <form action="{{ route('actualizar_ruta', $ruta->id) }}" method="POST">
                     @csrf
-                    @include('puente.form')
+                    @method('PUT')
+                    @include('ruta.form')
                 </form>
-
             </div>
 
 
@@ -46,6 +45,6 @@
 @stop
 
 @section('js')
-    <script src="/js/puentes/registro.js"> </script>
-
+    <script src="/js/rutas/registro.js"></script>
 @stop
+

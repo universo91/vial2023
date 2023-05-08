@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-<div class="container">
+<div class="container tramo-content">
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-5">
             <img src="/img/mapa.png" alt="mapa">
@@ -82,7 +82,11 @@
                             <td>{{ $tramo->altitud_final }} </td>
                             <td>{{ $tramo->zona }} </td>
                             <td>{{ $tramo->punto_notable }} </td>
-                            <td>{{ $tramo->codigo_imagen }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $tramo->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $tramo->tramo_inicio }} </td>
                             <td>{{ $tramo->tramo_fin }} </td>
                             <td>{{ $tramo->numero_carriles }} </td>
@@ -110,20 +114,25 @@
             </table>
         </div>
     </div>
+    <figure class="modal-imagen">
+        <img src="" alt="imagen">
+    </figure>
+
+
 </div>
+<figure class="popup-imagen">
+    <span>&times;</span>
+
+</figure>
+
 @stop
 
 @section('css')
-  {{--   <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css" rel="stylesheet"/> --}}
     <link rel="stylesheet" href="/css/tramo/index.css">
+
 @stop
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
-{{--
-    <script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.3.2/js/dataTables.fixedHeader.min.js"></script> --}}
-
-
+    <script src="/js/tramos/imagen.js"></script>
 @stop

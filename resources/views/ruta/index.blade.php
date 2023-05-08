@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Senializacion')
+@section('title', 'Ruta')
 
 @section('content_header')
 @stop
@@ -10,15 +10,15 @@
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">
-                <img src="/img/senal-de-trafico.png" alt="extintor">
-                Señalización
+                <img src="/img/ruta.png" alt="rutas">
+                Rutas
             </a>
         </h3>
         <hr>
     </div>
     <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a href="{{ route('registro_senializacion')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-plus-circle"></i> Agregar Nuevo</a>
+            <a href="{{ route('registro_ruta')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-plus-circle"></i> Agregar Nuevo</a>
             <a hidden type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
         </div>
     </div>
@@ -30,48 +30,46 @@
                         <th class="align-middle">Departamento</th>
                         <th class="align-middle">Provincia</th>
                         <th class="align-middle">Distrito</th>
-                        <th class="align-middle">Ubigeo</th>
                         <th class="align-middle">Ruta</th>
-                        <th class="align-middle">Señal</th>
-                        <th class="align-middle">Clasificacion</th>
-                        <th class="align-middle">Progresiva</th>
-                        <th class="align-middle">Lado</th>
-                        <th class="align-middle">Soporte</th>
-                        <th class="align-middle">Material</th>
-                        <th class="align-middle">Zona</th>
-                        <th class="align-middle">Coor. X</th>
-                        <th class="align-middle">Coor. Y</th>
-                        <th class="align-middle">Altitud</th>
+                        <th class="align-middle">Punto inicial</th>
+                        <th class="align-middle">Coor. X<sub>i</sub></th>
+                        <th class="align-middle">Coor. Y<sub>i</sub></th>
+                        <th class="align-middle">Punto Final</th>
+                        <th class="align-middle">Coor. X<sub>f</sub></th>
+                        <th class="align-middle">Coor. Y<sub>f</sub></th>
+                        <th class="align-middle">Altitud<sub>I</sub></th>
+                        <th class="align-middle">Altitud<sub>F</th>
+                        <th class="align-middle">Progresiva<sub>I</sub></th>
+                        <th class="align-middle">Progresiva<sub>F</sub></th>
                         <th class="align-middle">Fecha</th>
                         <th class="align-middle" style="background-color:#2e2170">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($senializaciones as  $senializacion)
+                    @foreach ($rutas as  $ruta)
                         <tr>
-                            <td>{{ $senializacion->ruta->distrito->provincia->departamento->nombre }} </td>
-                            <td>{{ $senializacion->ruta->distrito->provincia->nombre }} </td>
-                            <td>{{ $senializacion->ruta->distrito->nombre }} </td>
-                            <td>{{ $senializacion->ruta->distrito->ubigeo }} </td>
-                            <td>{{ $senializacion->ruta->codigo }} </td>
-                            <td>{{ $senializacion->senial }} </td>
-                            <td>{{ $senializacion->clasificacion }} </td>
-                            <td>{{ $senializacion->progresiva }} </td>
-                            <td>{{ $senializacion->lado }} </td>
-                            <td>{{ $senializacion->soporte }} </td>
-                            <td>{{ $senializacion->material }} </td>
-                            <td>{{ $senializacion->zona }} </td>
-                            <td>{{ $senializacion->coordenada_x }} </td>
-                            <td>{{ $senializacion->coordenada_y }} </td>
-                            <td>{{ $senializacion->altitud }} </td>
-                            <td>{{ $senializacion->created_at }} </td>
+                            <td>{{ $ruta->distrito->provincia->departamento->nombre }} </td>
+                            <td>{{ $ruta->distrito->provincia->nombre }} </td>
+                            <td>{{ $ruta->distrito->nombre }} </td>
+                            <td>{{ $ruta->codigo }} </td>
+                            <td>{{ $ruta->punto_inicio }} </td>
+                            <td>{{ $ruta->coordenada_x_inicio }} </td>
+                            <td>{{ $ruta->coordenada_y_inicio }} </td>
+                            <td>{{ $ruta->punto_final }} </td>
+                            <td>{{ $ruta->coordenada_x_final }} </td>
+                            <td>{{ $ruta->coordenada_y_final }} </td>
+                            <td>{{ $ruta->altitud_punto_inicial }} </td>
+                            <td>{{ $ruta->altitud_punto_final }} </td>
+                            <td>{{ $ruta->progresiva_punto_inicial }} </td>
+                            <td>{{ $ruta->progresiva_punto_final }} </td>
+                            <td>{{ $ruta->created_at }} </td>
                             <td>
                                 <a
-                                    href="{{route('editar_senializacion', $senializacion->id) }}"
+                                    href="{{route('editar_ruta', $ruta->id) }}"
                                     class="btn btn-xs"
                                     style="background-color: #D80E42;color:white"
                                 >
-                                    Editar
+                                    <i class="fas fa-edit"></i>
                                 </a>
                             </td>
                         </tr>

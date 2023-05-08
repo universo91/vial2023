@@ -27,8 +27,9 @@
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('registrarTramo') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('actualizar_tramo', $tramo->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     @include('tramo.form')
                 </form>
             </div>

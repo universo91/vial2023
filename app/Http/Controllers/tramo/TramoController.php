@@ -19,35 +19,6 @@ class TramoController extends Controller
 
     private $disk = 'public';
 
-    public static function getValidacionesTramo() {
-        return [
-            'rutas_id'               => ['nullable'],
-            'numero_tramo'           => ['nullable'],
-            'tipo_terreno'           => ['nullable'],
-            'estado_via'             => ['nullable'],
-            'tipo_superficie'        => ['nullable'],
-            'progresiva_inicial'     => ['nullable'],
-            'progresiva_final'       => ['nullable'],
-            'coor_x_inicial'         => ['nullable'],
-            'coor_y_inicial'         => ['nullable'],
-            'altitud_inicial'        => ['nullable'],
-            'coor_x_final'           => ['nullable'],
-            'coor_y_final'           => ['nullable'],
-            'altitud_final'          => ['nullable'],
-            'zona'                   => ['nullable'],
-            'punto_notable'          => ['nullable'],
-            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'tramo_inicio'           => ['nullable'],
-            'tramo_fin'              => ['nullable'],
-            'numero_carriles'        => ['nullable'],
-            'ancho_calzada'          => ['nullable'],
-            'ancho_berma_izquierda'  => ['nullable'],
-            'ancho_berma_derecha'    => ['nullable'],
-            'identificacion_calzada' => ['nullable'],
-            'observaciones'          => ['nullable']
-        ];
-    }
-
     public function listaTramos()
     {
         $tramos = Tramo::with('ruta.distrito.provincia.departamento:id,nombre')->get();
@@ -99,6 +70,23 @@ class TramoController extends Controller
         return $tramos;
     }
 
+    public function actualizarTramo(Request $request, $idTramo)
+    {
+        $validator = Validator::make($request->all(), static::getValidacionesActualizarTramo());
+
+        if( $validator->fails())
+        {
+
+        }
+
+        $datosValidados = $validator->validated();
+
+        Tramo::where('id', $idTramo)->update($datosValidados);
+
+        return redirect('/tramo/vista_tramos');
+
+    }
+
     private function guardarImagen(Request $request)
     {
         //Obtenemos la imagen
@@ -117,6 +105,64 @@ class TramoController extends Controller
         //
         $urlImagen = Storage::url($ruta);
         return $urlImagen;
+    }
+
+    public static function getValidacionesTramo() {
+        return [
+            'rutas_id'               => ['nullable'],
+            'numero_tramo'           => ['nullable'],
+            'tipo_terreno'           => ['nullable'],
+            'estado_via'             => ['nullable'],
+            'tipo_superficie'        => ['nullable'],
+            'progresiva_inicial'     => ['nullable'],
+            'progresiva_final'       => ['nullable'],
+            'coor_x_inicial'         => ['nullable'],
+            'coor_y_inicial'         => ['nullable'],
+            'altitud_inicial'        => ['nullable'],
+            'coor_x_final'           => ['nullable'],
+            'coor_y_final'           => ['nullable'],
+            'altitud_final'          => ['nullable'],
+            'zona'                   => ['nullable'],
+            'punto_notable'          => ['nullable'],
+            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'tramo_inicio'           => ['nullable'],
+            'tramo_fin'              => ['nullable'],
+            'numero_carriles'        => ['nullable'],
+            'ancho_calzada'          => ['nullable'],
+            'ancho_berma_izquierda'  => ['nullable'],
+            'ancho_berma_derecha'    => ['nullable'],
+            'identificacion_calzada' => ['nullable'],
+            'observaciones'          => ['nullable']
+        ];
+    }
+
+    public static function getValidacionesActualizarTramo() {
+        return [
+            'rutas_id'               => ['nullable'],
+            'numero_tramo'           => ['nullable'],
+            'tipo_terreno'           => ['nullable'],
+            'estado_via'             => ['nullable'],
+            'tipo_superficie'        => ['nullable'],
+            'progresiva_inicial'     => ['nullable'],
+            'progresiva_final'       => ['nullable'],
+            'coor_x_inicial'         => ['nullable'],
+            'coor_y_inicial'         => ['nullable'],
+            'altitud_inicial'        => ['nullable'],
+            'coor_x_final'           => ['nullable'],
+            'coor_y_final'           => ['nullable'],
+            'altitud_final'          => ['nullable'],
+            'zona'                   => ['nullable'],
+            'punto_notable'          => ['nullable'],
+            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'tramo_inicio'           => ['nullable'],
+            'tramo_fin'              => ['nullable'],
+            'numero_carriles'        => ['nullable'],
+            'ancho_calzada'          => ['nullable'],
+            'ancho_berma_izquierda'  => ['nullable'],
+            'ancho_berma_derecha'    => ['nullable'],
+            'identificacion_calzada' => ['nullable'],
+            'observaciones'          => ['nullable']
+        ];
     }
 
 

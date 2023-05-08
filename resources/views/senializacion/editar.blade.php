@@ -27,8 +27,9 @@
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('registrarSenializacion') }}" method="POST">
+                <form action="{{ route('actualizar_senializacion', $senializacion->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     @include('senializacion.form')
                 </form>
             </div>

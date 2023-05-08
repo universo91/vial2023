@@ -283,10 +283,10 @@
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">hidrografia</label>
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="hidrografia" id="hidrografia">
-                        <option >Hidrografia</option>
+                        <option >Seleccione Hidrografia</option>
                         @if (isset($puente->id))
-                            <option value="rio" {{ $puente->hidrogrfia == 'rio' ? 'selected' : '' }}>Rio</option>
-                            <option value="quebrada" {{ $puente->hidrogrfia == 'quebrada' ? 'selected' : '' }}>Quebrada</option>
+                            <option value="rio" {{ $puente->hidrografia == 'rio' ? 'selected' : '' }}>Rio</option>
+                            <option value="quebrada" {{ $puente->hidrografia == 'quebrada' ? 'selected' : '' }}>Quebrada</option>
                         @else
                             <option value="rio">Rio</option>
                             <option value="quebrada">Quebrada</option>

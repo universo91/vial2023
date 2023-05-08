@@ -42,8 +42,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/superficie/{id}/editar', [SuperficieController::class, 'editarSuperficie'])->name('editar_superficie');
     Route::get('/senializacion/{id}/editar', [SenializacionController::class, 'editarSenializacion'])->name('editar_senializacion');
     Route::get('/puente/{id}/editar', [PuenteController::class, 'editarPuente'])->name('editar_puente');
+    Route::get('/ruta/{id}/editar', [RutaController::class, 'editarRuta'])->name('editar_ruta');
 
-    Route::get('/ruta/registro', [RutaController::class, 'registrar']);
+    Route::put('/puente/{id}/actualizar', [PuenteController::class, 'actualizarPuente'])->name('actualizar_puente');
+    Route::put('/ruta/{id}/actualizar', [RutaController::class, 'actualizarRuta'])->name('actualizar_ruta');
+    Route::put('/senializacion/{id}/actualizar', [SenializacionController::class, 'actualizarSenializacion'])->name('actualizar_senializacion');
+    Route::put('/superficie/{id}/actualizar', [SuperficieController::class, 'actualizarSuperficie'])->name('actualizar_superficie');
+    Route::put('/tramo/{id}/actualizar', [TramoController::class, 'actualizarTramo'])->name('actualizar_tramo');
+
+    Route::get('/ruta/registro', [RutaController::class, 'registrar'])->name('registro_ruta');
     Route::get('/tramo/registro', [TramoController::class, 'registrar'])->name('registro_tramo');
     Route::get('/puente/registro', [PuenteController::class, 'registrar']);
     Route::get('/senializacion/registro', [SenializacionController::class, 'registrar'])->name('registro_senializacion');

@@ -41,7 +41,20 @@ class PuenteController extends Controller
 
         Puente::create( $datosValidados );
 
-        return redirect('/puente/registro');
+        return redirect('puente/vista_puentes');
+    }
+
+    public function actualizarPuente(Request $request, $idPuente)
+    {
+        $validator = Validator::make($request->all(), static::getValidacionActualizarPuente() );
+        $datosValidados = $validator->validated();
+        if( $validator->fails())
+        {
+
+        }
+
+        Puente::where('id', $idPuente)->update($datosValidados);
+        return redirect('/puente/vista_puentes');
     }
 
     public function editarPuente($idPuente)
@@ -63,6 +76,22 @@ class PuenteController extends Controller
     }
 
     public static function getValidacionCrearPuente(){
+        return [
+            'rutas_id'            => ['required'],
+            'progresiva'          => ['required'],
+            'coordenada_x'        => ['required'],
+            'coordenada_y'        => ['required'],
+            'altitud'             => ['required'],
+            'tipos_id'            => ['required'],
+            'numero_vias'         => ['required'],
+            'tablero_rodadura'    => ['required'],
+            'longitud'            => ['required'],
+            'ancho_calzada'       => ['required'],
+            'condicion_funcional' => ['required'],
+            'hidrografia'         => ['required']
+        ];
+    }
+    public static function getValidacionActualizarPuente(){
         return [
             'rutas_id'            => ['required'],
             'progresiva'          => ['required'],

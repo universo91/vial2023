@@ -14,23 +14,6 @@ use Illuminate\Support\Facades\Validator;
 
 class SuperficieController extends Controller
 {
-    public static function getValidacionSuperficie()
-    {
-        return [
-            'tramos_id' => ['required',],
-            'estado' => ['required',],
-            'tipo_superficie' => ['required',],
-            'ancho' => ['required',],
-            'progresiva_inicial' => ['required',],
-            'coor_inicial_x' => ['required',],
-            'coor_inicial_y' => ['required',],
-            'altitud_inicial' => ['required',],
-            'progresiva_final' => ['required',],
-            'coor_final_x' => ['required',],
-            'coor_final_y' => ['required',],
-            'altitud_final' => ['required',]
-        ];
-    }
 
     public function listaSuperficies()
     {
@@ -79,7 +62,57 @@ class SuperficieController extends Controller
         return redirect('/superficie/registro');
     }
 
+    public function actualizarSuperficie(Request $request, $idSuperfice)
+    {
+        $validator = Validator::make($request->all(), static::getValidacionActualizarSuperficie());
 
+        if($validator->fails())
+        {
+
+        }
+
+        $datosValidados = $validator->validated();
+
+        Superficie::where('id', $idSuperfice)->update($datosValidados);
+
+        return redirect('/superficie/vista_superficies');
+    }
+
+    public static function getValidacionSuperficie()
+    {
+        return [
+            'tramos_id' => ['required',],
+            'estado' => ['required',],
+            'tipo_superficie' => ['required',],
+            'ancho' => ['required',],
+            'progresiva_inicial' => ['required',],
+            'coor_inicial_x' => ['required',],
+            'coor_inicial_y' => ['required',],
+            'altitud_inicial' => ['required',],
+            'progresiva_final' => ['required',],
+            'coor_final_x' => ['required',],
+            'coor_final_y' => ['required',],
+            'altitud_final' => ['required',]
+        ];
+    }
+
+    public static function getValidacionActualizarSuperficie()
+    {
+        return [
+            'tramos_id' => ['required',],
+            'estado' => ['required',],
+            'tipo_superficie' => ['required',],
+            'ancho' => ['required',],
+            'progresiva_inicial' => ['required',],
+            'coor_inicial_x' => ['required',],
+            'coor_inicial_y' => ['required',],
+            'altitud_inicial' => ['required',],
+            'progresiva_final' => ['required',],
+            'coor_final_x' => ['required',],
+            'coor_final_y' => ['required',],
+            'altitud_final' => ['required',]
+        ];
+    }
 
 
 }

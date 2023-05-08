@@ -27,8 +27,9 @@
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('registrarSuperficie') }}" method="POST">
+                <form action="{{ route('actualizar_superficie', $superficie->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     @include('superficie.form')
                 </form>
             </div>

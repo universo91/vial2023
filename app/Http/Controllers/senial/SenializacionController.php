@@ -55,9 +55,40 @@ class SenializacionController extends Controller
         return redirect('/senializacion/registro');
     }
 
+    public function actualizarSenializacion(Request $request, $idSenializacion)
+    {
+        $validator = Validator::make($request->all(), static::getValidacionActualizarSenializacion());
+
+        if($validator->fails())
+        {
+
+        }
+
+        $datosValidados = $validator->validated();
+
+        Senializacion::where('id', $idSenializacion)->update($datosValidados);
+
+        return redirect('/senializaciom/vista_senializaciones');
+    }
 
 
     public static function getValidacionCrearSenializacion() {
+        return [
+            'rutas_id'      => ['required'],
+            'senial'        => ['required'],
+            'clasificacion' => ['required'],
+            'progresiva'    => ['required'],
+            'lado'          => ['required'],
+            'soporte'       => ['required'],
+            'material'      => ['required'],
+            'zona'          => ['required'],
+            'coordenada_x'  => ['required'],
+            'coordenada_y'  => ['required'],
+            'altitud'       => ['required'],
+        ];
+    }
+
+    public static function getValidacionActualizarSenializacion() {
         return [
             'rutas_id'      => ['required'],
             'senial'        => ['required'],

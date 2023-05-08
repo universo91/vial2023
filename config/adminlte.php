@@ -334,7 +334,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Rutas',
-                    'url'  => '/ruta/registro',
+                    'url'  => '/ruta/vista_rutas',
                     'icon' => 'fas fa-road', // route
                     'icon_color' => 'cyan'
                 ],
