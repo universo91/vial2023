@@ -1,7 +1,7 @@
 const  selectDepartamento = document.getElementById("departamento");
 const selectProvincia = document.getElementById("provincia");
 const selectDistrito = document.getElementById('distrito');
-const selectRuta = document.getElementById('ruta');
+const selectRuta = document.getElementById('rutas_id');
 
 selectDepartamento.addEventListener('change', async ( e ) => {
     console.log( e.target.value );

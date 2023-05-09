@@ -74,6 +74,23 @@
                 <div class="row">
 
                     <div class="col-lg-3 d-flex flex-row-reverse ">
+                        <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ruta</label>
+                    </div>
+                    <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="rutas_id" id="rutas_id">
+                        <option value="">Seleccione ruta</option>
+                        @if (isset($ruta->rutas_id))
+                            @foreach ($rutas as $ru)
+                                <option value='{{ $ru->id }}' {{ $ruta->id == $senializacion->rutas_id ? 'selected' : ''}}> {{ strtoupper( $ru->codigo ) }} </option>
+                            @endforeach
+                        @endif
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col-lg-3 d-flex flex-row-reverse ">
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Señal</label>
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="senial">
