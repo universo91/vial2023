@@ -82,8 +82,12 @@
 
                             <option value="hito" {{ $senializacion->senial == 'hito' ? 'selected' : ''  }}>Hito</option>
                             <option value="señal" {{ $senializacion->senial == 'señal' ? 'selected' : ''  }}>Señal</option>
+                        @else
+                            <option value="hito">Hito</option>
+                            <option value="señal">Señal</option>
 
                         @endif
+
                     </select>
                 </div>
             </div>
@@ -98,6 +102,9 @@
                         @if (isset($senializacion->clasificacion))
                             <option value="informativa" {{ $senializacion->clasificacion == 'informativa' ? 'selected' : ''  }}>Informativa</option>
                             <option  value="preventiva" {{ $senializacion->clasificacion == 'preventiva' ? 'selected' : ''  }}>Preventiva</option>
+                        @else
+                            <option value="informativa">Informativa</option>
+                            <option  value="preventiva">Preventiva</option>
                         @endif
                     </select>
                 </div>
@@ -125,6 +132,9 @@
                         @if (isset($senializacion->lado))
                             <option value="izquierda" {{ $senializacion->lado == 'izquierda' ? 'selected' : '' }}>izquierda</option>
                             <option value="derecha" {{ $senializacion->lado == 'derecha' ? 'selected' : '' }}>derecha</option>
+                        @else
+                            <option value="izquierda">izquierda</option>
+                            <option value="derecha">derecha</option>
 
                         @endif
 
@@ -141,6 +151,8 @@
                         <option >Elige soporte</option>
                         @if (isset($senializacion->soporte))
                             <option value="poste" {{ $senializacion->soporte == 'poste' ? 'selected' : '' }}>Poste</option>
+                        @else
+                            <option value="poste">Poste</option>
                         @endif
                     </select>
                 </div>
@@ -155,6 +167,9 @@
                         @if (isset($senializacion->material))
                             <option value="acero" {{ $senializacion->material == 'acero' ? 'selected' : '' }}>Acero</option>
                             <option value="concreto" {{ $senializacion->material == 'concreto' ? 'selected' : '' }}>Concreto</option>
+                        @else
+                            <option value="acero">Acero</option>
+                            <option value="concreto">Concreto</option>
                         @endif
 
                     </select>
@@ -171,6 +186,10 @@
                             <option value="17" {{ $senializacion->zona = '17' ? 'selected' : '' }}>17</option>
                             <option value="18" {{ $senializacion->zona = '18' ? 'selected' : '' }}>18</option>
                             <option value="19" {{ $senializacion->zona = '19' ? 'selected' : '' }}>19</option>
+                        @else
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
                         @endif
 
                     </select>
