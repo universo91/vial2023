@@ -84,9 +84,9 @@
                         <label for="codigo" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Codigo<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        @if (isset($ruta->id))
-                            <input maxlength="40" type="text" class=" form-control form-control-sm" name="codigo" id="codigo" value="{{ isset($ruta->codigo) ? $ruta->codigo : old('codigo') }}" required>
-                        @endif
+
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="codigo" id="codigo" value="{{ isset($ruta->codigo) ? $ruta->codigo : old('codigo') }}" required>
+
                     </div>
                 </div>
             </div>
