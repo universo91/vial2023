@@ -78,7 +78,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="rutas_id" id="rutas_id">
                         <option value="">Seleccione ruta</option>
-                        @if (isset($ruta->rutas_id))
+                        @if (isset($senializacion->rutas_id))
                             @foreach ($rutas as $ru)
                                 <option value='{{ $ru->id }}' {{ $ruta->id == $senializacion->rutas_id ? 'selected' : ''}}> {{ strtoupper( $ru->codigo ) }} </option>
                             @endforeach
