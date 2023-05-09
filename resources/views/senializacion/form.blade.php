@@ -78,7 +78,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="senial">
                         <option value="señal">Señal</option>
-                        @if (isset($senializacion->id))
+                        @if (isset($senializacion->senial))
 
                             <option value="hito" {{ $senializacion->senial == 'hito' ? 'selected' : ''  }}>Hito</option>
                             <option value="señal" {{ $senializacion->senial == 'señal' ? 'selected' : ''  }}>Señal</option>
@@ -95,7 +95,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="clasificacion">
                         <option >Elige clasificacion</option>
-                        @if (isset($senializacion->id))
+                        @if (isset($senializacion->clasificacion))
                             <option value="informativa" {{ $senializacion->clasificacion == 'informativa' ? 'selected' : ''  }}>Informativa</option>
                             <option  value="preventiva" {{ $senializacion->clasificacion == 'preventiva' ? 'selected' : ''  }}>Preventiva</option>
                         @endif
@@ -122,7 +122,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="lado">
                        <option >Elige lado</option>
-                        @if (isset($senializacion->id))
+                        @if (isset($senializacion->lado))
                             <option value="izquierda" {{ $senializacion->lado == 'izquierda' ? 'selected' : '' }}>izquierda</option>
                             <option value="derecha" {{ $senializacion->lado == 'derecha' ? 'selected' : '' }}>derecha</option>
 
@@ -139,7 +139,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="soporte">
                         <option >Elige soporte</option>
-                        @if (isset($senializacion->id))
+                        @if (isset($senializacion->soporte))
                             <option value="poste" {{ $senializacion->soporte == 'poste' ? 'selected' : '' }}>Poste</option>
                         @endif
                     </select>
@@ -152,7 +152,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="material">
                         <option >Elige material</option>
-                        @if (isset($senializacion->id))
+                        @if (isset($senializacion->material))
                             <option value="acero" {{ $senializacion->material == 'acero' ? 'selected' : '' }}>Acero</option>
                             <option value="concreto" {{ $senializacion->material == 'concreto' ? 'selected' : '' }}>Concreto</option>
                         @endif
@@ -167,7 +167,7 @@
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="zona">
                         <option>Elige zona</option>
-                        @if (isset($senializacion->id))
+                        @if (isset($senializacion->zona))
                             <option value="17" {{ $senializacion->zona = '17' ? 'selected' : '' }}>17</option>
                             <option value="18" {{ $senializacion->zona = '18' ? 'selected' : '' }}>18</option>
                             <option value="19" {{ $senializacion->zona = '19' ? 'selected' : '' }}>19</option>

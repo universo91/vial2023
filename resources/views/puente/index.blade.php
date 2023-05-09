@@ -18,7 +18,7 @@
     </div>
     <div class="raw mb-2">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-            <a href="{{ route('expPuente')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-plus-circle"></i> Agregar Nuevo</a>
+            <a href="{{ route('registro_puente')}}" type="button" class="btn btn-success btn-flat"><i class="fas fa-plus-circle"></i> Agregar Nuevo</a>
             <a hidden type="button" class="btn btn-danger btn-flat">Exp. PDF</a>
         </div>
     </div>

@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/ruta/registro', [RutaController::class, 'registrar'])->name('registro_ruta');
     Route::get('/tramo/registro', [TramoController::class, 'registrar'])->name('registro_tramo');
-    Route::get('/puente/registro', [PuenteController::class, 'registrar']);
+    Route::get('/puente/registro', [PuenteController::class, 'registrar'])->name('registro_puente');
     Route::get('/senializacion/registro', [SenializacionController::class, 'registrar'])->name('registro_senializacion');
     Route::get('/superficie/registro', [SuperficieController::class, 'registrar'])->name('registro_superficie');
 
