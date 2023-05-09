@@ -25,7 +25,7 @@
     <div class="card">
         <div class="card-body">
             <table id="example" class="table table-striped shadow-lg mt-4 nowrap " style="font-size: 15px;" >
-                <thead style="font-size:14px;color:rgb(255, 255, 255);background-color:#2e2170">
+                <thead class ="bg-info" style="font-size:14px;color:rgb(255, 255, 255);">
                     <tr>
                         <th class="align-middle">Codigo</th>
                         <th class="align-middle">Tramo</th>
