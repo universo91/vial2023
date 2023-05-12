@@ -27,6 +27,7 @@ class CreateSuperficieTable extends Migration
             $table->decimal('coor_final_x', 10, 2);
             $table->decimal('coor_final_y', 10, 2);
             $table->decimal('altitud_final');
+            $table->string('imagen', 255)->nullable();
             $table->timestamps();
 
             $table->foreign('tramos_id')->references('id')->on('tramos')->onDelete('cascade')->onUpdate('cascade');

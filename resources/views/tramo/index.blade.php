@@ -115,13 +115,13 @@
         </div>
     </div>
     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
         <img src="" alt="imagen">
     </figure>
 
 
 </div>
 <figure class="popup-imagen">
-    <span>&times;</span>
 
 </figure>
 
@@ -134,5 +134,5 @@
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
-    <script src="/js/tramos/imagen.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

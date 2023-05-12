@@ -263,10 +263,10 @@
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col-lg-3 d-flex flex-row-reverse ">
+                    <div class="col-lg-3 d-flex flex-row-reverse">
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Zona</label>
                     </div>
-                    <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="zona" id="zona">
+                    <select class="form-control form-control-sm col-lg-9"  name="zona" id="zona">
                         @if (isset($tramo->zona))
                             <option value="17" {{ $tramo->zona == '17' ? 'selected' : ''}}>17</option>
                             <option value="18" {{ $tramo->zona == '18' ? 'selected' : ''}}>18</option>
@@ -283,23 +283,22 @@
             <div class="form-group">
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
-                    <div class="col-lg-3 d-flex flex-row-reverse ">
+                    <div class="col-lg-3 d-flex flex-row-reverse">
                         <label for="descripcion_elementos" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Punto notable<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="punto_notable" id="punto_notable" value="{{ isset($tramo->punto_notable) ? $tramo->punto_notable : ''}}" >
+                        <input maxlength="40" type="text" style="" class="form-control form-control-sm" name="punto_notable" id="punto_notable" value="{{ isset($tramo->punto_notable) ? $tramo->punto_notable : ''}}" >
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
+           {{--  <div class="form-group">
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse">
                         <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen de codigo<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9 file">
-                       {{--  <input type="file" class="form-control form-control-sm" name="codigo_imagen" id="codigo_imagen" value="" > --}}
                        <label for="imagen" class=" btn btn-outline-info">
                            <i class="fas fa-upload"></i>
                            Elige una imagen
@@ -307,13 +306,51 @@
                         <input class="form-control form-control-sm imagen" accept="image/*" type="file" name="codigo_imagen" id="imagen">
                     </div>
                 </div>
+            </div> --}}
+
+            <div class="form-group">
+                <hr hidden class="hidden-md hidden-lg">
+                <div class="row">
+                    <div class="col-lg-3 d-flex flex-row-reverse">
+                        <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen de codigo<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-lg-9 ">
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <label
+                                    class="btn btn-outline-info file "
+                                    for="codigo_imagen"
+                                >
+                                    <i class="fas fa-upload"></i> Elija la imagen que desea (PNG, JPG)
+                                </label>
+                                <input
+                                    type="file"
+                                    id="codigo_imagen"
+                                    name="codigo_imagen"
+                                    accept="image/*"
+                                    class="imagen col-lg-12"
+                                />
+                            </div>
+                            @if( isset($tramo->codigo_imagen) )
+                                <p id="vista_previa" class="col-lg-12">
+                                    <p> {{ $tramo->codigo_imagen}}</p>
+                                    <img src="{{ $tramo->codigo_imagen }}" alt="imagen">
+                                </p>
+                            @else
+                               {{--  <p id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</p> --}}
+                            @endif
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
             <div class="form-group ">
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="tramo_inicio" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Inicio de tramo<span class="text-danger"> *</span></label>
+                        <label for="tramo_inicio" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px; Apadding:0;">Inicio de tramo<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="tramo_inicio" id="tramo_inicio" value="{{ isset($tramo->tramo_inicio) ? $tramo->tramo_inicio : ''}}" >

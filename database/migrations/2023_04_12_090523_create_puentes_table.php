@@ -27,6 +27,7 @@ class CreatePuentesTable extends Migration
             $table->decimal('ancho_calzada', 5, 2);
             $table->enum('condicion_funcional', ['buena', 'regular', 'mala'])->default('mala');
             $table->enum('hidrografia', ['rio', 'quebrada']);
+            $table->string('codigo_imagen', 255);
 
             $table->foreign('rutas_id')->references('id')->on('rutas')->onDelete('cascade');
             $table->foreign('tipos_id')->references('id')->on('tipos')->onDelete('cascade');

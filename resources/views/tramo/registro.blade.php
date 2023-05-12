@@ -43,4 +43,5 @@
 
 @section('js')
     <script src="/js/tramos/registro.js"></script>
+    <script src="/js/general/cargarImagen.js"></script>
 @stop

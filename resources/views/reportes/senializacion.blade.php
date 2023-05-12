@@ -24,7 +24,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <table id="example" class="table table-striped mt-4" style="font-size: 15px;" >
+            <table id="example" class="table table-striped mt-4 nowrap" style="font-size: 15px;" >
                 <thead class ="bg-info" style="font-size:14px;color:rgb(255, 255, 255);">
                     <tr>
                         <th class="align-middle">Departamento</th>

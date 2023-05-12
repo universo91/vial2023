@@ -39,9 +39,11 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/registro-tramo.css">
+    <link rel="stylesheet" href="/css/tramo/registro.css">
 @stop
 
 @section('js')
     <script src="/js/tramos/registro.js"></script>
+    <script src="/js/general/cargarImagen.js"></script>
+
 @stop

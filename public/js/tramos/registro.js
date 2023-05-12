@@ -82,5 +82,3 @@ selectDistrito.addEventListener('change' , async (e) => {
     selectRuta.innerHTML= htmlRutas;
 })
 
-
-

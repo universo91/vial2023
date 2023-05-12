@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\tramo;
 
 use App\Http\Controllers\Controller;
-use App\Models\Clase;
 use App\Models\Departamento;
 use App\Models\Distrito;
 use App\Models\Provincia;
@@ -11,13 +10,10 @@ use App\Models\Ruta;
 use App\Models\Tramo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+
 
 class TramoController extends Controller
 {
-
-    private $disk = 'public';
 
     public function listaTramos()
     {
@@ -59,7 +55,7 @@ class TramoController extends Controller
         }
 
         $tramosValidados = $validator->validated();
-        $tramosValidados['codigo_imagen'] = static::guardarImagen($request);
+        $tramosValidados['codigo_imagen'] = $this->guardarImagen($request);
         Tramo::create( $tramosValidados);
 
         return redirect('/tramo/registro');
@@ -87,25 +83,6 @@ class TramoController extends Controller
 
     }
 
-    private function guardarImagen(Request $request)
-    {
-        //Obtenemos la imagen
-        $imagen = $request->file('codigo_imagen');
-
-        //Obtenemos el nombre de la imagen, y si este tuvira espacios, lo reemplazamo con guiones, por medio
-        // del metodo slug
-        $nombreImagen = Str::slug( $request->file('codigo_imagen')->getClientOriginalName() );
-
-        //Renombramos la imagen
-        $nuevoNombreImagen = Str::random(16) . '_' . $nombreImagen;
-
-        //Le indicamos que guarde en storage, dentro del disk public, en una carpeta imagenes.
-        $ruta = $imagen->storeAs('/imagenes', $nuevoNombreImagen.".".$imagen->extension(), $this->disk);
-
-        //
-        $urlImagen = Storage::url($ruta);
-        return $urlImagen;
-    }
 
     public static function getValidacionesTramo() {
         return [
