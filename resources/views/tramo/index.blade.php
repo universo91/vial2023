@@ -128,7 +128,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/tramo/index.css">
+    <link rel="stylesheet" href="/css/general/index.css">
 
 @stop
 

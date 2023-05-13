@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-<div class="container">
+<div class="container tramo-content">
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-5">
             <a style="text-decoration:none; color:inherit" href="">

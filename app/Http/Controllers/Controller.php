@@ -16,7 +16,7 @@ class Controller extends BaseController
 
     private $disk = 'public';
 
-    private function guardarImagen(Request $request)
+    public function guardarImagen(Request $request)
     {
         //Obtenemos la imagen
         $imagen = $request->file('codigo_imagen');
