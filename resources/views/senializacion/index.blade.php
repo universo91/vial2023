@@ -88,7 +88,14 @@
             </table>
         </div>
     </div>
+    <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')

@@ -72,3 +72,18 @@ figure {
     padding-left: 0;
     margin-left: auto;
 }
+
+button #btn-guardar {
+    line-height: 16px;
+    font-size: 15px;
+    height:35px;
+    background-color:#48c71d;
+}
+button #btn-guardar:hover {
+    background-color:#070707;
+}
+
+/* .btn-toolbar {
+    margin-top: ;
+}
+ */

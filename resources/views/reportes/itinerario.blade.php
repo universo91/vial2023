@@ -71,7 +71,7 @@
                             <td>{{ $itinerario->altitud_final }} </td>
                             <td>
                                 <figure class="imagen-container">
-                                    <img src="{{ $puente->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                    <img src="{{ $itinerario->codigo_imagen }}" width="30" height="30" alt="codigo">
                                 </figure>
                             </td>
                             <td>{{ $itinerario->zona }} </td>

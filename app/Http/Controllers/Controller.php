@@ -23,6 +23,9 @@ class Controller extends BaseController
 
         //Obtenemos el nombre de la imagen, y si este tuvira espacios, lo reemplazamo con guiones, por medio
         // del metodo slug
+        if( ! $imagen->getClientOriginalName()  ) {
+            return ;
+        }
         $nombreImagen = Str::slug( $request->file('codigo_imagen')->getClientOriginalName() );
 
         //Renombramos la imagen

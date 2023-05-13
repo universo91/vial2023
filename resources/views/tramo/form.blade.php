@@ -332,12 +332,12 @@
                                 />
                             </div>
                             @if( isset($tramo->codigo_imagen) )
-                                <p id="vista_previa" class="col-lg-12">
+                                <div id="vista_previa" class="col-lg-12">
                                     <p> {{ $tramo->codigo_imagen}}</p>
                                     <img src="{{ $tramo->codigo_imagen }}" alt="imagen">
-                                </p>
+                                </div>
                             @else
-                               {{--  <p id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</p> --}}
+                                <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
                             @endif
                         </div>
 
@@ -477,14 +477,27 @@
     <div class="col-md-4 col-lg-2">
         <div class="btn-toolbar">
             <div class="btn-group-vertical btn-group-lg" style="width: 100%;">
-                <a href="{{ route('lista_tramos') }}" type="submit" style = "line-height:16px;font-size:15px;height:35px;background-color:#222222;" class="btn btn-block btn-dark btn-flat btn-sm">
-                    <i class="glyphicon glyphicon-chevron-left"> </i>
+                <a
+                    href="{{ route('lista_tramos') }}"
+                    type="submit"
+                    style = "line-height:16px;font-size:15px;height:35px;background-color:#2d2c2c;"
+                    class="btn btn-block btn-dark btn-flat btn-sm"
+                    onmouseover="this.style.backgroundColor='#070707'"
+                    onmouseout="this.style.backgroundColor='#2d2c2c'"
+                >
+                    <i class="fas fa-chevron-left"></i>
                     Atras
                 </a>
             </div>
             <div class="btn-group-vertical btn-group-lg mt-3" style="width: 100%;">
-                <button type="submit" class="btn btn-block btn-sm btn-success btn-flat" style="line-height:16px;font-size:15px;height:35px;background-color:#3FB618;" >
-                    <i class="glyphicon glyphicon-chevron-left"> </i>
+                <button
+                    type="submit"
+                    class="btn btn-block btn-sm btn-success btn-flat btn-guardar"
+                    style="line-height: 16px;font-size: 15px;height:35px;background-color:#48c71d;"
+                    onmouseover="this.style.backgroundColor='#318b12'"
+                    onmouseout="this.style.backgroundColor='#48c71d'"
+                >
+                    <i class="fas fa-plus-circle"></i>
                     Guardar
                 </button>
             </div><p></p>

@@ -50,7 +50,7 @@ class SenializacionController extends Controller
         }
 
         $datosValidados = $validator->validated();
-
+        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
         Senializacion::create( $datosValidados );
         return redirect('/senializacion/registro');
     }
@@ -58,13 +58,18 @@ class SenializacionController extends Controller
     public function actualizarSenializacion(Request $request, $idSenializacion)
     {
         $validator = Validator::make($request->all(), static::getValidacionActualizarSenializacion());
-
+        /* dd( $validator ); */
         if($validator->fails())
         {
 
         }
 
         $datosValidados = $validator->validated();
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
 
         Senializacion::where('id', $idSenializacion)->update($datosValidados);
 
@@ -78,6 +83,7 @@ class SenializacionController extends Controller
             'senial'        => ['required'],
             'clasificacion' => ['required'],
             'progresiva'    => ['required'],
+            'codigo_imagen' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'lado'          => ['required'],
             'soporte'       => ['required'],
             'material'      => ['required'],
@@ -94,6 +100,7 @@ class SenializacionController extends Controller
             'senial'        => ['required'],
             'clasificacion' => ['required'],
             'progresiva'    => ['required'],
+            'codigo_imagen' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'lado'          => ['required'],
             'soporte'       => ['required'],
             'material'      => ['required'],
