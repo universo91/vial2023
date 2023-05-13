@@ -39,6 +39,8 @@ class PuenteController extends Controller
 
         $datosValidados = $validator->validated();
 
+        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
         Puente::create( $datosValidados );
 
         return redirect('puente/vista_puentes');
@@ -47,13 +49,18 @@ class PuenteController extends Controller
     public function actualizarPuente(Request $request, $idPuente)
     {
         $validator = Validator::make($request->all(), static::getValidacionActualizarPuente() );
-        $datosValidados = $validator->validated();
+
         if( $validator->fails())
         {
 
         }
 
+        $datosValidados = $validator->validated();
+
+        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
         Puente::where('id', $idPuente)->update($datosValidados);
+
         return redirect('/puente/vista_puentes');
     }
 
@@ -77,34 +84,36 @@ class PuenteController extends Controller
 
     public static function getValidacionCrearPuente(){
         return [
-            'rutas_id'            => ['required'],
-            'progresiva'          => ['required'],
-            'coordenada_x'        => ['required'],
-            'coordenada_y'        => ['required'],
-            'altitud'             => ['required'],
-            'tipos_id'            => ['required'],
-            'numero_vias'         => ['required'],
-            'tablero_rodadura'    => ['required'],
-            'longitud'            => ['required'],
-            'ancho_calzada'       => ['required'],
-            'condicion_funcional' => ['required'],
-            'hidrografia'         => ['required']
+            'rutas_id'              => ['required'],
+            'progresiva'            => ['required'],
+            'coordenada_x'          => ['required'],
+            'coordenada_y'          => ['required'],
+            'altitud'               => ['required'],
+            'tipos_id'              => ['required'],
+            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'numero_vias'           => ['required'],
+            'tablero_rodadura'      => ['required'],
+            'longitud'              => ['required'],
+            'ancho_calzada'         => ['required'],
+            'condicion_funcional'   => ['required'],
+            'hidrografia'           => ['required']
         ];
     }
     public static function getValidacionActualizarPuente(){
         return [
-            'rutas_id'            => ['required'],
-            'progresiva'          => ['required'],
-            'coordenada_x'        => ['required'],
-            'coordenada_y'        => ['required'],
-            'altitud'             => ['required'],
-            'tipos_id'            => ['required'],
-            'numero_vias'         => ['required'],
-            'tablero_rodadura'    => ['required'],
-            'longitud'            => ['required'],
-            'ancho_calzada'       => ['required'],
-            'condicion_funcional' => ['required'],
-            'hidrografia'         => ['required']
+            'rutas_id'              => ['required'],
+            'progresiva'            => ['required'],
+            'coordenada_x'          => ['required'],
+            'coordenada_y'          => ['required'],
+            'altitud'               => ['required'],
+            'tipos_id'              => ['required'],
+            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'numero_vias'           => ['required'],
+            'tablero_rodadura'      => ['required'],
+            'longitud'              => ['required'],
+            'ancho_calzada'         => ['required'],
+            'condicion_funcional'   => ['required'],
+            'hidrografia'           => ['required']
         ];
     }
 }

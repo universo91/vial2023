@@ -31,6 +31,7 @@
                         <th class="align-middle">Codigo Ruta</th>
                         <th class="align-middle">Punto inicial</th>
                         <th class="align-middle">Progesiva<sub>i</sub></th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Zona<sub>i</sub></th>
                         <th class="align-middle">X<sub>i</sub></th>
                         <th class="align-middle">Y<sub>i</sub></th>
@@ -52,6 +53,11 @@
                             <td>{{ $referenciamiento->codigo }} </td>
                             <td>{{ $referenciamiento->punto_inicio }} </td>
                             <td>{{ $referenciamiento->progresiva_punto_inicial }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $puente->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $referenciamiento->zona }} </td>
                             <td>{{ $referenciamiento->coordenada_x_inicio }} </td>
                             <td>{{ $referenciamiento->coordenada_y_inicio }} </td>
@@ -72,15 +78,24 @@
             </table>
         </div>
     </div>
+     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 
 
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

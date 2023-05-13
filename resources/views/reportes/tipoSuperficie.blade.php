@@ -33,6 +33,7 @@
                 <th class="align-middle">Estado via</th>
                 <th class="align-middle">T. superficie</th>
                 <th class="align-middle">A. plataforma</th>
+                <th class="align-middle">Imagen superfice</th>
                 <th class="align-middle">Prog.<sub>i</sub></th>
                 <th class="align-middle">X<sub>i</sub></th>
                 <th class="align-middle">Y<sub>i</sub></th>
@@ -56,6 +57,11 @@
                     <td>{{ $tipoSuperficie->estado_via }} </td>
                     <td>{{ $tipoSuperficie->tipo_superficie }} </td>
                     <td>{{ $tipoSuperficie->ANCHO_PLATAFORMA }} </td>
+                    <td>
+                        <figure class="imagen-container">
+                            <img src="{{ $tipoSuperficie->codigo_imagen }}" width="30" height="30" alt="codigo">
+                        </figure>
+                    </td>
                     <td>{{ $tipoSuperficie->progresiva_inicial }} </td>
                     <td>{{ $tipoSuperficie->coor_x_inicial }} </td>
                     <td>{{ $tipoSuperficie->coor_y_inicial }} </td>
@@ -64,19 +70,29 @@
                     <td>{{ $tipoSuperficie->coor_x_final }} </td>
                     <td>{{ $tipoSuperficie->coor_y_final }} </td>
                     <td>{{ $tipoSuperficie->altitud_final }} </td>
+
                     <td>{{ $tipoSuperficie->zona }} </td>
                     <td>{{ $tipoSuperficie->fecha }} </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

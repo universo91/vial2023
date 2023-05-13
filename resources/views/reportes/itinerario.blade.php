@@ -43,6 +43,7 @@
                         <th class="align-middle">X<sub>f</sub></th>
                         <th class="align-middle">Y<sub>f</sub></th>
                         <th class="align-middle">Altitud<sub>f</sub></th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Zona<sub>f</sub></th>
                         <th class="align-middle">Longitud(KM)</th>
                         <th class="align-middle">Pto. Notable</th>
@@ -68,6 +69,11 @@
                             <td>{{ $itinerario->coor_x_final }} </td>
                             <td>{{ $itinerario->coor_y_final }} </td>
                             <td>{{ $itinerario->altitud_final }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $puente->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $itinerario->zona }} </td>
                             <td>{{ $itinerario->longitud_km }} </td>
                             <td>{{ $itinerario->punto_notable }} </td>
@@ -80,13 +86,22 @@
             </table>
         </div>
     </div>
+     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

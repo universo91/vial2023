@@ -16,6 +16,7 @@ class Superficie extends Model
         'estado',
         'tipo_superficie',
         'ancho',
+        'codigo_imagen',
         'progresiva_inicial',
         'coor_inicial_x',
         'coor_inicial_y',

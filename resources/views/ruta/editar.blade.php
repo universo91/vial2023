@@ -27,7 +27,7 @@
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('actualizar_ruta', $ruta->id) }}" method="POST">
+                <form action="{{ route('actualizar_ruta', $ruta->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     @include('ruta.form')
@@ -41,10 +41,11 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/general/registro.css">
 @stop
 
 @section('js')
     <script src="/js/rutas/registro.js"></script>
+    <script src="/js/general/cargarImagen.js"></script>
 @stop
 

@@ -18,6 +18,7 @@ class CreateRutasTable extends Migration
             $table->string('codigo', 20);
             $table->unsignedBigInteger('distritos_id');
             $table->string('punto_inicio', 100);
+            $table->string('codigo_imagen', 255);
             $table->decimal('coordenada_x_inicio', 10, 2);
             $table->decimal('coordenada_y_inicio', 10, 2);
             $table->string('punto_final', 100);

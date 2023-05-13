@@ -12,7 +12,9 @@
                         <label for="id" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">ID</label>
                     </div>
                     <div class="col-lg-9">
+                    @if(isset($ruta->id))
                         <input readonly maxlength="40" type="text" class=" form-control form-control-sm" name="id" id="id" value="{{ isset($ruta->id) ? $ruta->id : ''}}" >
+                    @endif
                     </div>
                 </div>
             </div>
@@ -88,6 +90,44 @@
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="codigo" id="codigo" value="{{ isset($ruta->codigo) ? $ruta->codigo : old('codigo') }}" required>
 
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <hr hidden class="hidden-md hidden-lg">
+                <div class="row">
+                    <div class="col-lg-3 d-flex flex-row-reverse">
+                        <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-lg-9 ">
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <label
+                                    class="btn btn-outline-info file "
+                                    for="codigo_imagen"
+                                >
+                                    <i class="fas fa-upload"></i> Elija la imagen que desea (PNG, JPG)
+                                </label>
+                                <input
+                                    type="file"
+                                    id="codigo_imagen"
+                                    name="codigo_imagen"
+                                    accept="image/*"
+                                    class="imagen col-lg-12"
+                                />
+                            </div>
+                            @if( isset($ruta->codigo_imagen) )
+                                <div id="vista_previa" class="col-lg-12">
+                                    <p>Nombre de archivo: {{ substr( strrchr($ruta->codigo_imagen,"/"),1) }}</p>
+                                    <img src="{{ $ruta->codigo_imagen }}" alt="imagen">
+                                </div>
+                            @else
+                                <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
+                            @endif
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 

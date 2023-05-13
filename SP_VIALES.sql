@@ -16,6 +16,7 @@ BEGIN
         tra.coor_y_final,
         tra.altitud_final,
         tra.tipo_superficie,
+        tra.codigo_imagen,
         convert(tra.created_at, date) as fecha
     FROM rutas  ru
     INNER JOIN tramos tra
@@ -93,6 +94,7 @@ BEGIN
         ru.punto_inicio,
         ru.progresiva_punto_inicial,
         dep.zona,
+        ru.codigo_imagen,
         ru.coordenada_x_inicio,
         ru.coordenada_y_inicio,
         ru.altitud_punto_inicial,
@@ -127,6 +129,7 @@ BEGIN
         tra.coor_y_final,
         tra.altitud_final,
         tra.estado_via,
+        tra.codigo_imagen,
         tra.identificacion_calzada,
         convert(tra.created_at, date) as fecha
     FROM rutas  ru
@@ -145,6 +148,7 @@ BEGIN
         sen.senial,
         sen.clasificacion,
         sen.progresiva,
+        sen.codigo_imagen,
         sen.lado,
         sen.soporte,
         sen.material,
@@ -176,6 +180,7 @@ BEGIN
         tra.estado_via,
         tra.tipo_superficie,
         (tra.ancho_calzada + tra.ancho_berma_izquierda + tra.ancho_berma_derecha) AS ANCHO_PLATAFORMA,
+        tra.codigo_imagen,
         tra.progresiva_inicial,
         tra.coor_x_inicial,
         tra.coor_y_inicial,
@@ -206,6 +211,7 @@ CREATE PROCEDURE SP_Puentes()
 BEGIN
 	SELECT ru.codigo,
     	pu.progresiva,
+        pu.codigo_imagen,
         pu.coordenada_x,
         pu.coordenada_y,
         pu.altitud,

@@ -278,6 +278,44 @@
             </div>
 
             <div class="form-group">
+                <hr hidden class="hidden-md hidden-lg">
+                <div class="row">
+                    <div class="col-lg-3 d-flex flex-row-reverse">
+                        <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-lg-9 ">
+                        <div class="row ">
+                            <div class="col-lg-12">
+                                <label
+                                    class="btn btn-outline-info file "
+                                    for="codigo_imagen"
+                                >
+                                    <i class="fas fa-upload"></i> Elija la imagen que desea (PNG, JPG)
+                                </label>
+                                <input
+                                    type="file"
+                                    id="codigo_imagen"
+                                    name="codigo_imagen"
+                                    accept="image/*"
+                                    class="imagen col-lg-12"
+                                />
+                            </div>
+                            @if( isset($puente->codigo_imagen) )
+                                <div id="vista_previa" class="col-lg-12">
+                                    <p>Nombre de archivo: {{ substr( strrchr($puente->codigo_imagen,"/"),1) }}</p>
+                                    <img src="{{ $puente->codigo_imagen }}" alt="imagen">
+                                </div>
+                            @else
+                                <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
+                            @endif
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">hidrografia</label>
@@ -300,7 +338,7 @@
     </div>
 
     <hr class="hidden-md hidden-lg">
-    <div class="col-md-4 col-lg-3">
+    <div class="col-md-4 col-lg-2">
         <div class="btn-toolbar">
             <div class="btn-group-vertical btn-group-lg" style="width: 100%;">
                 <a href="{{ route('lista_puentes') }}" style = "height:35px;padding-top:0px;background-color:#222222;" class="btn btn-block btn-dark btn-flat btn-sm">

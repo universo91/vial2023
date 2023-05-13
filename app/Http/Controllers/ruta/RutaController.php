@@ -47,6 +47,7 @@ class RutaController extends Controller
             'codigo'                    => ['required'],
             'distritos_id'              => ['required', 'numeric'],
             'punto_inicio'              => ['required', 'string', 'max:100'],
+            'codigo_imagen'             => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'coordenada_x_inicio'       => ['required', 'numeric'],
             'coordenada_y_inicio'       => ['required', 'numeric'],
             'punto_final'               => ['required', 'string', 'max:100'],
@@ -64,6 +65,7 @@ class RutaController extends Controller
             'codigo'                    => ['required'],
             'distritos_id'              => ['required', 'numeric'],
             'punto_inicio'              => ['required', 'string', 'max:100'],
+            'codigo_imagen'             => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'coordenada_x_inicio'       => ['required', 'numeric'],
             'coordenada_y_inicio'       => ['required', 'numeric'],
             'punto_final'               => ['required', 'string', 'max:100'],
@@ -86,7 +88,10 @@ class RutaController extends Controller
 
         $datosDeRutaValidados = $validator->validated();
 
+
+        $datosDeRutaValidados['codigo_imagen'] = $this->guardarImagen($request);
         Ruta::create( $datosDeRutaValidados );
+
         return redirect('/ruta/registro');
     }
 
@@ -100,6 +105,8 @@ class RutaController extends Controller
         }
 
         $datosValidados = $validator->validated();
+
+        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
 
         Ruta::where('id', $idRuta)->update($datosValidados);
 

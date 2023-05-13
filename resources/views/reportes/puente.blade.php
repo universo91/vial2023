@@ -29,6 +29,7 @@
                     <tr>
                         <th class="align-middle">Ruta</th>
                         <th class="align-middle">Progresiva</th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Coord.X</th>
                         <th class="align-middle">Coord.Y</th>
                         <th class="align-middle">Altitud</th>
@@ -48,6 +49,11 @@
                         <tr>
                             <td>{{ $puente->codigo }} </td>
                             <td>{{ $puente->progresiva }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $puente->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $puente->coordenada_x }} </td>
                             <td>{{ $puente->coordenada_y }} </td>
                             <td>{{ $puente->altitud }} </td>
@@ -68,13 +74,22 @@
             </table>
         </div>
     </div>
+     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

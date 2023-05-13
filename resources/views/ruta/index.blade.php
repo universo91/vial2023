@@ -31,6 +31,7 @@
                         <th class="align-middle">Provincia</th>
                         <th class="align-middle">Distrito</th>
                         <th class="align-middle">Ruta</th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Punto inicial</th>
                         <th class="align-middle">Coor. X<sub>i</sub></th>
                         <th class="align-middle">Coor. Y<sub>i</sub></th>
@@ -52,6 +53,11 @@
                             <td>{{ $ruta->distrito->provincia->nombre }} </td>
                             <td>{{ $ruta->distrito->nombre }} </td>
                             <td>{{ $ruta->codigo }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $ruta->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $ruta->punto_inicio }} </td>
                             <td>{{ $ruta->coordenada_x_inicio }} </td>
                             <td>{{ $ruta->coordenada_y_inicio }} </td>
@@ -78,13 +84,22 @@
             </table>
         </div>
     </div>
+    <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

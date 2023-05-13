@@ -318,7 +318,7 @@
                         <div class="row ">
                             <div class="col-lg-12">
                                 <label
-                                    class="btn btn-outline-info file "
+                                    class="btn btn-outline-info file"
                                     for="codigo_imagen"
                                 >
                                     <i class="fas fa-upload"></i> Elija la imagen que desea (PNG, JPG)

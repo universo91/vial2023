@@ -27,7 +27,7 @@
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('actualizar_senializacion', $senializacion->id) }}" method="POST">
+                <form action="{{ route('actualizar_senializacion', $senializacion->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     @include('senializacion.form')
@@ -39,9 +39,11 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/registro.css">
 @stop
 
 @section('js')
     <script src="/js/senializacion/registro.js"></script>
+    <script src="/js/general/cargarImagen.js"></script>
 @stop

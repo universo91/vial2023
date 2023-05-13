@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tramo-content {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+}
+
+.imagen-container img:hover {
+    cursor: pointer;
+}
+
+.popup-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .9);
+    height: 110vh;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.modal-imagen {
+    position: absolute;
+    top: 10%;
+    left: 19%;
+    width: 700px;
+    height: 500px;
+    background-color: rgb(36, 38, 35);
+    display: none;
+    z-index: 110;
+}
+
+.modal-imagen span {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    z-index: 120;
+}
+
+.modal-imagen span i {
+    display: block;
+    position: absolute;
+    top:-3px;
+    left: -3px;
+    font-size: 35px;
+    /* background-color: #fff; */
+    color:#9c062e;
+    border-radius: 50%;
+}
+
+.modal-imagen img {
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    border: 5px solid #fff;
+    border-radius: 5px;
+    width: 700px;
+    height: 500px;
+    object-fit: cover;
+    z-index: 110;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .modal-imagen img {
+        width: 95%;
+    }
+}
+
+@media (min-height: 668px) {
+    .modal-imagen {
+        position: absolute;
+        top: 25%;
+        left: 19%;
+        width: 700px;
+        height: 500px;
+        background-color: rgb(36, 38, 35);
+    }
+
+    .tramo-content {
+        position: relative;
+        height: 94vh;
+        width: 100vw;
+    }
+}

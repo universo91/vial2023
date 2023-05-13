@@ -27,7 +27,7 @@
             </h6>
             <div class="card-body">
                 <hr class="hidden-xs hidden-md">
-                <form action="{{ route('registrarSuperficie') }}" method="POST">
+                <form action="{{ route('registrarSuperficie') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @include('superficie.form')
                 </form>
@@ -38,9 +38,10 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/general/registro.css">
 @stop
 
 @section('js')
     <script src="/js/superficie/registro.js"></script>
+    <script src="/js/general/cargarImagen.js"></script>
 @stop

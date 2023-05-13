@@ -41,6 +41,7 @@
                         <th class="align-middle">Longitud</th>
                         <th class="align-middle">Ancho calzada.</th>
                         <th class="align-middle">Cond. funcional</th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Hidrografia</th>
                         <th class="align-middle">Fecha</th>
                         <th class="align-middle" style="background-color:#2e2170">Acciones</th>
@@ -64,6 +65,11 @@
                             <td>{{ $puente->longitud }} </td>
                             <td>{{ $puente->ancho_calzada }} </td>
                             <td>{{ $puente->condicion_funcional }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $puente->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $puente->hidrografia }} </td>
                             <td>{{ $puente->created_at }} </td>
                             <td>
@@ -83,13 +89,22 @@
             </table>
         </div>
     </div>
+    <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

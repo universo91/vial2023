@@ -20,7 +20,7 @@ class CreateSenializacionesTable extends Migration
             $table->enum('senial', ['señal', 'hito'])->nullable();
             $table->enum('clasificacion', ['informativa', 'preventiva'])->nullable();
             $table->string('progresiva', 15);
-            $table->string('imagen',255);
+            $table->string('codigo_imagen',255);
             $table->enum('lado', ['izquierda', 'derecha']);
             $table->enum('soporte', ['poste']);
             $table->enum('material', ['acero', 'concreto']);

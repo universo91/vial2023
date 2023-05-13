@@ -38,6 +38,7 @@
                         <th class="align-middle">Y<sub>f</sub></th>
                         <th class="align-middle">Altitud<sub>f</sub></th>
                         <th class="align-middle">T. Superficie<sub>i</sub></th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Fecha</th>
 
 
@@ -57,6 +58,11 @@
                             <td>{{ $supRodadura->coor_y_final }} </td>
                             <td>{{ $supRodadura->altitud_final }} </td>
                             <td>{{ $supRodadura->tipo_superficie }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $supRodadura->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $supRodadura->fecha }} </td>
 
                         </tr>
@@ -67,14 +73,23 @@
             </table>
         </div>
     </div>
+     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

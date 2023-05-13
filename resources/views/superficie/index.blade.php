@@ -32,6 +32,7 @@
                         <th class="align-middle">Estado</th>
                         <th class="align-middle">T. Superficie<sub>i</sub></th>
                         <th class="align-middle">Ancho</th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Progresiva<sub>i</sub></th>
                         <th class="align-middle">X<sub>i</sub></th>
                         <th class="align-middle">Y<sub>i</sub></th>
@@ -56,6 +57,11 @@
                             <td>{{ $superficie->estado }} </td>
                             <td>{{ $superficie->tipo_superficie }} </td>
                             <td>{{ $superficie->ancho }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $superficie->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $superficie->progresiva_final }} </td>
                             <td>{{ $superficie->coor_inicial_x }} </td>
                             <td>{{ $superficie->coor_inicial_y }} </td>
@@ -83,20 +89,25 @@
             </table>
         </div>
     </div>
+    <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-  {{--   <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css" rel="stylesheet"/> --}}
-    <link rel="stylesheet" href="/css/tramo/index.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
-{{--
-    <script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.3.2/js/dataTables.fixedHeader.min.js"></script> --}}
+    <script src="/js/general/modalImagen.js"></script>
+
 
 
 @stop

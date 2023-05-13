@@ -34,6 +34,7 @@
                         <th class="align-middle">Señal</th>
                         <th class="align-middle">Clasificacion</th>
                         <th class="align-middle">Progresiva</th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Lado</th>
                         <th class="align-middle">Soporte</th>
                         <th class="align-middle">Material</th>
@@ -54,6 +55,11 @@
                             <td>{{ $senializacion->senial }} </td>
                             <td>{{ $senializacion->clasificacion }} </td>
                             <td>{{ $senializacion->progresiva }} </td>
+                             <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $senializacion->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $senializacion->lado }} </td>
                             <td>{{ $senializacion->soporte }} </td>
                             <td>{{ $senializacion->material }} </td>
@@ -70,13 +76,22 @@
             </table>
         </div>
     </div>
+     <figure class="modal-imagen">
+        <span><i class="fas fa-times-circle"></i></span>
+        <img src="" alt="imagen">
+    </figure>
 </div>
+<figure class="popup-imagen">
+
+</figure>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/datatableReportes.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

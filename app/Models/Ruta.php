@@ -15,6 +15,7 @@ class Ruta extends Model
         'codigo',
         'distritos_id',
         'punto_inicio',
+        'codigo_imagen',
         'coordenada_x_inicio',
         'coordenada_y_inicio',
         'punto_final',

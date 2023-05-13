@@ -16,6 +16,7 @@ class Puente extends Model
         'progresiva',
         'coordenada_x',
         'coordenada_y',
+        'codigo_imagen',
         'altitud',
         'tipos_id',
         'numero_vias',

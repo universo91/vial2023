@@ -33,6 +33,7 @@
                         <th class="align-middle">Ubigeo</th>
                         <th class="align-middle">Ruta</th>
                         <th class="align-middle">Señal</th>
+                        <th class="align-middle">Imagen</th>
                         <th class="align-middle">Clasificacion</th>
                         <th class="align-middle">Progresiva</th>
                         <th class="align-middle">Lado</th>
@@ -55,6 +56,11 @@
                             <td>{{ $senializacion->ruta->distrito->ubigeo }} </td>
                             <td>{{ $senializacion->ruta->codigo }} </td>
                             <td>{{ $senializacion->senial }} </td>
+                            <td>
+                                <figure class="imagen-container">
+                                    <img src="{{ $senializacion->codigo_imagen }}" width="30" height="30" alt="codigo">
+                                </figure>
+                            </td>
                             <td>{{ $senializacion->clasificacion }} </td>
                             <td>{{ $senializacion->progresiva }} </td>
                             <td>{{ $senializacion->lado }} </td>
@@ -86,9 +92,11 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="/css/general/index.css">
 @stop
 
 @section('js')
     <script src="/js/general/dataTable.js"></script>
+    <script src="/js/general/modalImagen.js"></script>
 @stop

@@ -16,6 +16,7 @@ class Senializacion extends Model
         'senial',
         'clasificacion',
         'progresiva',
+        'codigo_imagen',
         'lado',
         'soporte',
         'material',

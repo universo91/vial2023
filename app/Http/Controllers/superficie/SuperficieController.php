@@ -56,7 +56,7 @@ class SuperficieController extends Controller
         }
 
         $datosValidados = $validator->validated();
-
+        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
         Superficie::create($datosValidados);
 
         return redirect('/superficie/registro');
@@ -72,7 +72,7 @@ class SuperficieController extends Controller
         }
 
         $datosValidados = $validator->validated();
-
+        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
         Superficie::where('id', $idSuperfice)->update($datosValidados);
 
         return redirect('/superficie/vista_superficies');
@@ -81,36 +81,38 @@ class SuperficieController extends Controller
     public static function getValidacionSuperficie()
     {
         return [
-            'tramos_id' => ['required',],
-            'estado' => ['required',],
-            'tipo_superficie' => ['required',],
-            'ancho' => ['required',],
+            'tramos_id'          => ['required',],
+            'estado'             => ['required',],
+            'tipo_superficie'    => ['required',],
+            'ancho'              => ['required',],
+            'codigo_imagen'      => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'progresiva_inicial' => ['required',],
-            'coor_inicial_x' => ['required',],
-            'coor_inicial_y' => ['required',],
-            'altitud_inicial' => ['required',],
-            'progresiva_final' => ['required',],
-            'coor_final_x' => ['required',],
-            'coor_final_y' => ['required',],
-            'altitud_final' => ['required',]
+            'coor_inicial_x'     => ['required',],
+            'coor_inicial_y'     => ['required',],
+            'altitud_inicial'    => ['required',],
+            'progresiva_final'   => ['required',],
+            'coor_final_x'       => ['required',],
+            'coor_final_y'       => ['required',],
+            'altitud_final'      => ['required',]
         ];
     }
 
     public static function getValidacionActualizarSuperficie()
     {
         return [
-            'tramos_id' => ['required',],
-            'estado' => ['required',],
-            'tipo_superficie' => ['required',],
-            'ancho' => ['required',],
+            'tramos_id'          => ['required',],
+            'estado'             => ['required',],
+            'tipo_superficie'    => ['required',],
+            'ancho'              => ['required',],
+            'codigo_imagen'      => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'progresiva_inicial' => ['required',],
-            'coor_inicial_x' => ['required',],
-            'coor_inicial_y' => ['required',],
-            'altitud_inicial' => ['required',],
-            'progresiva_final' => ['required',],
-            'coor_final_x' => ['required',],
-            'coor_final_y' => ['required',],
-            'altitud_final' => ['required',]
+            'coor_inicial_x'     => ['required',],
+            'coor_inicial_y'     => ['required',],
+            'altitud_inicial'    => ['required',],
+            'progresiva_final'   => ['required',],
+            'coor_final_x'       => ['required',],
+            'coor_final_y'       => ['required',],
+            'altitud_final'      => ['required',]
         ];
     }
 
