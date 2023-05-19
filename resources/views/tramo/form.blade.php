@@ -480,8 +480,8 @@
                 <a
                     href="{{ route('lista_tramos') }}"
                     type="submit"
-                    style = "line-height:16px;font-size:15px;height:35px;background-color:#2d2c2c;"
                     class="btn btn-block btn-dark btn-flat btn-sm"
+                    style = "line-height:16px;font-size:15px;height:35px;background-color:#2d2c2c;"
                     onmouseover="this.style.backgroundColor='#070707'"
                     onmouseout="this.style.backgroundColor='#2d2c2c'"
                 >

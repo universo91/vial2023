@@ -294,13 +294,23 @@
     <div class="col-md-4 col-lg-2">
         <div class="btn-toolbar">
             <div class="btn-group-vertical btn-group-lg" style="width: 100%;">
-                <a href="{{ route('lista_senializaciones') }}" style = "height:35px;padding-top:0px;background-color:#222222;" class="btn btn-block btn-dark btn-flat btn-sm">
+                <a href="{{ route('lista_senializaciones') }}"
+                    class="btn btn-block btn-dark btn-flat btn-sm"
+                    style = "line-height:16px;font-size:15px;height:35px;background-color:#2d2c2c;"
+                    onmouseover="this.style.backgroundColor='#070707'"
+                    onmouseout="this.style.backgroundColor='#2d2c2c'"
+                >
                     <i class="glyphicon glyphicon-chevron-left"> </i>
                     Atras
                 </a>
             </div>
             <div class="btn-group-vertical btn-group-lg mt-3" style="width: 100%;">
-                <button type="submit" style="height:35px;padding-top:0px;background-color:#3FB618;" class="btn btn-block btn-sm btn-success btn-flat">
+                <button type="submit"
+                    class="btn btn-block btn-sm btn-success btn-flat btn-guardar"
+                    style="line-height: 16px;font-size: 15px;height:35px;background-color:#48c71d;"
+                    onmouseover="this.style.backgroundColor='#318b12'"
+                    onmouseout="this.style.backgroundColor='#48c71d'"
+                >
                     <i class="glyphicon glyphicon-chevron-left"> </i>
                     Guardar
                 </button>

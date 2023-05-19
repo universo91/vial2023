@@ -19,11 +19,11 @@ class CreateSenializacionesTable extends Migration
             //Aqui falta un campo llamado cod_provi ......
             $table->enum('senial', ['señal', 'hito'])->nullable();
             $table->enum('clasificacion', ['informativa', 'preventiva'])->nullable();
-            $table->string('progresiva', 15);
-            $table->string('codigo_imagen',255);
-            $table->enum('lado', ['izquierda', 'derecha']);
-            $table->enum('soporte', ['poste']);
-            $table->enum('material', ['acero', 'concreto']);
+            $table->string('progresiva', 15)->nullable();
+            $table->string('codigo_imagen',255)->nullable();
+            $table->enum('lado', ['izquierda', 'derecha'])->nullable();
+            $table->enum('soporte', ['poste'])->nullable();
+            $table->enum('material', ['acero', 'concreto'])->nullable();
             $table->enum('zona',['17', '18', '19'])->nullable();
             $table->decimal('coordenada_x', 10, 2)->nullable();
             $table->decimal('coordenada_y', 10, 2)->nullable();

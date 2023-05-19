@@ -44,37 +44,37 @@ class RutaController extends Controller
 
     public static function getValidacionRuta() {
         return [
-            'codigo'                    => ['required'],
-            'distritos_id'              => ['required', 'numeric'],
-            'punto_inicio'              => ['required', 'string', 'max:100'],
+            'codigo'                    => ['required', 'unique:rutas,codigo'],
+            'distritos_id'              => ['nullable', 'numeric'],
+            'punto_inicio'              => ['nullable', 'string', 'max:150'],
             'codigo_imagen'             => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'coordenada_x_inicio'       => ['required', 'numeric'],
-            'coordenada_y_inicio'       => ['required', 'numeric'],
-            'punto_final'               => ['required', 'string', 'max:100'],
-            'coordenada_x_final'        => ['required', 'numeric'],
-            'coordenada_y_final'        => ['required', 'numeric'],
-            'altitud_punto_inicial'     => ['required', 'numeric'],
-            'altitud_punto_final'       => ['required', 'numeric'],
-            'progresiva_punto_inicial'  => ['required', 'string', 'max:20'],
-            'progresiva_punto_final'    => ['required', 'string', 'max:20'],
+            'coordenada_x_inicio'       => ['nullable', 'numeric'],
+            'coordenada_y_inicio'       => ['nullable', 'numeric'],
+            'punto_final'               => ['nullable', 'string', 'max:150'],
+            'coordenada_x_final'        => ['nullable', 'numeric'],
+            'coordenada_y_final'        => ['nullable', 'numeric'],
+            'altitud_punto_inicial'     => ['nullable', 'numeric'],
+            'altitud_punto_final'       => ['nullable', 'numeric'],
+            'progresiva_punto_inicial'  => ['nullable', 'regex:/^\d+\+\d+$/'],
+            'progresiva_punto_final'    => ['nullable', 'regex:/^\d+\+\d+$/'],
         ];
     }
 
-    public static function getValidacionActualizarRuta() {
+    public static function getValidacionActualizarRuta($id = null) {
         return [
-            'codigo'                    => ['required'],
-            'distritos_id'              => ['required', 'numeric'],
-            'punto_inicio'              => ['required', 'string', 'max:100'],
+            'codigo'                    => ['required', 'unique:rutas,codigo,' . $id ],
+            'distritos_id'              => ['nullable', 'numeric'],
+            'punto_inicio'              => ['nullable', 'string', 'max:150'],
             'codigo_imagen'             => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'coordenada_x_inicio'       => ['required', 'numeric'],
-            'coordenada_y_inicio'       => ['required', 'numeric'],
-            'punto_final'               => ['required', 'string', 'max:100'],
-            'coordenada_x_final'        => ['required', 'numeric'],
-            'coordenada_y_final'        => ['required', 'numeric'],
-            'altitud_punto_inicial'     => ['required', 'numeric'],
-            'altitud_punto_final'       => ['required', 'numeric'],
-            'progresiva_punto_inicial'  => ['required', 'string', 'max:20'],
-            'progresiva_punto_final'    => ['required', 'string', 'max:20'],
+            'coordenada_x_inicio'       => ['nullable', 'numeric'],
+            'coordenada_y_inicio'       => ['nullable', 'numeric'],
+            'punto_final'               => ['nullable', 'string', 'max:150'],
+            'coordenada_x_final'        => ['nullable', 'numeric'],
+            'coordenada_y_final'        => ['nullable', 'numeric'],
+            'altitud_punto_inicial'     => ['nullable', 'numeric'],
+            'altitud_punto_final'       => ['nullable', 'numeric'],
+            'progresiva_punto_inicial'  => ['nullable', 'regex:/^\d+\+\d+$/'],
+            'progresiva_punto_final'    => ['nullable', 'regex:/^\d+\+\d+$/'],
         ];
     }
 
@@ -83,34 +83,41 @@ class RutaController extends Controller
         $validator = Validator::make($request->all(), static::getValidacionRuta());
 
         if($validator->fails()) {
-
-        }
-
-        $datosDeRutaValidados = $validator->validated();
-
-
-        $datosDeRutaValidados['codigo_imagen'] = $this->guardarImagen($request);
-        Ruta::create( $datosDeRutaValidados );
-
-        return redirect('/ruta/registro');
-    }
-
-    public function actualizarRuta(Request $request, $idRuta)
-    {
-        $validator = Validator::make($request->all(), static::getValidacionActualizarRuta() );
-
-        if( $validator->fails())
-        {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
 
-        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
+
+        Ruta::create( $datosValidados );
+
+        return redirect('/ruta/vista_rutas')->with('creado', 'Ruta registrado correctamente');
+    }
+
+    public function actualizarRuta(Request $request, $idRuta)
+    {
+        $validator = Validator::make($request->all(), static::getValidacionActualizarRuta($idRuta) );
+        /* dd($validator); */
+        if( $validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $datosValidados = $validator->validated();
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
 
         Ruta::where('id', $idRuta)->update($datosValidados);
 
-        return redirect('/ruta/vista_rutas');
+        return redirect('/ruta/vista_rutas')->with('actualizado', 'Ruta actualizado correctamente');
     }
 
     public function getRutas($id) {

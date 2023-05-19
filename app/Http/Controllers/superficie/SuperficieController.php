@@ -52,14 +52,19 @@ class SuperficieController extends Controller
         $validator = Validator::make($request->all(), static::getValidacionSuperficie());
 
         if($validator->fails()) {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
-        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
+
         Superficie::create($datosValidados);
 
-        return redirect('/superficie/registro');
+        return redirect('/superficie/vista_superficies')->with('creado', 'Superficie registrado correctamente');
     }
 
     public function actualizarSuperficie(Request $request, $idSuperfice)
@@ -68,32 +73,37 @@ class SuperficieController extends Controller
 
         if($validator->fails())
         {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
-        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
+
         Superficie::where('id', $idSuperfice)->update($datosValidados);
 
-        return redirect('/superficie/vista_superficies');
+        return redirect('/superficie/vista_superficies')->with('actualizado', 'Superficie actualizado correctamente');
     }
 
     public static function getValidacionSuperficie()
     {
         return [
             'tramos_id'          => ['required',],
-            'estado'             => ['required',],
-            'tipo_superficie'    => ['required',],
-            'ancho'              => ['required',],
+            'estado'             => ['required', 'string'],
+            'tipo_superficie'    => ['required', 'string'],
+            'ancho'              => ['required', 'numeric'],
             'codigo_imagen'      => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'progresiva_inicial' => ['required',],
-            'coor_inicial_x'     => ['required',],
-            'coor_inicial_y'     => ['required',],
-            'altitud_inicial'    => ['required',],
-            'progresiva_final'   => ['required',],
-            'coor_final_x'       => ['required',],
-            'coor_final_y'       => ['required',],
-            'altitud_final'      => ['required',]
+            'progresiva_inicial' => ['required', 'regex:/^\d+\+\d+$/'],
+            'coor_inicial_x'     => ['required', 'numeric'],
+            'coor_inicial_y'     => ['required', 'numeric'],
+            'altitud_inicial'    => ['required', 'numeric'],
+            'progresiva_final'   => ['required', 'regex:/^\d+\+\d+$/'],
+            'coor_final_x'       => ['required', 'numeric'],
+            'coor_final_y'       => ['required', 'numeric'],
+            'altitud_final'      => ['required', 'numeric']
         ];
     }
 
@@ -101,18 +111,18 @@ class SuperficieController extends Controller
     {
         return [
             'tramos_id'          => ['required',],
-            'estado'             => ['required',],
-            'tipo_superficie'    => ['required',],
-            'ancho'              => ['required',],
+            'estado'             => ['required', 'string'],
+            'tipo_superficie'    => ['required', 'string'],
+            'ancho'              => ['required', 'numeric'],
             'codigo_imagen'      => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'progresiva_inicial' => ['required',],
-            'coor_inicial_x'     => ['required',],
-            'coor_inicial_y'     => ['required',],
-            'altitud_inicial'    => ['required',],
-            'progresiva_final'   => ['required',],
-            'coor_final_x'       => ['required',],
-            'coor_final_y'       => ['required',],
-            'altitud_final'      => ['required',]
+            'progresiva_inicial' => ['required', 'regex:/^\d+\+\d+$/'],
+            'coor_inicial_x'     => ['required', 'numeric'],
+            'coor_inicial_y'     => ['required', 'numeric'],
+            'altitud_inicial'    => ['required', 'numeric'],
+            'progresiva_final'   => ['required', 'regex:/^\d+\+\d+$/'],
+            'coor_final_x'       => ['required', 'numeric'],
+            'coor_final_y'       => ['required', 'numeric'],
+            'altitud_final'      => ['required', 'numeric']
         ];
     }
 

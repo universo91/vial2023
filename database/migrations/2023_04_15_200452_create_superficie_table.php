@@ -16,17 +16,17 @@ class CreateSuperficieTable extends Migration
         Schema::create('superficie', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tramos_id');
-            $table->enum('estado', ['regular', 'malo', 'bueno']);
-            $table->enum('tipo_superficie', ['pavimento asfaltico', 'pavimento de concreto', 'afirmado', 'sin afirmar', 'trocha carrozable']);
-            $table->decimal('ancho', 5, 2);
-            $table->string('progresiva_inicial');
-            $table->decimal('coor_inicial_x',10,2, 10, 2);
-            $table->decimal('coor_inicial_y',10,2, 10, 2);
-            $table->decimal('altitud_inicial');
-            $table->string('progresiva_final');
-            $table->decimal('coor_final_x', 10, 2);
-            $table->decimal('coor_final_y', 10, 2);
-            $table->decimal('altitud_final');
+            $table->enum('estado', ['regular', 'malo', 'bueno'])->nullable();
+            $table->enum('tipo_superficie', ['pavimento asfaltico', 'pavimento de concreto', 'afirmado', 'sin afirmar', 'trocha carrozable'])->nullable();
+            $table->decimal('ancho', 5, 2)->nullable();
+            $table->string('progresiva_inicial')->nullable();
+            $table->decimal('coor_inicial_x',10,2)->nullable();
+            $table->decimal('coor_inicial_y',10,2)->nullable();
+            $table->decimal('altitud_inicial')->nullable();
+            $table->string('progresiva_final')->nullable();
+            $table->decimal('coor_final_x', 10, 2)->nullable();
+            $table->decimal('coor_final_y', 10, 2)->nullable();
+            $table->decimal('altitud_final')->nullable();
             $table->string('codigo_imagen', 255)->nullable();
             $table->timestamps();
 

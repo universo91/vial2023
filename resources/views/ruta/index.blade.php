@@ -9,10 +9,8 @@
 <div class="container tramo-content">
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-5">
-            <a style="text-decoration:none; color:inherit" href="">
                 <img src="/img/ruta.png" alt="rutas">
                 Rutas
-            </a>
         </h3>
         <hr>
     </div>
@@ -102,4 +100,21 @@
 @section('js')
     <script src="/js/general/dataTable.js"></script>
     <script src="/js/general/modalImagen.js"></script>
+    <script>
+        @if(Session::has('creado'))
+            toastr.options.closeButton = true;
+            toastr.options.closeMethod = 'fadeOut';
+            toastr.options.closeDuration = 300;
+            toastr.options.closeEasing = 'swing';
+            toastr.success("{{ Session::get('creado')}}")
+        @endif
+
+        @if(Session::has('actualizado'))
+            toastr.options.closeButton = true;
+            toastr.options.closeMethod = 'fadeOut';
+            toastr.options.closeDuration = 300;
+            toastr.options.closeEasing = 'swing';
+            toastr.success("{{ Session::get('actualizado')}}")
+        @endif
+    </script>
 @stop

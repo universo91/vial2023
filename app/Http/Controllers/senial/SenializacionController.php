@@ -46,13 +46,19 @@ class SenializacionController extends Controller
         $validator = Validator::make( $request->all(), static::getValidacionCrearSenializacion() );
 
         if( $validator->fails() ) {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
-        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
+
         Senializacion::create( $datosValidados );
-        return redirect('/senializacion/registro');
+
+        return redirect('/senializaciom/vista_senializaciones')->with('creado', 'Señalizacion registrado correctamente ');
     }
 
     public function actualizarSenializacion(Request $request, $idSenializacion)
@@ -61,7 +67,7 @@ class SenializacionController extends Controller
         /* dd( $validator ); */
         if($validator->fails())
         {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
@@ -73,41 +79,41 @@ class SenializacionController extends Controller
 
         Senializacion::where('id', $idSenializacion)->update($datosValidados);
 
-        return redirect('/senializaciom/vista_senializaciones');
+        return redirect('/senializaciom/vista_senializaciones')->with('actualizado', 'Señalizacion actualizado correctamente');
     }
 
 
     public static function getValidacionCrearSenializacion() {
         return [
             'rutas_id'      => ['required'],
-            'senial'        => ['required'],
-            'clasificacion' => ['required'],
-            'progresiva'    => ['required'],
+            'senial'        => ['nullable', 'string'],
+            'clasificacion' => ['nullable', 'string'],
+            'progresiva'    => ['nullable', 'regex:/^\d+\+\d+$/'],
             'codigo_imagen' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'lado'          => ['required'],
-            'soporte'       => ['required'],
-            'material'      => ['required'],
-            'zona'          => ['required'],
-            'coordenada_x'  => ['required'],
-            'coordenada_y'  => ['required'],
-            'altitud'       => ['required'],
+            'lado'          => ['nullable', 'string'],
+            'soporte'       => ['nullable', 'string'],
+            'material'      => ['nullable', 'string'],
+            'zona'          => ['nullable', 'string'],
+            'coordenada_x'  => ['nullable', 'numeric'],
+            'coordenada_y'  => ['nullable', 'numeric'],
+            'altitud'       => ['nullable', 'numeric'],
         ];
     }
 
     public static function getValidacionActualizarSenializacion() {
         return [
             'rutas_id'      => ['required'],
-            'senial'        => ['required'],
-            'clasificacion' => ['required'],
-            'progresiva'    => ['required'],
+            'senial'        => ['nullable', 'string'],
+            'clasificacion' => ['nullable', 'string'],
+            'progresiva'    => ['nullable', 'regex:/^\d+\+\d+$/'],
             'codigo_imagen' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'lado'          => ['required'],
-            'soporte'       => ['required'],
-            'material'      => ['required'],
-            'zona'          => ['required'],
-            'coordenada_x'  => ['required'],
-            'coordenada_y'  => ['required'],
-            'altitud'       => ['required'],
+            'lado'          => ['nullable', 'string'],
+            'soporte'       => ['nullable', 'string'],
+            'material'      => ['nullable', 'string'],
+            'zona'          => ['nullable', 'string'],
+            'coordenada_x'  => ['nullable', 'numeric'],
+            'coordenada_y'  => ['nullable', 'numeric'],
+            'altitud'       => ['nullable', 'numeric'],
         ];
     }
 }

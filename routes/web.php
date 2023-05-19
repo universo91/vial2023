@@ -20,10 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::post('/imagen/guardar', [TramoController::class, 'guardarImagen'])->name('guardar-imagen');
 
 Route::group(['middleware' => 'auth'], function () {
-
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/reporte/georeferenciamiento', [ReportesController::class, 'getDatosReferenciamiento']);

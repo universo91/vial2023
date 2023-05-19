@@ -34,16 +34,19 @@ class PuenteController extends Controller
         $validator = Validator::make($request->all() , static::getValidacionCrearPuente() );
 
         if( $validator->fails() ) {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
 
-        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
 
         Puente::create( $datosValidados );
 
-        return redirect('puente/vista_puentes');
+        return redirect('puente/vista_puentes')->with('creado', 'Puente regsitrado correctamente');
     }
 
     public function actualizarPuente(Request $request, $idPuente)
@@ -52,16 +55,19 @@ class PuenteController extends Controller
 
         if( $validator->fails())
         {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
 
-        $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
 
         Puente::where('id', $idPuente)->update($datosValidados);
 
-        return redirect('/puente/vista_puentes');
+        return redirect('/puente/vista_puentes')->with('actualizado', 'Puente actualizado correctamente');
     }
 
     public function editarPuente($idPuente)
@@ -85,35 +91,35 @@ class PuenteController extends Controller
     public static function getValidacionCrearPuente(){
         return [
             'rutas_id'              => ['required'],
-            'progresiva'            => ['required'],
-            'coordenada_x'          => ['required'],
-            'coordenada_y'          => ['required'],
-            'altitud'               => ['required'],
+            'progresiva'            => ['nullable', 'regex:/^\d+\+\d+$/'],
+            'coordenada_x'          => ['nullable', 'numeric'],
+            'coordenada_y'          => ['nullable', 'numeric'],
+            'altitud'               => ['nullable', 'numeric'],
             'tipos_id'              => ['required'],
-            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'numero_vias'           => ['required'],
-            'tablero_rodadura'      => ['required'],
-            'longitud'              => ['required'],
-            'ancho_calzada'         => ['required'],
-            'condicion_funcional'   => ['required'],
-            'hidrografia'           => ['required']
+            'codigo_imagen'         => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'numero_vias'           => ['nullable', 'integer'],
+            'tablero_rodadura'      => ['nullable', 'string'],
+            'longitud'              => ['nullable', 'numeric'],
+            'ancho_calzada'         => ['nullable', 'string'],
+            'condicion_funcional'   => ['nullable', 'string'],
+            'hidrografia'           => ['nullable', 'string']
         ];
     }
     public static function getValidacionActualizarPuente(){
         return [
             'rutas_id'              => ['required'],
-            'progresiva'            => ['required'],
-            'coordenada_x'          => ['required'],
-            'coordenada_y'          => ['required'],
-            'altitud'               => ['required'],
+            'progresiva'            => ['nullable', 'regex:/^\d+\+\d+$/'],
+            'coordenada_x'          => ['nullable', 'numeric'],
+            'coordenada_y'          => ['nullable', 'numeric'],
+            'altitud'               => ['nullable', 'numeric'],
             'tipos_id'              => ['required'],
-            'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'numero_vias'           => ['required'],
-            'tablero_rodadura'      => ['required'],
-            'longitud'              => ['required'],
-            'ancho_calzada'         => ['required'],
-            'condicion_funcional'   => ['required'],
-            'hidrografia'           => ['required']
+            'codigo_imagen'         => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'numero_vias'           => ['nullable', 'integer'],
+            'tablero_rodadura'      => ['nullable', 'string'],
+            'longitud'              => ['nullable', 'numeric'],
+            'ancho_calzada'         => ['nullable', 'string'],
+            'condicion_funcional'   => ['nullable', 'string'],
+            'hidrografia'           => ['nullable', 'string']
         ];
     }
 }

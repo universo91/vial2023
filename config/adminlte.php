@@ -63,8 +63,9 @@ return [
     |
     */
 
-    'logo' => '<b>VIAL</b>2023',
-    'logo_img' => 'img/vial_fondoblanco.jpg',
+    'logo' => '<div style="color:white; display:inline"><b>VIAL</b> 2023</div>',
+    'logo_class' => 'white',
+    'logo_img' => 'img/vial_fondoblanco.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -109,10 +110,10 @@ return [
     'preloader' => [
         'enabled' => false,
         'img' => [
-            'path' => 'img/vial_fondoblanco.jpg','alt' => 'Vial 2023',
+            'path' => 'img/vial_fondoblanco.png','alt' => 'Vial 2023',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 5,
+            'height' => 5,
         ],
     ],
 
@@ -520,6 +521,21 @@ return [
                     'location' => '//cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css',
                 ],
             ],
+        ],
+        'toastr' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'
+                ],
+            ]
         ],
         'Select2' => [
             'active' => false,

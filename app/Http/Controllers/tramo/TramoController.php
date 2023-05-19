@@ -51,14 +51,19 @@ class TramoController extends Controller
         $validator = Validator::make( $request->all(), static::getValidacionesTramo() );
 
         if( $validator->fails() ) {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $tramosValidados = $validator->validated();
-        $tramosValidados['codigo_imagen'] = $this->guardarImagen($request);
+
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
+
         Tramo::create( $tramosValidados);
 
-        return redirect('/tramo/registro');
+        return redirect('/tramo/vista_tramos')->with('creado', 'Tramo registrado correctamente');
     }
 
     public function getTramos($id) {
@@ -72,73 +77,78 @@ class TramoController extends Controller
 
         if( $validator->fails())
         {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
 
+        if( $request->file('codigo_imagen') )
+        {
+            $datosValidados['codigo_imagen'] = $this->guardarImagen($request);
+        }
+
         Tramo::where('id', $idTramo)->update($datosValidados);
 
-        return redirect('/tramo/vista_tramos');
+        return redirect('/tramo/vista_tramos')->with('actualizado', 'Tramo actualizado correctamente');
 
     }
 
 
     public static function getValidacionesTramo() {
         return [
-            'rutas_id'               => ['nullable'],
-            'numero_tramo'           => ['nullable'],
-            'tipo_terreno'           => ['nullable'],
-            'estado_via'             => ['nullable'],
-            'tipo_superficie'        => ['nullable'],
-            'progresiva_inicial'     => ['nullable'],
-            'progresiva_final'       => ['nullable'],
-            'coor_x_inicial'         => ['nullable'],
-            'coor_y_inicial'         => ['nullable'],
-            'altitud_inicial'        => ['nullable'],
-            'coor_x_final'           => ['nullable'],
-            'coor_y_final'           => ['nullable'],
-            'altitud_final'          => ['nullable'],
-            'zona'                   => ['nullable'],
-            'punto_notable'          => ['nullable'],
+            'rutas_id'               => ['required', 'exists:rutas,id'],
+            'numero_tramo'           => ['integer'],
+            'tipo_terreno'           => ['nullable', 'string'],
+            'estado_via'             => ['nullable', 'string'],
+            'tipo_superficie'        => ['nullable', 'string'],
+            'progresiva_inicial'     => ['nullable','regex:/^\d+\+\d+$/'],
+            'progresiva_final'       => ['nullable','regex:/^\d+\+\d+$/'],
+            'coor_x_inicial'         => ['nullable', 'numeric'],
+            'coor_y_inicial'         => ['nullable', 'numeric'],
+            'altitud_inicial'        => ['nullable', 'numeric'],
+            'coor_x_final'           => ['nullable', 'numeric'],
+            'coor_y_final'           => ['nullable', 'numeric'],
+            'altitud_final'          => ['nullable', 'numeric'],
+            'zona'                   => ['nullable', 'string'],
+            'punto_notable'          => ['nullable', 'string', 'max:255'],
             'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'tramo_inicio'           => ['nullable'],
-            'tramo_fin'              => ['nullable'],
-            'numero_carriles'        => ['nullable'],
-            'ancho_calzada'          => ['nullable'],
-            'ancho_berma_izquierda'  => ['nullable'],
-            'ancho_berma_derecha'    => ['nullable'],
-            'identificacion_calzada' => ['nullable'],
-            'observaciones'          => ['nullable']
+            'tramo_inicio'           => ['nullable', 'string', 'max:255'],
+            'tramo_fin'              => ['nullable', 'string', 'max: 255'],
+            'numero_carriles'        => ['nullable', 'integer'],
+            'ancho_calzada'          => ['nullable', 'numeric'],
+            'ancho_berma_izquierda'  => ['nullable', 'numeric'],
+            'ancho_berma_derecha'    => ['nullable', 'numeric'],
+            'identificacion_calzada' => ['nullable', 'string'],
+            'observaciones'          => ['nullable', 'string', 'max:255']
         ];
     }
 
     public static function getValidacionesActualizarTramo() {
         return [
-            'rutas_id'               => ['nullable'],
-            'numero_tramo'           => ['nullable'],
-            'tipo_terreno'           => ['nullable'],
-            'estado_via'             => ['nullable'],
-            'tipo_superficie'        => ['nullable'],
-            'progresiva_inicial'     => ['nullable'],
-            'progresiva_final'       => ['nullable'],
-            'coor_x_inicial'         => ['nullable'],
-            'coor_y_inicial'         => ['nullable'],
-            'altitud_inicial'        => ['nullable'],
-            'coor_x_final'           => ['nullable'],
-            'coor_y_final'           => ['nullable'],
-            'altitud_final'          => ['nullable'],
-            'zona'                   => ['nullable'],
-            'punto_notable'          => ['nullable'],
+            'rutas_id'               => ['required', 'exists:rutas,id'],
+            'numero_tramo'           => ['integer'],
+            'tipo_terreno'           => ['nullable', 'string'],
+            'estado_via'             => ['nullable', 'string'],
+            'tipo_superficie'        => ['nullable', 'string'],
+            'progresiva_inicial'     => ['nullable','regex:/^\d+\+\d+$/'],
+            'progresiva_final'       => ['nullable','regex:/^\d+\+\d+$/'],
+            'coor_x_inicial'         => ['nullable', 'numeric'],
+            'coor_y_inicial'         => ['nullable', 'numeric'],
+            'altitud_inicial'        => ['nullable', 'numeric'],
+            'coor_x_final'           => ['nullable', 'numeric'],
+            'coor_y_final'           => ['nullable', 'numeric'],
+            'altitud_final'          => ['nullable', 'numeric'],
+            'zona'                   => ['nullable', 'string'],
+            'punto_notable'          => ['nullable', 'string', 'max:255'],
             'codigo_imagen'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'tramo_inicio'           => ['nullable'],
-            'tramo_fin'              => ['nullable'],
-            'numero_carriles'        => ['nullable'],
-            'ancho_calzada'          => ['nullable'],
-            'ancho_berma_izquierda'  => ['nullable'],
-            'ancho_berma_derecha'    => ['nullable'],
-            'identificacion_calzada' => ['nullable'],
-            'observaciones'          => ['nullable']
+            'tramo_inicio'           => ['nullable', 'string', 'max:255'],
+            'tramo_fin'              => ['nullable', 'string', 'max: 255'],
+            'numero_carriles'        => ['nullable', 'integer'],
+            'ancho_calzada'          => ['nullable', 'numeric'],
+            'ancho_berma_izquierda'  => ['nullable', 'numeric'],
+            'ancho_berma_derecha'    => ['nullable', 'numeric'],
+            'identificacion_calzada' => ['nullable', 'string'],
+            'observaciones'          => ['nullable', 'string', 'max:255']
         ];
     }
 

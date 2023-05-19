@@ -10,7 +10,7 @@
 <div class="container">
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-3">
-            <a style="text-decoration:none; color:inherit" href="">
+            <a style="text-decoration:none; color:inherit" href="{{ route('lista_puentes') }}">
                 <img src="/img/puente.png" alt="puente">
                 Puentes
             </a>
@@ -47,5 +47,6 @@
 @section('js')
     <script src="/js/puentes/registro.js"> </script>
     <script src="/js/general/cargarImagen.js"></script>
+
 
 @stop

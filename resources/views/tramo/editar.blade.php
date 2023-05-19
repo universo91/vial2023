@@ -10,7 +10,7 @@
 <div class="container">
     <div class="page-header">
         <h3 class="font-weight-light mb-3 pt-5">
-            <a style="text-decoration:none; color:inherit" href="">
+            <a style="text-decoration:none; color:inherit" href="{{ route('lista_tramos') }}">
                 <img src="/img/tramo1.png" alt="tramo">
                 Tramos
             </a>
