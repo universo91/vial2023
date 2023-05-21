@@ -21,7 +21,7 @@
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Departamento <span class="text-danger"> * </span> </label>
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="departamento" id="departamento">
-                        <option value="">Seleccione departamento</option>
+                        <option >Seleccione departamento</option>
                         @if (isset($puente->id))
                             @foreach ($departamentos as $departamento )
                                 <option value="{{ $departamento->id }}" {{ $departamento->id == $provincia->departamentos_id ? 'selected' : '' }}> {{ strtoupper($departamento->nombre) }}</option>
@@ -43,7 +43,7 @@
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Provincia</label>
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="provincia" id="provincia">
-                        <option value="">Seleccione provincia</option>
+                        <option>Seleccione provincia</option>
                         @if (isset($puente->id))
                             @foreach ($provincias as $prov)
                                 <option value='{{ $prov->id }}' {{ $prov->id == $distrito->provincias_id ? 'selected' : ''}}> {{ strtoupper( $prov->nombre)}} </option>
@@ -60,12 +60,18 @@
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Distrito</label>
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="distrito" id="distrito">
-                        <option value="">Seleccione distrito</option>
+                        <option>Seleccione distrito</option>
                         @if (isset($puente->id))
                             @foreach ($distritos as $dist)
                                 <option value='{{ $dist->id }}' {{ $dist->id == $ruta->distritos_id ? 'selected' : ''}}> {{ strtoupper( $dist->nombre ) }} </option>
+
+
+
                             @endforeach
                         @endif
+                        @error('distrito')
+                            <small class="mensaje-error">{{ $message }}</small>
+                        @enderror
                     </select>
                 </div>
             </div>
@@ -76,14 +82,18 @@
                     <div class="col-lg-3 d-flex flex-row-reverse ">
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ruta</label>
                     </div>
-                    <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="rutas_id" id="ruta">
-                        <option value="">Seleccione ruta</option>
+                    <select class=" form-control form-control-sm select2bs4 col-lg-9 @error('name') is-invalid @enderror"  name="rutas_id" id="ruta" required>
+                        <option>Seleccione ruta</option>
                         @if (isset($puente->id))
                             @foreach ($rutas as $ru)
                                 <option value='{{ $ru->id }}' {{ $ru->id == $puente->rutas_id ? 'selected' : ''}} > {{ $ru->codigo }}</option>
                             @endforeach
                         @endif
+
                     </select>
+                    @error('rutas_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -91,10 +101,13 @@
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="progresiva" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">progresiva Puente<span class="text-danger"> *</span></label>
+                        <label for="progresiva" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">progresiva Puente</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva" id="progresiva" value="{{ isset($puente->progresiva) ? $puente->progresiva : '' }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm @error('progresiva') is-invalid @enderror" name="progresiva" id="progresiva" value="{{ isset($puente->progresiva) ? $puente->progresiva : old('progresiva') }}">
+                        @error('progresiva')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -102,22 +115,13 @@
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="coordenada_x" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. X<span class="text-danger"> *</span></label>
+                        <label for="coordenada_x" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. X</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x" id="coordenada_x" value="{{ isset($puente->coordenada_x) ? $puente->coordenada_x : '' }}" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <hr hidden class="hidden-md hidden-lg">
-                <div class="row">
-                    <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="coordenada_y" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. Y<span class="text-danger"> *</span></label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y" id="coordenada_y" value="{{ isset($puente->coordenada_y) ? $puente->coordenada_y : '' }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x" id="coordenada_x" value="{{ isset($puente->coordenada_x) ? $puente->coordenada_x : '' }}">
+                        @error('coordenada_x')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -126,10 +130,28 @@
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="altitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Altitud<span class="text-danger"> *</span></label>
+                        <label for="coordenada_y" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. Y</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud" id="altitud" value="{{ isset($puente->altitud) ? $puente->altitud : '' }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y" id="coordenada_y" value="{{ isset($puente->coordenada_y) ? $puente->coordenada_y : '' }}">
+                        @error('coordenada_y')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <hr hidden class="hidden-md hidden-lg">
+                <div class="row">
+                    <div class="col-lg-3 d-flex flex-row-reverse ">
+                        <label for="altitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Altitud</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud" id="altitud" value="{{ isset($puente->altitud) ? $puente->altitud : '' }}">
+                        @error('altitud')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -151,7 +173,11 @@
                                 <option value="{{ $clase->id }}">{{ $clase->nombre }}</option>
                             @endforeach
                        @endif
+
                     </select>
+                    @error('clases_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -170,6 +196,9 @@
                         @endif
 
                     </select>
+                    @error('tipos_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -207,6 +236,9 @@
 
                         @endif
                     </select>
+                    @error('numero_vias')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -229,6 +261,9 @@
 
                         @endif
                     </select>
+                    @error('tablero_rodadura')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -236,10 +271,13 @@
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="longitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Longitud<span class="text-danger"> *</span></label>
+                        <label for="longitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Longitud</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="longitud" id="longitud" value="{{ isset($puente->longitud) ? $puente->longitud : '' }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="longitud" id="longitud" value="{{ isset($puente->longitud) ? $puente->longitud : '' }}">
+                        @error('longitud')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -248,10 +286,13 @@
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse ">
-                        <label for="ancho_calzada" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ancho calzada<span class="text-danger"> *</span></label>
+                        <label for="ancho_calzada" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ancho calzada</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho_calzada" id="ancho_calzada" value="{{ isset($puente->ancho_calzada) ? $puente->ancho_calzada : '' }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho_calzada" id="ancho_calzada" value="{{ isset($puente->ancho_calzada) ? $puente->ancho_calzada : '' }}">
+                        @error('ancho_calzada')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -274,6 +315,9 @@
 
                         @endif
                     </select>
+                    @error('condicion_funcional')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -281,7 +325,7 @@
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
                     <div class="col-lg-3 d-flex flex-row-reverse">
-                        <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen<span class="text-danger"> *</span></label>
+                        <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen</label>
                     </div>
                     <div class="col-lg-9 ">
                         <div class="row ">
@@ -311,6 +355,9 @@
                         </div>
 
                     </div>
+                    @error('codigo_imagen')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
 
                 </div>
             </div>
@@ -331,6 +378,9 @@
 
                         @endif
                     </select>
+                    @error('hidrografia')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -368,3 +418,5 @@
 
     </div>
 </div>
+
+

@@ -84,6 +84,9 @@
                             @endforeach
                         @endif
                     </select>
+                    @error('rutas_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -94,7 +97,7 @@
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Señal</label>
                     </div>
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="senial">
-                        <option value="señal">Señal</option>
+                        <option>Señal</option>
                         @if (isset($senializacion->senial))
 
                             <option value="hito" {{ $senializacion->senial == 'hito' ? 'selected' : ''  }}>Hito</option>
@@ -106,6 +109,9 @@
                         @endif
 
                     </select>
+                    @error('senial')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -140,6 +146,9 @@
                             @else
                                 <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
                             @endif
+                            @error('codigo_imagen')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                            @enderror
                         </div>
 
                     </div>
@@ -162,6 +171,9 @@
                             <option  value="preventiva">Preventiva</option>
                         @endif
                     </select>
+                    @error('clasificacion')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -173,6 +185,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva" id="progresiva" value="{{ isset($senializacion->progresiva) ? $senializacion->progresiva : ''}}" required>
+                        @error('progresiva')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -194,6 +209,9 @@
                         @endif
 
                     </select>
+                    @error('lado')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -210,6 +228,9 @@
                             <option value="poste">Poste</option>
                         @endif
                     </select>
+                    @error('soporte')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
             <div class="form-group">
@@ -228,6 +249,9 @@
                         @endif
 
                     </select>
+                    @error('material')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
             <div class="form-group">
@@ -248,6 +272,9 @@
                         @endif
 
                     </select>
+                    @error('zona')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -259,6 +286,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x" id="coordenada_x" value="{{ isset($senializacion->coordenada_x) ? $senializacion->coordenada_x : ''}}" required>
+                        @error('coordenada_x')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -271,6 +301,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y" id="coordenada_y" value="{{ isset($senializacion->coordenada_y) ? $senializacion->coordenada_y : ''}}" required>
+                        @error('coordenada_y')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -283,6 +316,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud" id="altitud" value="{{ isset($senializacion->altitud) ? $senializacion->altitud : ''}}" required>
+                        @error('altitud')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>

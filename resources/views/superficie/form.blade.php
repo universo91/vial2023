@@ -34,6 +34,7 @@
 
                         @endif
                     </select>
+
                 </div>
             </div>
 
@@ -84,6 +85,9 @@
                             @endforeach
                         @endif
                     </select>
+                    @error('rutas_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -102,6 +106,9 @@
 
                         @endif
                     </select>
+                    @error('tramos_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -124,6 +131,9 @@
                         @endif
 
                     </select>
+                    @error('estado')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -149,6 +159,9 @@
                             <option value="trocha carrozable">Trocha carrozable</option>
                         @endif
                     </select>
+                    @error('tipo_superficie')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -161,6 +174,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho" id="ancho" value="{{ isset($superficie->ancho) ? $superficie->ancho : '' }} " required>
+                        @error('ancho')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -196,6 +212,9 @@
                             @else
                                 <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
                             @endif
+                            @error('codigo_imagen')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                            @enderror
                         </div>
 
                     </div>
@@ -212,6 +231,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_inicial" id="progresiva_inicial" value="{{ isset($superficie->progresiva_inicial) ? $superficie->progresiva_inicial : '' }}" required>
+                        @error('progresiva_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -224,6 +246,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_inicial_x" id="coor_inicial_x" value="{{ isset($superficie->coor_inicial_x) ? $superficie->coor_inicial_x : '' }}" required>
+                        @error('coor_inicial_x')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -236,6 +261,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_inicial_y" id="coor_inicial_y" value="{{ isset($superficie->coor_inicial_y) ? $superficie->coor_inicial_y : '' }}" required>
+                        @error('coor_inicial_y')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -248,6 +276,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_inicial" id="altitud_inicial" value="{{ isset($superficie->altitud_inicial) ? $superficie->altitud_inicial : '' }}" required>
+                        @error('altitud_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -260,6 +291,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_final" id="progresiva_final" value="{{ isset($superficie->progresiva_final) ? $superficie->progresiva_final : '' }}" required>
+                        @error('progresiva_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -272,6 +306,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_final_x" id="coor_final_x" value="{{ isset($superficie->coor_final_x) ? $superficie->coor_final_x : '' }}" required>
+                        @error('coor_final_x')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -284,6 +321,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_final_y" id="coor_final_y" value="{{ isset($superficie->coor_final_y) ? $superficie->coor_final_y : '' }}" required>
+                        @error('coor_final_y')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -296,6 +336,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_final" id="altitud_final" value="{{ isset($superficie->altitud_final) ? $superficie->altitud_final : '' }}" required>
+                        @error('altitud_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>

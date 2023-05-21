@@ -3,8 +3,6 @@
     <div class="col-md-8 col-lg-10">
         <fieldset class="form-horizontal">
 
-
-
             <div class="form-group">
                 <hr hidden class="hidden-md hidden-lg">
                 <div class="row">
@@ -75,6 +73,9 @@
                             @endforeach
                         @endif
                     </select>
+                    @error('distritos_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -87,8 +88,10 @@
                     </div>
                     <div class="col-lg-9">
 
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="codigo" id="codigo" value="{{ isset($ruta->codigo) ? $ruta->codigo : old('codigo') }}" required>
-
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="codigo" id="codigo" value="{{ isset($ruta->codigo) ? $ruta->codigo : old('codigo') }}" >
+                        @error('codigo')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -124,6 +127,9 @@
                             @else
                                 <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
                             @endif
+                            @error('codigo_imagen')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                            @enderror
                         </div>
 
                     </div>
@@ -139,7 +145,10 @@
                         <label for="punto_inicio" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Pto. inicial ruta<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="punto_inicio" id="punto_inicio" value="{{ isset($ruta->punto_inicio) ? $ruta->punto_inicio : old('punto_inicio') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="punto_inicio" id="punto_inicio" value="{{ isset($ruta->punto_inicio) ? $ruta->punto_inicio : old('punto_inicio') }}" >
+                        @error('punto_inicio')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -151,7 +160,10 @@
                         <label for="coordenada_x_inicio" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. incial X <span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x_inicio" id="coordenada_x_inicio" value="{{ isset($ruta->coordenada_x_inicio) ? $ruta->coordenada_x_inicio : old('coordenada_x_inicio') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x_inicio" id="coordenada_x_inicio" value="{{ isset($ruta->coordenada_x_inicio) ? $ruta->coordenada_x_inicio : old('coordenada_x_inicio') }}" >
+                        @error('coordenada_x_inicio')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -163,7 +175,10 @@
                         <label for="coordenada_y_inicio" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. inicial Y <span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y_inicio" id="coordenada_y_inicio" value="{{ isset($ruta->coordenada_y_inicio) ? $ruta->coordenada_y_inicio : old('coordenada_y_inicio') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y_inicio" id="coordenada_y_inicio" value="{{ isset($ruta->coordenada_y_inicio) ? $ruta->coordenada_y_inicio : old('coordenada_y_inicio') }}" >
+                        @error('coordenada_y_inicio')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -175,7 +190,10 @@
                         <label for="altitud_punto_inicial" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Altitud inicial<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_punto_inicial" id="altitud_inicial" value="{{ isset($ruta->altitud_punto_inicial) ? $ruta->altitud_punto_inicial : old('altitud_punto_inicial') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_punto_inicial" id="altitud_inicial" value="{{ isset($ruta->altitud_punto_inicial) ? $ruta->altitud_punto_inicial : old('altitud_punto_inicial') }}" >
+                        @error('altitud_punto_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -187,7 +205,10 @@
                         <label for="progresiva_punto_inicial" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Progresiva inicial<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_punto_inicial" id="progresiva_inicial" value="{{ isset($ruta->progresiva_punto_inicial) ? $ruta->progresiva_punto_inicial : old('progresiva_punto_inicial') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_punto_inicial" id="progresiva_inicial" value="{{ isset($ruta->progresiva_punto_inicial) ? $ruta->progresiva_punto_inicial : old('progresiva_punto_inicial') }}" >
+                        @error('progresiva_punto_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -198,7 +219,10 @@
                         <label for="punto_final" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Pto. final ruta<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="punto_final" id="pto_final_ruta" value="{{ isset($ruta->punto_final) ? $ruta->punto_final : old('punto_final') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="punto_final" id="pto_final_ruta" value="{{ isset($ruta->punto_final) ? $ruta->punto_final : old('punto_final') }}" >
+                        @error('punto_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -210,7 +234,10 @@
                         <label for="coordenada_x_final" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. final X <span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x_final" id="coord_final_x" value="{{ isset($ruta->coordenada_x_final) ? $ruta->coordenada_x_final : old('coordenada_x_final') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x_final" id="coord_final_x" value="{{ isset($ruta->coordenada_x_final) ? $ruta->coordenada_x_final : old('coordenada_x_final') }}" >
+                        @error('coordenada_x_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -222,7 +249,10 @@
                         <label for="coordenada_y_final" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. final Y <span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y_final" id="coord_final_y" value="{{ isset($ruta->coordenada_y_final) ? $ruta->coordenada_y_final : old('coordenada_y_final') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y_final" id="coord_final_y" value="{{ isset($ruta->coordenada_y_final) ? $ruta->coordenada_y_final : old('coordenada_y_final') }}" >
+                        @error('coordenada_y_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -234,7 +264,10 @@
                         <label for="altitud_punto_final" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Altitud final<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_punto_final" id="altitud_final" value="{{ isset($ruta->altitud_punto_final) ? $ruta->altitud_punto_final : old('altitud_punto_final') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_punto_final" id="altitud_final" value="{{ isset($ruta->altitud_punto_final) ? $ruta->altitud_punto_final : old('altitud_punto_final') }}" >
+                        @error('altitud_punto_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
             </div>
             </div>
@@ -246,7 +279,10 @@
                         <label for="progresiva_punto_final" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Progresiva final<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_punto_final" id="progresiva_final" value="{{ isset($ruta->progresiva_punto_final) ? $ruta->progresiva_punto_final : old('progresiva_punto_final') }}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_punto_final" id="progresiva_final" value="{{ isset($ruta->progresiva_punto_final) ? $ruta->progresiva_punto_final : old('progresiva_punto_final') }}" >
+                        @error('progresiva_punto_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>

@@ -48,5 +48,4 @@
     <script src="/js/puentes/registro.js"> </script>
     <script src="/js/general/cargarImagen.js"></script>
 
-
 @stop

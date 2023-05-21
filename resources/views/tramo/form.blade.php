@@ -85,6 +85,9 @@
                         @endif
 
                     </select>
+                    @error('rutas_id')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -96,6 +99,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="numero_tramo" id="numero_tramo" value="{{ isset($tramo->numero_tramo) ?  $tramo->numero_tramo : '' }}" >
+                        @error('numero_tramo')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -119,6 +125,9 @@
 
                         @endif
                     </select>
+                    @error('numero_tramo')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -138,6 +147,9 @@
                             <option value="regular">Regular</option>
                         @endif
                     </select>
+                    @error('estado_via')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -162,6 +174,9 @@
                             <option value="trocha carrozable">Trocha carrozable</option>
                         @endif
                     </select>
+                    @error('tipo_superficie')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -173,6 +188,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_inicial" id="progresiva_inicial" value="{{ isset($tramo->progresiva_inicial) ? $tramo->progresiva_inicial : '' }}" >
+                        @error('progresiva_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -185,6 +203,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva_final" id="progresiva_final" value="{{ isset( $tramo->progresiva_final ) ? $tramo->progresiva_final : ''}}" >
+                        @error('progresiva_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -197,6 +218,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_x_inicial" id="coor_x_inicial" value=" {{ isset($tramo->coor_x_inicial) ? $tramo->coor_x_inicial : '' }}" >
+                        @error('coor_tramo_x_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -209,6 +233,10 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_y_inicial" id="coor_y_inicial" value=" {{ isset($tramo->coor_y_inicial) ? $tramo->coor_y_inicial : '' }}" >
+                        @error('coor_tramo_y_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
+
                     </div>
                 </div>
             </div>
@@ -221,6 +249,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_inicial" id="altitud_inicial" value=" {{ isset($tramo->altitud_inicial) ? $tramo->altitud_inicial : '' }}" >
+                        @error('altitud_inicial')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -233,6 +264,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_x_final" id="coor_x_final" value=" {{ isset($tramo->coor_x_final) ? $tramo->coor_x_final : '' }}" >
+                        @error('coor_tramo_x_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -245,6 +279,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="coor_y_final" id="coor_y_final" value=" {{ isset($tramo->coor_y_final) ? $tramo->coor_y_final : '' }}" >
+                        @error('coor_tramo_y_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -257,6 +294,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud_final" id="altitud_final" value=" {{ isset($tramo->altitud_final) ? $tramo->altitud_final : '' }}" >
+                        @error('altitud_final')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -277,6 +317,10 @@
                             <option value="19">19</option>
                         @endif
                     </select>
+                    @error('zona')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
+
                 </div>
             </div>
 
@@ -288,25 +332,12 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" style="" class="form-control form-control-sm" name="punto_notable" id="punto_notable" value="{{ isset($tramo->punto_notable) ? $tramo->punto_notable : ''}}" >
+                        @error('descripcion_elementos')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
-
-           {{--  <div class="form-group">
-                <hr hidden class="hidden-md hidden-lg">
-                <div class="row">
-                    <div class="col-lg-3 d-flex flex-row-reverse">
-                        <label for="codigo_imagen" class="control-label mr-4 text-dark font-weight-bold font-size-base " style="font-size: 15px;">Imagen de codigo<span class="text-danger"> *</span></label>
-                    </div>
-                    <div class="col-lg-9 file">
-                       <label for="imagen" class=" btn btn-outline-info">
-                           <i class="fas fa-upload"></i>
-                           Elige una imagen
-                        </label>
-                        <input class="form-control form-control-sm imagen" accept="image/*" type="file" name="codigo_imagen" id="imagen">
-                    </div>
-                </div>
-            </div> --}}
 
             <div class="form-group">
                 <hr hidden class="hidden-md hidden-lg">
@@ -339,6 +370,9 @@
                             @else
                                 <div id="vista_previa" class="col-lg-12">No hay imagen seleccionada para cargar</div>
                             @endif
+                            @error('codigo_imagen')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                            @enderror
                         </div>
 
                     </div>
@@ -354,6 +388,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="tramo_inicio" id="tramo_inicio" value="{{ isset($tramo->tramo_inicio) ? $tramo->tramo_inicio : ''}}" >
+                        @error('tramo_inicio')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -366,6 +403,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="tramo_fin" id="tramo_fin" value="{{ isset($tramo->tramo_fin) ? $tramo->tramo_fin : ''}}" >
+                        @error('tramo_fin')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -401,6 +441,9 @@
                             <option value="10">10</option>
                         @endif
                     </select>
+                    @error('numero_carriles')
+                        <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -412,6 +455,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho_calzada" id="ancho_calzada" value="{{ isset($tramo->ancho_calzada) ? $tramo->ancho_calzada : ''}}" >
+                        @error('ancho_calzada')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -424,6 +470,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho_berma_izquierda" id="ancho_berma_izquierda" value="{{ isset($tramo->ancho_berma_izquierda) ? $tramo->ancho_berma_izquierda : ''}}" >
+                        @error('ancho_berma_izquierda')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -436,6 +485,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho_berma_derecha" id="ancho_berma_derecha" value="{{ isset($tramo->ancho_berma_derecha) ? $tramo->ancho_berma_derecha : ''}}" >
+                        @error('ancho_berma_derecha')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -455,6 +507,9 @@
                         @endif
 
                     </select>
+                    @error('identificacion_calzada')
+                            <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
 
@@ -466,6 +521,9 @@
                     </div>
                     <div class="col-lg-9">
                         <input maxlength="40" type="text" class=" form-control form-control-sm" name="observaciones" id="observaciones" value="{{ isset($tramo->observaciones) ? $tramo->observaciones : ''}}" >
+                        @error('observaciones')
+                                <small class="invalid-feedback" role="alert">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
             </div>

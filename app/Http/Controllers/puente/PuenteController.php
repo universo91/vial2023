@@ -10,7 +10,9 @@ use App\Models\Provincia;
 use App\Models\Puente;
 use App\Models\Ruta;
 use App\Models\Tipo;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class PuenteController extends Controller
@@ -31,10 +33,11 @@ class PuenteController extends Controller
 
     public function crear( Request $request) {
 
+       /*  dd(DB::select('SELECT id FROM rutas')); */
         $validator = Validator::make($request->all() , static::getValidacionCrearPuente() );
 
         if( $validator->fails() ) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            //return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
@@ -90,7 +93,7 @@ class PuenteController extends Controller
 
     public static function getValidacionCrearPuente(){
         return [
-            'rutas_id'              => ['required'],
+            'rutas_id'              => ['required', /* Rule::in( DB::select('SELECT id FROM rutas') )  */],
             'progresiva'            => ['nullable', 'regex:/^\d+\+\d+$/'],
             'coordenada_x'          => ['nullable', 'numeric'],
             'coordenada_y'          => ['nullable', 'numeric'],
