@@ -37,7 +37,7 @@ class PuenteController extends Controller
         $validator = Validator::make($request->all() , static::getValidacionCrearPuente() );
 
         if( $validator->fails() ) {
-            //return redirect()->back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $datosValidados = $validator->validated();
@@ -99,7 +99,7 @@ class PuenteController extends Controller
             'coordenada_y'          => ['nullable', 'numeric'],
             'altitud'               => ['nullable', 'numeric'],
             'tipos_id'              => ['required'],
-            'codigo_imagen'         => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'codigo_imagen'         => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:4096'],
             'numero_vias'           => ['nullable', 'integer'],
             'tablero_rodadura'      => ['nullable', 'string'],
             'longitud'              => ['nullable', 'numeric'],
@@ -116,7 +116,7 @@ class PuenteController extends Controller
             'coordenada_y'          => ['nullable', 'numeric'],
             'altitud'               => ['nullable', 'numeric'],
             'tipos_id'              => ['required'],
-            'codigo_imagen'         => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'codigo_imagen'         => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:4096'],
             'numero_vias'           => ['nullable', 'integer'],
             'tablero_rodadura'      => ['nullable', 'string'],
             'longitud'              => ['nullable', 'numeric'],

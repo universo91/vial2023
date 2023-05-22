@@ -184,7 +184,7 @@
                         <label for="progresiva" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Progresiva<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva" id="progresiva" value="{{ isset($senializacion->progresiva) ? $senializacion->progresiva : ''}}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="progresiva" id="progresiva" value="{{ isset($senializacion->progresiva) ? $senializacion->progresiva : ''}}" >
                         @error('progresiva')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -285,7 +285,7 @@
                         <label for="coordenada_x" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. X<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x" id="coordenada_x" value="{{ isset($senializacion->coordenada_x) ? $senializacion->coordenada_x : ''}}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x" id="coordenada_x" value="{{ isset($senializacion->coordenada_x) ? $senializacion->coordenada_x : ''}}" >
                         @error('coordenada_x')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -300,7 +300,7 @@
                         <label for="coordenada_y" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. Y<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y" id="coordenada_y" value="{{ isset($senializacion->coordenada_y) ? $senializacion->coordenada_y : ''}}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y" id="coordenada_y" value="{{ isset($senializacion->coordenada_y) ? $senializacion->coordenada_y : ''}}" >
                         @error('coordenada_y')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -315,7 +315,7 @@
                         <label for="altitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Altitud<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud" id="altitud" value="{{ isset($senializacion->altitud) ? $senializacion->altitud : ''}}" required>
+                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud" id="altitud" value="{{ isset($senializacion->altitud) ? $senializacion->altitud : ''}}" >
                         @error('altitud')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror

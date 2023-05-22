@@ -82,11 +82,11 @@
                     <div class="col-lg-3 d-flex flex-row-reverse ">
                         <label class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ruta</label>
                     </div>
-                    <select class=" form-control form-control-sm select2bs4 col-lg-9 @error('name') is-invalid @enderror"  name="rutas_id" id="ruta" required>
+                    <select class=" form-control form-control-sm select2bs4 col-lg-9 @error('rutas_id') is-invalid @enderror"  name="rutas_id" id="ruta">
                         <option>Seleccione ruta</option>
                         @if (isset($puente->id))
                             @foreach ($rutas as $ru)
-                                <option value='{{ $ru->id }}' {{ $ru->id == $puente->rutas_id ? 'selected' : ''}} > {{ $ru->codigo }}</option>
+                                <option  value='{{ $ru->id }}' {{ $ru->id == $puente->rutas_id ? 'selected' : ''}} > {{ $ru->codigo }}</option>
                             @endforeach
                         @endif
 
@@ -104,7 +104,14 @@
                         <label for="progresiva" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">progresiva Puente</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm @error('progresiva') is-invalid @enderror" name="progresiva" id="progresiva" value="{{ isset($puente->progresiva) ? $puente->progresiva : old('progresiva') }}">
+
+                        @if (old('progresiva') != null )
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('progresiva') is-invalid @enderror" name="progresiva" id="progresiva" value="{{ old('progresiva')}}">
+
+                        @else
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('progresiva') is-invalid @enderror" name="progresiva" id="progresiva" value="{{ isset($puente->progresiva) ? $puente->progresiva : old('progresiva') }}">
+                        @endif
+
                         @error('progresiva')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -118,7 +125,15 @@
                         <label for="coordenada_x" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. X</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_x" id="coordenada_x" value="{{ isset($puente->coordenada_x) ? $puente->coordenada_x : '' }}">
+
+                        @if (old('coordenada_x') != null )
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('coordenada_x') is-invalid @enderror" name="coordenada_x" id="coordenada_x" value="{{ old('coordenada_x')}}">
+
+                        @else
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('coordenada_x') is-invalid @enderror" name="coordenada_x" id="coordenada_x" value="{{ isset($puente->coordenada_x) ? $puente->coordenada_x : old('coordenada_x') }}">
+
+                        @endif
+
                         @error('coordenada_x')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -133,7 +148,14 @@
                         <label for="coordenada_y" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Coord. Y</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="coordenada_y" id="coordenada_y" value="{{ isset($puente->coordenada_y) ? $puente->coordenada_y : '' }}">
+                        @if (old('coordenada_y') != null )
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('coordenada_y') is-invalid @enderror" name="coordenada_y" id="coordenada_y" value="{{ old('coordenada_y')}}">
+
+                        @else
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('coordenada_y') is-invalid @enderror" name="coordenada_x" id="coordenada_y" value="{{ isset($puente->coordenada_y) ? $puente->coordenada_y : old('coordenada_y') }}">
+
+                        @endif
+
                         @error('coordenada_y')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -148,7 +170,14 @@
                         <label for="altitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Altitud</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="altitud" id="altitud" value="{{ isset($puente->altitud) ? $puente->altitud : '' }}">
+                        @if (old('altitud') != null )
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('altitud') is-invalid @enderror" name="altitud" id="altitud" value="{{ old('altitud')}}">
+
+                        @else
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('altitud') is-invalid @enderror" name="altitud" id="altitud" value="{{ isset($puente->altitud) ? $puente->altitud : old('altitud') }}">
+
+                        @endif
+
                         @error('altitud')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -165,12 +194,21 @@
                         <option value="">Seleccione clase</option>
                        @if (isset($puente->id))
                             @foreach ($clases as $cla)
+                                @if(old('clases_id') == $cla->id )
+                                <option value="{{ $cla->id }}" selected>{{ $cla->nombre }}</option>
+                                @else
                                 <option value="{{ $cla->id }}" {{ $cla->id == $tipo->clases_id ? 'selected' : '' }}>{{ $cla->nombre }}</option>
+                                @endif
                             @endforeach
 
                        @else
-                            @foreach ($clasesPuente as $clase)
-                                <option value="{{ $clase->id }}">{{ $clase->nombre }}</option>
+                            @foreach ($clasesPuente as $cla)
+                                @if(old('clases_id') == $cla->id )
+                                    <option value="{{ $cla->id }}" selected>{{ $cla->nombre }}</option>
+                                @else
+                                    <option value="{{ $cla->id }}">{{ $cla->nombre }}</option>
+                                @endif
+
                             @endforeach
                        @endif
 
@@ -191,7 +229,12 @@
                         <option value="">Seleccione tipo</option>
                         @if (isset($puente->id))
                             @foreach ($tipos as $tip)
-                                <option value="{{ $tip->id }}" {{ $tip->id == $tipo->id ? 'selected' : '' }}>{{ $tip->nombre }}</option>
+                                @if(old('tipos_id') == $tip->id)
+                                    <option value="{{ $tip->id }}" selected>{{ $tip->nombre }}</option>
+                                @else
+                                    <option value="{{ $tip->id }}" {{ $tip->id == $tipo->id ? 'selected' : old('tipos_id') }}>{{ $tip->nombre }}</option>
+                                @endif
+
                             @endforeach
                         @endif
 
@@ -210,29 +253,40 @@
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="numero_vias">
                         <option >Seleccione numero de vias</option>
                         @if (isset($puente->id))
-
-                            <option value="1" {{ $puente->numero_vias == '1' ? 'selected' : '' }}>1</option>
-                            <option value="2" {{ $puente->numero_vias == '2' ? 'selected' : '' }}>2</option>
-                            <option value="3" {{ $puente->numero_vias == '3' ? 'selected' : '' }}>3</option>
-                            <option value="4" {{ $puente->numero_vias == '4' ? 'selected' : '' }}>4</option>
-                            <option value="5" {{ $puente->numero_vias == '5' ? 'selected' : '' }}>5</option>
-                            <option value="6" {{ $puente->numero_vias == '6' ? 'selected' : '' }}>6</option>
-                            <option value="7" {{ $puente->numero_vias == '7' ? 'selected' : '' }}>7</option>
-                            <option value="8" {{ $puente->numero_vias == '8' ? 'selected' : '' }}>8</option>
-                            <option value="9" {{ $puente->numero_vias == '9' ? 'selected' : '' }}>9</option>
-                            <option value="10" {{ $puente->numero_vias == '10' ? 'selected' : '' }}>10</option>
-
+                            @if(old('numero_vias') != null )
+                                <option value="1" {{ old('numero_vias') == '1' ? 'selected' : '' }}>1</option>
+                                <option value="2" {{ old('numero_vias') == '2' ? 'selected' : '' }}>2</option>
+                                <option value="3" {{ old('numero_vias') == '3' ? 'selected' : '' }}>3</option>
+                                <option value="4" {{ old('numero_vias') == '4' ? 'selected' : '' }}>4</option>
+                                <option value="5" {{ old('numero_vias') == '5' ? 'selected' : '' }}>5</option>
+                                <option value="6" {{ old('numero_vias') == '6' ? 'selected' : '' }}>6</option>
+                                <option value="7" {{ old('numero_vias') == '7' ? 'selected' : '' }}>7</option>
+                                <option value="8" {{ old('numero_vias') == '8' ? 'selected' : '' }}>8</option>
+                                <option value="9" {{ old('numero_vias') == '9' ? 'selected' : '' }}>9</option>
+                                <option value="10" {{ old('numero_vias') == '10' ? 'selected' : '' }}>10</option>
+                            @else
+                                <option value="1" {{ $puente->numero_vias == '1' ? 'selected' : '' }}>1</option>
+                                <option value="2" {{ $puente->numero_vias == '2' ? 'selected' : '' }}>2</option>
+                                <option value="3" {{ $puente->numero_vias == '3' ? 'selected' : '' }}>3</option>
+                                <option value="4" {{ $puente->numero_vias == '4' ? 'selected' : '' }}>4</option>
+                                <option value="5" {{ $puente->numero_vias == '5' ? 'selected' : '' }}>5</option>
+                                <option value="6" {{ $puente->numero_vias == '6' ? 'selected' : '' }}>6</option>
+                                <option value="7" {{ $puente->numero_vias == '7' ? 'selected' : '' }}>7</option>
+                                <option value="8" {{ $puente->numero_vias == '8' ? 'selected' : '' }}>8</option>
+                                <option value="9" {{ $puente->numero_vias == '9' ? 'selected' : '' }}>9</option>
+                                <option value="10" {{ $puente->numero_vias == '10' ? 'selected' : '' }}>10</option>
+                            @endif
                         @else
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            <option value="1" {{ old('numero_vias') == 1 ? 'selected' : '' }}>1</option>
+                            <option value="2" {{ old('numero_vias') == 2 ? 'selected' : '' }}>2</option>
+                            <option value="3" {{ old('numero_vias') == 3 ? 'selected' : '' }}>3</option>
+                            <option value="4" {{ old('numero_vias') == 4 ? 'selected' : '' }}>4</option>
+                            <option value="5" {{ old('numero_vias') == 5 ? 'selected' : '' }}>5</option>
+                            <option value="6" {{ old('numero_vias') == 6 ? 'selected' : '' }}>6</option>
+                            <option value="7" {{ old('numero_vias') == 7 ? 'selected' : '' }}>7</option>
+                            <option value="8" {{ old('numero_vias') == 8 ? 'selected' : '' }}>8</option>
+                            <option value="9" {{ old('numero_vias') == 9 ? 'selected' : '' }}>9</option>
+                            <option value="10" {{ old('numero_vias') == 10 ? 'selected' : '' }}>10</option>
 
                         @endif
                     </select>
@@ -250,14 +304,22 @@
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="tablero_rodadura" id="tablero_rodadura">
                         <option>Elige tablero rodadura</option>
                         @if (isset($puente->id))
-                            <option value="concreto" {{ $puente->tablero_rodadura = 'concreto' ? 'selected' : '' }}>Concreto</option>
-                            <option value="acero" {{ $puente->tablero_rodadura = 'acero' ? 'selected' : '' }}>Acero</option>
-                            <option value="madera" {{ $puente->tablero_rodadura = 'madera' ? 'selected' : '' }}>Madera</option>
+                            @if(old('tablero_rodadura') != null )
+                                <option value="concreto" {{ old('tablero_rodadura') == 'concreto' ? 'selected' : '' }}>Concreto</option>
+                                <option value="acero" {{ old('tablero_rodadura') == 'acero' ? 'selected' : '' }}>Acero</option>
+                                <option value="madera" {{ old('tablero_rodadura') == 'madera' ? 'selected' : '' }}>Madera</option>
 
+
+                            @else
+                                <option value="concreto" {{ $puente->tablero_rodadura == 'concreto' ? 'selected' : '' }}>Concreto</option>
+                                <option value="acero" {{ $puente->tablero_rodadura == 'acero' ? 'selected' : '' }}>Acero</option>
+                                <option value="madera" {{ $puente->tablero_rodadura == 'madera' ? 'selected' : '' }}>Madera</option>
+
+                            @endif
                         @else
-                            <option value="concreto">Concreto</option>
-                            <option value="acero">Acero</option>
-                            <option value="madera">Madera</option>
+                            <option value="concreto" {{ old('tablero_rodadura') == 'concreto' ? 'selected' : '' }}>Concreto</option>
+                            <option value="acero" {{ old('tablero_rodadura') == 'acero' ? 'selected' : '' }}>Acero</option>
+                            <option value="madera" {{ old('tablero_rodadura') == 'madera' ? 'selected' : '' }}>Madera</option>
 
                         @endif
                     </select>
@@ -274,7 +336,14 @@
                         <label for="longitud" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Longitud</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="longitud" id="longitud" value="{{ isset($puente->longitud) ? $puente->longitud : '' }}">
+                        @if (old('longitud') != null )
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('longitud') is-invalid @enderror" name="longitud" id="longitud" value="{{ old('longitud')}}">
+
+                        @else
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('longitud') is-invalid @enderror" name="longitud" id="longitud" value="{{ isset($puente->longitud) ? $puente->longitud : old('longitud') }}">
+
+                        @endif
+
                         @error('longitud')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -289,7 +358,14 @@
                         <label for="ancho_calzada" class="control-label mr-4 text-dark font-weight-bold font-size-base" style="font-size: 15px;">Ancho calzada</label>
                     </div>
                     <div class="col-lg-9">
-                        <input maxlength="40" type="text" class=" form-control form-control-sm" name="ancho_calzada" id="ancho_calzada" value="{{ isset($puente->ancho_calzada) ? $puente->ancho_calzada : '' }}">
+                        @if (old('ancho_calzada') != null )
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('ancho_calzada') is-invalid @enderror" name="ancho_calzada" id="ancho_calzada" value="{{ old('ancho_calzada')}}">
+
+                        @else
+                            <input maxlength="40" type="text" class=" form-control form-control-sm @error('ancho_calzada') is-invalid @enderror" name="ancho_calzada" id="ancho_calzada" value="{{ isset($puente->ancho_calzada) ? $puente->ancho_calzada : old('ancho_calzada') }}">
+
+                        @endif
+
                         @error('ancho_calzada')
                             <small class="invalid-feedback" role="alert">{{ $message }}</small>
                         @enderror
@@ -305,13 +381,22 @@
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="condicion_funcional" id="condicion_funcional">
                         <option>Seleccione condicion funcional</option>
                         @if (isset($puente->id))
-                            <option value="buena" {{ $puente->condicion_funcional == 'buena' ? 'selected' : '' }}>Buena</option>
-                            <option value="regular" {{ $puente->condicion_funcional == 'regular' ? 'selected' : '' }}>Regular</option>
-                            <option value="mala" {{ $puente->condicion_funcional == 'mala' ? 'selected' : '' }}>Mala</option>
+
+                            @if( old('condicion_funcional') != null )
+                                <option value="buena" {{ old('condicion_funcional') == 'buena' ? 'selected' : '' }}>Buena</option>
+                                <option value="regular" {{ old('condicion_funcional') == 'regular' ? 'selected' : '' }}>Regular</option>
+                                <option value="mala" {{ old('condicion_funcional') == 'mala' ? 'selected' : '' }}>Mala</option>
+                            @else
+                                <option value="buena" {{ $puente->condicion_funcional == 'buena' ? 'selected' : '' }}>Buena</option>
+                                <option value="regular" {{ $puente->condicion_funcional == 'regular' ? 'selected' : '' }}>Regular</option>
+                                <option value="mala" {{ $puente->condicion_funcional == 'mala' ? 'selected' : '' }}>Mala</option>
+
+                            @endif
+
                         @else
-                            <option value="buena">Buena</option>
-                            <option value="regular">Regular</option>
-                            <option value="mala">Mala</option>
+                            <option value="buena" {{ old('condicion_funcional') == 'buena' ? 'selected' : '' }}>Buena</option>
+                            <option value="regular" {{ old('condicion_funcional') == 'regular' ? 'selected' : '' }}>Regular</option>
+                            <option value="mala" {{ old('condicion_funcional') == 'mala' ? 'selected' : '' }}>Mala</option>
 
                         @endif
                     </select>
@@ -370,11 +455,20 @@
                     <select class=" form-control form-control-sm select2bs4 col-lg-9"  name="hidrografia" id="hidrografia">
                         <option >Seleccione Hidrografia</option>
                         @if (isset($puente->id))
-                            <option value="rio" {{ $puente->hidrografia == 'rio' ? 'selected' : '' }}>Rio</option>
-                            <option value="quebrada" {{ $puente->hidrografia == 'quebrada' ? 'selected' : '' }}>Quebrada</option>
+                            @if( old('hidrografia') != null)
+                                <option value="rio" {{ old('hidrografia') == 'rio' ? 'selected' : '' }}>Rio</option>
+                                <option value="quebrada" {{ old('hidrografia') == 'quebrada' ? 'selected' : '' }}>Quebrada</option>
+
+                            @else
+                                <option value="rio" {{ $puente->hidrografia == 'rio' ? 'selected' : '' }}>Rio</option>
+                                <option value="quebrada" {{ $puente->hidrografia == 'quebrada' ? 'selected' : '' }}>Quebrada</option>
+
+                            @endif
+
+
                         @else
-                            <option value="rio">Rio</option>
-                            <option value="quebrada">Quebrada</option>
+                            <option value="rio" {{ old('hidrografia') == 'rio' ? 'selected' : '' }}>Rio</option>
+                            <option value="quebrada" {{ old('hidrografia') == 'quebrada' ? 'selected' : '' }}>Quebrada</option>
 
                         @endif
                     </select>
