@@ -84,6 +84,9 @@ button #btn-guardar:hover {
 }
 
 .btn-toolbar {
-    margin-top: calc()
+    position: sticky;
+    top: calc(45vh - 275px);
+    padding: 45px 5px 10px;
+
 }
 
